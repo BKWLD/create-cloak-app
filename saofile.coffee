@@ -48,6 +48,7 @@ module.exports =
 
 	templateData: ->
 		rootNuxtApp: rootNuxtApp this.answers
+		hasLibrary: hasLibrary this.answers
 
 	actions: ({ answers }) ->
 		{ cms, shopify } = answers
@@ -81,8 +82,16 @@ module.exports =
 			type: 'add'
 			files: 'shopify-theme/**'
 
+		# Is there a shared library package
+		if hasLibrary answers then actions.push
+			type: 'add'
+			files: 'library/**'
+
 		# Return the final list of actions
 		return actions
 
 # Should nuxt-app be installed at the root?
 rootNuxtApp = ({ cms, shopify }) -> cms != 'craft' and !shopify
+
+# Is there shared code in a library directory?
+hasLibrary = ({ shopify }) -> !!shopify

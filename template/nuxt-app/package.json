@@ -1,6 +1,8 @@
 {
 	"name": "<%= rootNuxtApp ? packageName : 'nuxt-app' %>",
-	"version": "0.1.0",
+	"author": "Bukwild",
+	"version": "0.0.1",
+	"license": "UNLICENSED",
 	"private": true,
 	"scripts": {
 		"dev": "yarn transpile && nuxt",
