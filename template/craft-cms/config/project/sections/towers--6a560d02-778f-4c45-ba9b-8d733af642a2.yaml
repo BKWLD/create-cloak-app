@@ -1,0 +1,23 @@
+enableVersioning: true
+handle: towers
+name: Towers
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - Production
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  c669537f-8a7f-4bde-962a-2e61c9b653c2: # Site
+    enabledByDefault: true
+    hasUrls: true
+    template: null
+    uriFormat: '{%if path %}{ path }{% else %}{ slug }{% endif %}'
+type: channel

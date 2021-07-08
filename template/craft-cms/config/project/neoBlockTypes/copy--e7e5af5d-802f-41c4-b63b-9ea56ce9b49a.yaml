@@ -1,0 +1,47 @@
+childBlocks: ''
+field: fd4326a9-8ced-46ef-b0f2-c283f7482614 # Blocks
+fieldLayouts:
+  b2473d25-6559-428a-9777-1174c536d33f:
+    tabs:
+      -
+        elements:
+          -
+            style: tip
+            tip: 'Simply renders a block of text.'
+            type: craft\fieldlayoutelements\Tip
+          -
+            fieldUid: 835037b1-cdf8-4cb3-880c-88910f020cd4 # Full WYSIWYG
+            instructions: ''
+            label: Copy
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 8cf6606b-c087-43db-8bd2-7f1ab7dd05ea # Balance Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d23a7d45-41cc-44ea-abdf-fac8d4ed95d8 # Unorphan
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: copy
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Copy
+sortOrder: 2
+topLevel: true

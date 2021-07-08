@@ -1,0 +1,5 @@
+isPublic: true
+name: 'Public Schema'
+scope:
+  - 'sections.6a560d02-778f-4c45-ba9b-8d733af642a2:read' # Towers
+  - 'entrytypes.ddd6b23b-385f-40b3-8454-5b03c755ce50:read' # Towers

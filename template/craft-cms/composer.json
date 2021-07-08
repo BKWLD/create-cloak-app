@@ -1,0 +1,36 @@
+{
+  "require": {
+    "craftcms/cms": "^3.6.4",
+    "craftcms/redactor": "^2.8.5",
+    "craftcms/webhooks": "^2.3.3",
+    "doublesecretagency/craft-cpcss": "^2.3.0",
+    "doublesecretagency/craft-cpjs": "^2.2",
+    "lukeyouell/craft-sentry": "^1.5",
+    "presseddigital/colorit": "^1.0.9.3",
+    "putyourlightson/craft-dashboard-begone": "^1.0",
+    "spicyweb/craft-neo": "^2.9.11",
+    "vaersaagod/dospaces": "^1.1",
+    "verbb/super-table": "^2.6.7",
+    "vlucas/phpdotenv": "^3.4.0"
+  },
+  "require-dev": {
+    "yiisoft/yii2-shell": "^2.0.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "modules\\": "modules/"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "7.2.5"
+    }
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ]
+  }
+}

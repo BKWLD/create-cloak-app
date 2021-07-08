@@ -1,0 +1,6 @@
+# Compiled files
+web/styles.js
+web/cp.css
+
+# Composer deps
+vendor

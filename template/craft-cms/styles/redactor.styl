@@ -1,0 +1,46 @@
+// Increase specificity
+body
+
+	// Style menu levels 👇
+
+	div.redactor-dropdown-format [data-re-name^='h1'],
+	.input .redactor-styles .style-h1
+		style-h1()
+
+	div.redactor-dropdown-format [data-re-name^='h2'],
+	.input .redactor-styles .style-h2
+		style-h2()
+
+	div.redactor-dropdown-format [data-re-name^='h3'],
+	.input .redactor-styles .style-h3
+		style-h3()
+
+	div.redactor-dropdown-format [data-re-name^='h4'],
+	.input .redactor-styles .style-h4
+		style-h4()
+
+	div.redactor-dropdown-format [data-re-name^='h5'],
+	.input .redactor-styles .style-h4
+		style-h5()
+
+	div.redactor-dropdown-format .redactor-dropdown-item-regular,
+	.input .redactor-styles .body
+		style-body()
+
+	// Allow menu to be very big
+	.redactor-dropdown
+		width auto
+
+	// Fix the styling of the "structure"
+	.redactor-structure > *:before
+		letter-spacing 0
+		line-height 1
+
+	// Style the tag option in menu
+	[class^='redactor-dropdown-'] sup
+		font-size 12px
+		vertical-align top
+		opacity 50%
+		text-transform lowercase
+		letter-spacing 0
+		font-weight normal

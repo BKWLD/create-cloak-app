@@ -3,5 +3,18 @@
 	"author": "Bukwild",
 	"version": "0.0.1",
 	"license": "UNLICENSED",
-	"private": true
+	"private": true,
+	"scripts": {
+		"dev": "webpack --watch --progress",
+		"build": "webpack --hide-modules"
+	},
+	"devDependencies": {
+		"coffeescript": "^2.5.1",
+		"css-loader": "^5.0.1",
+		"mini-css-extract-plugin": "^1.3.1",
+		"stylus": "^0.54.8",
+		"stylus-loader": "^3.0.2",
+		"webpack": "^4.44.2",
+		"webpack-cli": "^3.3.12"
+	}
 }

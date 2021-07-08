@@ -1,0 +1,193 @@
+{
+  "buttons": [
+    "formatting",
+    "bold",
+    "italic",
+    "link",
+    "lists",
+    "image",
+    "html"
+  ],
+  "plugins": [
+    "fontcolor"
+  ],
+  "linkNewTab": true,
+  "toolbarFixed": true,
+  "structure": true,
+  "fontcolors": [
+    "#685ff7",
+    "#919191"
+  ],
+  "formatting": [],
+  "formattingAdd": {
+    "regular": {
+      "title": "Regular Text",
+      "api": "module.block.format",
+      "args": {
+        "tag": "p",
+        "class": "body"
+      }
+    },
+    "h1": {
+      "title": "Heading 1 <sup>&lt;H1&gt;</sup>",
+      "api": "module.block.format",
+      "args": {
+        "tag": "h1",
+        "class": "style-h1",
+        "type": "set"
+      }
+    },
+    "h1-as-h2": {
+      "title": "Heading 1 <sup>&lt;H2&gt;</sup>",
+      "api": "module.block.format",
+      "args": {
+        "tag": "h2",
+        "class": "style-h1"
+      }
+    },
+    "h1-as-p": {
+      "title": "Heading 1 <sup>&lt;P&gt;</sup>",
+      "api": "module.block.format",
+      "args": {
+        "tag": "p",
+        "class": "style-h1"
+      }
+    },
+    "h2-as-h1": {
+      "title": "Heading 2 <sup>&lt;H1&gt;</sup>",
+      "api": "module.block.format",
+      "args": {
+        "tag": "h1",
+        "class": "style-h2"
+      }
+    },
+    "h2": {
+      "title": "Heading 2 <sup>&lt;H2&gt;</sup>",
+      "api": "module.block.format",
+      "args": {
+        "tag": "h2",
+        "class": "style-h2"
+      }
+    },
+    "h2-as-h3": {
+      "title": "Heading 2 <sup>&lt;H3&gt;</sup>",
+      "api": "module.block.format",
+      "args": {
+        "tag": "h3",
+        "class": "style-h2"
+      }
+    },
+    "h2-as-p": {
+      "title": "Heading 2 <sup>&lt;P&gt;</sup>",
+      "api": "module.block.format",
+      "args": {
+        "tag": "p",
+        "class": "style-h2"
+      }
+    },
+    "h3-as-h2": {
+      "title": "Heading 3 <sup>&lt;H2&gt;</sup>",
+      "api": "module.block.format",
+      "args": {
+        "tag": "h2",
+        "class": "style-h3"
+      }
+    },
+    "h3": {
+      "title": "Heading 3 <sup>&lt;H3&gt;</sup>",
+      "api": "module.block.format",
+      "args": {
+        "tag": "h3",
+        "class": "style-h3"
+      }
+    },
+    "h3-as-h4": {
+      "title": "Heading 3 <sup>&lt;H4&gt;</sup>",
+      "api": "module.block.format",
+      "args": {
+        "tag": "h4",
+        "class": "style-h3"
+      }
+    },
+    "h3-as-p": {
+      "title": "Heading 3 <sup>&lt;P&gt;</sup>",
+      "api": "module.block.format",
+      "args": {
+        "tag": "p",
+        "class": "style-h3"
+      }
+    },
+    "h4-as-h2": {
+      "title": "Heading 4 <sup>&lt;H2&gt;</sup>",
+      "api": "module.block.format",
+      "args": {
+        "tag": "h2",
+        "class": "style-h4"
+      }
+    },
+    "h4-as-h3": {
+      "title": "Heading 4 <sup>&lt;H3&gt;</sup>",
+      "api": "module.block.format",
+      "args": {
+        "tag": "h3",
+        "class": "style-h4"
+      }
+    },
+    "h4": {
+      "title": "Heading 4 <sup>&lt;H4&gt;</sup>",
+      "api": "module.block.format",
+      "args": {
+        "tag": "h4",
+        "class": "style-h4"
+      }
+    },
+    "h4-as-p": {
+      "title": "Heading 4 <sup>&lt;P&gt;</sup>",
+      "api": "module.block.format",
+      "args": {
+        "tag": "p",
+        "class": "style-h4"
+      }
+    },
+    "h5-as-h2": {
+      "title": "Heading 5 <sup>&lt;H2&gt;</sup>",
+      "api": "module.block.format",
+      "args": {
+        "tag": "h2",
+        "class": "style-h5"
+      }
+    },
+    "h5-as-h3": {
+      "title": "Heading 5 <sup>&lt;H3&gt;</sup>",
+      "api": "module.block.format",
+      "args": {
+        "tag": "h3",
+        "class": "style-h5"
+      }
+    },
+    "h5-as-h5": {
+      "title": "Heading 5 <sup>&lt;H5&gt;</sup>",
+      "api": "module.block.format",
+      "args": {
+        "tag": "h4",
+        "class": "style-h5"
+      }
+    },
+    "h5": {
+      "title": "Heading 5 <sup>&lt;H5&gt;</sup>",
+      "api": "module.block.format",
+      "args": {
+        "tag": "h5",
+        "class": "style-h5"
+      }
+    },
+    "h5-as-p": {
+      "title": "Heading 5 <sup>&lt;P&gt;</sup>",
+      "api": "module.block.format",
+      "args": {
+        "tag": "p",
+        "class": "style-h5"
+      }
+    }
+  }
+}

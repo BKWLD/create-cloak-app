@@ -1,0 +1,13 @@
+contentColumnType: boolean
+fieldGroup: 350f57c3-762b-4c5a-b36c-864cbe3f5e4f # Text
+handle: balanceText
+instructions: 'Attempt to make each line of text the same width using https://github.com/adobe/balance-text. Note, this requires javascript measuring the dimensions of elements on the page and so has a performance impact, so it''s recommended to use this feature sparingly.'
+name: 'Balance Text'
+searchable: false
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch
