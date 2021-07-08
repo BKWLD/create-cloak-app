@@ -1,4 +1,5 @@
 kebabCase = require 'lodash/kebabCase'
+path = require 'path'
 module.exports =
 
 	prompts: -> [
@@ -34,7 +35,7 @@ module.exports =
 			choices: [
 				{ name: 'Craft', value: 'craft' }
 				{ name: 'Contentful', value: 'contentful' }
-				{ name: 'None of the above', value: '' }
+				{ name: 'None of the above', value: false }
 			]
 		}
 
@@ -61,10 +62,17 @@ module.exports =
 
 		# Install nuxt-app to root if no other workspaces are needed and exit
 		if rootNuxtApp answers
-			actions.push
+			actions.push # Copy all the files
 				type: 'add'
 				templateDir: 'template/nuxt-app'
 				files: '**'
+			actions.push # Merge gitgnores
+				type: 'modify'
+				files: '.gitignore'
+				handler: (data) =>
+					rootGitignorePath = path.resolve __dirname, 'template/.gitignore'
+					rootGitignore = @fs.readFileSync rootGitignorePath
+					return rootGitignore + "\n" + data
 			return actions
 
 		# Else, nuxt-app will be installed in a child directory
