@@ -1,0 +1,13 @@
+{
+	"name": "create-cloak-app",
+	"version": "1.0.0",
+	"description": "Setup a new Cloak (Nuxt + Craft/Contentful) based project",
+	"repository": "git@github.com:BKWLD/create-cloak-app.git",
+	"author": "Bukwild <info@bukwild.com>",
+	"license": "MIT",
+	"bin": "./cli.js",
+	"dependencies": {
+		"coffeescript": "^2.5.1",
+		"sao": "^1.7.1"
+	}
+}
