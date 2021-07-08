@@ -87,8 +87,25 @@ module.exports =
 			type: 'add'
 			files: 'library/**'
 
+		# Populate yarn workspaces
+		actions.push
+			type: 'modify'
+			files: 'package.json'
+			handler: (json) ->
+				if cms == 'craft' then json.workspaces.push 'craft-cms'
+				if hasLibrary then json.workspaces.push 'library'
+				if shopify then json.workspaces.push 'shopify-theme'
+				json.workspaces.sort()
+				return json
+
 		# Return the final list of actions
 		return actions
+
+	# Final steps
+	completed: ->
+		@gitInit()
+		await @npmInstall()
+		@showProjectTips()
 
 # Should nuxt-app be installed at the root?
 rootNuxtApp = ({ cms, shopify }) -> cms != 'craft' and !shopify

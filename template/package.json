@@ -5,15 +5,6 @@
 	"license": "UNLICENSED",
 	"private": true,
 	"workspaces": [
-		<%_ if (cms == 'craft') { _%>
-		"craft-cms",
-		<%_ } _%>
-		<%_ if (hasLibrary) { _%>
-		"library",
-		<%_ } _%>
-		"nuxt-app",
-		<%_ if (shopify) { _%>
-		"shopify-theme"
-		<%_ } _%>
-	],
+		"nuxt-app"
+	]
 }
