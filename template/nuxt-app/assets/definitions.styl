@@ -1,0 +1,31 @@
+/**
+ * Vars
+ */
+
+// Breakpoints
+json('vars/breakpoints.json')
+
+// Dimensions
+json('vars/dimensions.json')
+
+/**
+ * Vendor
+ */
+
+// The Bukwild shared stylus library
+support-for-ie = false // Don't generate px values with rem function
+body-font-size = 16px
+@import '~bukwild-stylus-library'
+
+/**
+ * Functions
+ */
+
+// Media query helpers
+on-desktop()
+	@media(min-width tablet)
+		{block}
+on-mobile()
+	@media(max-width tablet - 1px)
+		{block}
+

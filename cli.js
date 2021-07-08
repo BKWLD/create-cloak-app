@@ -17,6 +17,6 @@ const outDir = path.resolve(process.argv[2] || '.')
 sao({ generator, outDir })
 	.run()
 	.catch(err => {
-		console.trace(err)
+		console.error(err)
 		process.exit(1)
 	})
