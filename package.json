@@ -1,6 +1,6 @@
 {
 	"name": "create-cloak-app",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"description": "Setup a new Cloak (Nuxt + Craft/Contentful) based project",
 	"repository": "git@github.com:BKWLD/create-cloak-app.git",
 	"author": "Bukwild <info@bukwild.com>",
