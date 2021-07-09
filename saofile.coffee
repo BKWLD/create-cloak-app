@@ -4,6 +4,7 @@ spawn = require '@expo/spawn-async'
 chalk = require 'chalk'
 module.exports =
 
+	# The questions asked of the user
 	prompts: -> [
 
 		{ # Get project name
@@ -49,9 +50,11 @@ module.exports =
 		}
 	]
 
+	# Assemble some additional shared data
 	templateData: ->
-		rootNuxtApp: rootNuxtApp this.answers
-		hasLibrary: hasLibrary this.answers
+		rootNuxtApp: rootNuxtApp @answers
+		hasLibrary: hasLibrary @answers
+		localCraftUrl: localCraftUrl @answers
 
 	# Setup the template manipulation actions. I'm explicitly whitelisting
 	# transformed files so it's easy to track where those are.
@@ -104,7 +107,7 @@ module.exports =
 		if cms == 'craft' then actions.push
 			type: 'add'
 			files: 'craft-cms/**'
-			transformInclude: 'craft-cms/.env'
+			transform: false
 
 		# Add shopify-theme
 		if shopify then actions.push
@@ -169,11 +172,26 @@ module.exports =
 				@logger.success "Craft CMS installed at #{cmsUrl}"
 
 		# Show next steps
-		docs = 'https://github.com/BKWLD/create-cloak-app/blob/main/docs'
 		logBanner 'Done! Time for next steps:'
-		logLink 'Setup Netlify app', "#{docs}/netlify.md"
+
+		# Show link to run nuxt-app locally
+		nuxtPath = if rootNuxtApp @answers
+		then @outDir else "#{@outDir}/nuxt-app"
+		logStep 'Run Hello World', "cd #{@nuxtPath} && yarn dev --spa"
+
+		# Show link to login to CMS
 		if @answers.cms == 'craft'
-		then logLink 'Configure Craft', "#{docs}/craft-cms/index.md"
+		logStep 'Login to local CMS', localCraftUrl @answers
+
+		# Add links to Craft docs
+		if @answers.cms == 'craft'
+		then logStep 'Configure Craft', "#{docs}/craft-cms/index.md"
+		docs = 'https://github.com/BKWLD/create-cloak-app/blob/main/docs'
+
+		# Add link to Netlify docs
+		logStep 'Setup Netlify app', "#{docs}/netlify.md"
+
+		# Add a trailing empty space
 		console.log ''
 
 # Should nuxt-app be installed at the root?
@@ -181,6 +199,9 @@ rootNuxtApp = ({ cms, shopify }) -> cms != 'craft' and !shopify
 
 # Is there shared code in a library directory?
 hasLibrary = ({ shopify }) -> !!shopify
+
+# Make URL of local Craft install
+localCraftUrl = ({ packageName}) -> "http://#{packageName}.test"
 
 # Add a banner
 logBanner = (text, color = 'green') ->
@@ -190,7 +211,7 @@ logBanner = (text, color = 'green') ->
 	console.log chalk[color]('-'.repeat(text.length))
 
 # Log a link
-logLink = (text, url) ->
+logStep = (label, step) ->
 	console.log ''
-	console.log chalk.bold text
-	console.log chalk.italic url
+	console.log chalk.bold label
+	console.log chalk.italic step
