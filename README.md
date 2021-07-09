@@ -16,7 +16,7 @@ yarn create cloak-app
 
 After you've created a new cloak-app, there are subsequent steps you'll likely need to take based on your choices.  You'll be prompted to visit the following docs pages following a successful completion.
 
-- [Craft CMS](./docs/craft-cms.md)
+- [Craft CMS](./docs/craft-cms/index.md)
 
 
 ## Contributing

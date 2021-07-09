@@ -1,6 +1,7 @@
 kebabCase = require 'lodash/kebabCase'
 path = require 'path'
 spawn = require '@expo/spawn-async'
+chalk = require 'chalk'
 module.exports =
 
 	prompts: -> [
@@ -40,33 +41,6 @@ module.exports =
 			]
 		}
 
-		# { # Craft DB host
-		# 	name: 'dbHost'
-		# 	message: 'What is your local mysql host?'
-		# 	default: '127.0.0.1'
-		# 	when: ({ cms }) -> cms == 'craft'
-		# }
-
-		# { # Craft DB name
-		# 	name: 'dbName'
-		# 	message: 'What is your local mysql database for this project?'
-		# 	default: ({ packageName }) -> packageName
-		# 	when: ({ cms }) -> cms == 'craft'
-		# }
-
-		# { # Craft DB username
-		# 	name: 'dbUser'
-		# 	message: 'What is your local mysql username?'
-		# 	default: 'root'
-		# 	when: ({ cms }) -> cms == 'craft'
-		# }
-
-		# { # Craft DB password
-		# 	name: 'dbPass'
-		# 	message: 'What is your local mysql password?'
-		# 	when: ({ cms }) -> cms == 'craft'
-		# }
-
 		{ # Is Shopify supported?
 			name: 'shopify'
 			type: 'confirm'
@@ -79,6 +53,8 @@ module.exports =
 		rootNuxtApp: rootNuxtApp this.answers
 		hasLibrary: hasLibrary this.answers
 
+	# Setup the template manipulation actions. I'm explicitly whitelisting
+	# transformed files so it's easy to track where those are.
 	actions: ({ answers }) ->
 		{ cms, shopify } = answers
 		actions = []
@@ -87,6 +63,19 @@ module.exports =
 		actions.push
 			type: 'add'
 			files: '*'
+			transformInclude: [
+				'package.json'
+				'README.md'
+			]
+
+		# nuxt-app paths that have template data
+		nuxtTransformInclude = [
+			'package.json'
+			'README.md'
+			'nuxt.config.coffee'
+			'.env'
+			'.env.example'
+		]
 
 		# Install nuxt-app to root if no other workspaces are needed and exit
 		if rootNuxtApp answers
@@ -94,6 +83,7 @@ module.exports =
 				type: 'add'
 				templateDir: 'template/nuxt-app'
 				files: '**'
+				transformInclude: nuxtTransformInclude
 			actions.push # Merge gitgnores
 				type: 'modify'
 				files: '.gitignore'
@@ -107,6 +97,8 @@ module.exports =
 		else actions.push
 			type: 'add'
 			files: 'nuxt-app/**'
+			transformInclude: nuxtTransformInclude.map (file) ->
+				"nuxt-app/#{file}"
 
 		# Add craft-cms
 		if cms == 'craft' then actions.push
@@ -176,8 +168,29 @@ module.exports =
 				cmsUrl = "http://#{@answers.packageName}.test"
 				@logger.success "Craft CMS installed at #{cmsUrl}"
 
+		# Show next steps
+		docs = 'https://github.com/BKWLD/create-cloak-app/blob/main/docs'
+		logBanner 'Done! Time for next steps:'
+		logLink 'Setup Netlify app', "#{docs}/netlify.md"
+		if @answers.cms == 'craft'
+		then logLink 'Configure Craft', "#{docs}/craft-cms/index.md"
+		console.log ''
+
 # Should nuxt-app be installed at the root?
 rootNuxtApp = ({ cms, shopify }) -> cms != 'craft' and !shopify
 
 # Is there shared code in a library directory?
 hasLibrary = ({ shopify }) -> !!shopify
+
+# Add a banner
+logBanner = (text, color = 'green') ->
+	console.log ''
+	console.log chalk[color]('-'.repeat(text.length))
+	console.log chalk[color](text)
+	console.log chalk[color]('-'.repeat(text.length))
+
+# Log a link
+logLink = (text, url) ->
+	console.log ''
+	console.log chalk.bold text
+	console.log chalk.italic url

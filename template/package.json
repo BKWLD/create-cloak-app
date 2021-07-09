@@ -1,5 +1,5 @@
 {
-	"name": "<%= name %>",
+	"name": "<%= packageName %>",
 	"author": "Bukwild",
 	"version": "0.0.1",
 	"license": "UNLICENSED",
