@@ -105,10 +105,16 @@ module.exports =
 			transformInclude: nuxtTransformInclude.map (file) ->
 				"nuxt-app/#{file}"
 
-		# Add craft-cms
+		# Add craft-cms. Explitly not including the storage directory so I can
+		# test the generator successfully while also running a Craft instance that
+		# runs from this directory.  Without this change I would get "No primary
+		# site exists" from the `./craft setup` command.
 		if cms == 'craft' then actions.push
 			type: 'add'
 			files: 'craft-cms/**'
+			filters:
+				'craft-cms/config/license.key': false
+				'craft-cms/storage/**': false
 			transform: false
 
 		# Add shopify-theme

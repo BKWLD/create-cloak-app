@@ -106,5 +106,6 @@ dist
 # MacOS
 /.DS_Store
 
-# PHP
+# Craft files from dev-ing locally that shouldn't get distributed
 template/craft-cms/composer.lock
+template/craft-cms/config/license.key
