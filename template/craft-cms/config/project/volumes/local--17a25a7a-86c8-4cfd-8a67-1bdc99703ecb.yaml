@@ -1,5 +1,5 @@
 fieldLayouts:
-  77b8a586-56a0-47c9-9e1c-1a0ab717dc97:
+  42f82e8e-4fab-43cf-8cde-54b5eb155618:
     tabs:
       -
         elements:
@@ -28,20 +28,13 @@ fieldLayouts:
             width: 100
         name: Content
         sortOrder: 1
-handle: assets
+handle: local
 hasUrls: true
-name: Assets
+name: Local
 settings:
-  bucket: $SPACES_BUCKET
-  contentDisposition: ''
-  endpoint: $SPACES_ENDPOINT
-  expires: '1 years'
-  keyId: $SPACES_API_KEY
-  region: $SPACES_REGION
-  secret: $SPACES_SECRET
-  subfolder: cms
-sortOrder: 1
+  path: '@webroot/uploads'
+sortOrder: 2
 titleTranslationKeyFormat: null
 titleTranslationMethod: null
-type: vaersaagod\dospaces\Volume
-url: '@spacesBaseUrl'
+type: craft\volumes\Local
+url: '@web/uploads'

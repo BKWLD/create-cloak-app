@@ -1,0 +1,56 @@
+contentColumnType: string
+fieldGroup: 210b8f7a-99b9-43ab-baba-f8b9d773b1c1 # Layout
+handle: maxWidth
+instructions: 'Applies a standardized width constraint.'
+name: 'Max Width'
+searchable: false
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Default - 1,280px wide'
+        -
+          - value
+          - max-w
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Medium - 1060px wide, for an indented effect '
+        -
+          - value
+          - max-w-medium
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Small - 750px wide, good for Copy blocks'
+        -
+          - value
+          - max-w-small
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Full - 2,560px wide'
+        -
+          - value
+          - max-w-full
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

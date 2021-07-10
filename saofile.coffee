@@ -78,6 +78,8 @@ module.exports =
 			'nuxt.config.coffee'
 			'.env'
 			'.env.example'
+			'components/layout/header/desktop.vue'
+			'components/layout/header/mobile.vue'
 		]
 
 		# Install nuxt-app to root if no other workspaces are needed and exit

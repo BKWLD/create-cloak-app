@@ -7,8 +7,13 @@ boilerplate = makeBoilerplate
 	<%_ } _%>
 	<%_ if (cms) { _%>
 	cms: '<%= cms %>'
+	<%_ if (cms == 'craft') { _%>
+	pageTypes: [ 'towers_towers_Entry' ]
+	<%_ } else { _%>
 	pageTypes: []
 	<%_ } _%>
+	<%_ } _%>
+	srcsetWidths: [ 1920, 1440, 1024, 768, 425, 210 ]
 
 # Nuxt config
 module.exports = mergeConfig boilerplate,

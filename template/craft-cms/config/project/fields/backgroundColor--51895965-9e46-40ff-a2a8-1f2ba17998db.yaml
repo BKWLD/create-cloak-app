@@ -1,0 +1,19 @@
+contentColumnType: text
+fieldGroup: be38339d-02bd-46cb-84ec-59dc7777fe3a # Common
+handle: backgroundColor
+instructions: ''
+name: 'Background Color'
+searchable: false
+settings:
+  allowCustomColor: false
+  allowOpacity: false
+  colorFormat: auto
+  defaultColorHandle: ''
+  defaultOpacity: '100'
+  paletteBaseColors: null
+  paletteColors: ''
+  presetId: '1'
+  presetMode: false
+translationKeyFormat: null
+translationMethod: none
+type: presseddigital\colorit\fields\ColoritField

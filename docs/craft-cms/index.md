@@ -1,5 +1,16 @@
 # Craft CMS - Configuration
 
+## Assets
+
+The project config ships with two Asset Volumes (see /admin/settings/assets):
+
+- Assets - A DigitalOcean Space Volume
+- Local - Stores assets in craft-cms/web/uploads
+
+If you are using craft-cms locally, I recommend going to the Assets tab and uploading directly to "Local" (/admin/assets/local) since all of the Asset _fields_ default to the "Assets" volume.  Then you can use the "Add an Asset" button to find those assets from your local Entries.
+
+When you setup Craft CMS on a production server, you would delete the "Local" volume and only use "Assets".
+
 ## Branding
 
 Go to `/admin/settings/general` and customize update the `System Name` and logos to be specific to your project.

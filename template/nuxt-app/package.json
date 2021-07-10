@@ -16,6 +16,7 @@
 	},
 	"dependencies": {
 		"@bkwld/cloak": "^0",
+		"@bkwld/light-or-dark": "^1.0.1",
 		"nuxt": "^2"
 	}
 }

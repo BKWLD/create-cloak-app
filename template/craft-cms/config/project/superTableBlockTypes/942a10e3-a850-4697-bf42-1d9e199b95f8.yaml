@@ -1,0 +1,93 @@
+field: d6a44fe4-1500-4868-8559-30fd3b34625e # Responsive Image
+fieldLayouts:
+  5b5d6185-3854-4a70-ba1c-7577e8cbc41b:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: a50b9328-6e94-4a63-87c2-2c589e7bef20 # Landscape
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d1b83162-d8d7-4409-b3e0-bb1be43bb297 # Portrait
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  a50b9328-6e94-4a63-87c2-2c589e7bef20: # Landscape
+    contentColumnType: string
+    fieldGroup: null
+    handle: landscape
+    instructions: 'This image will be shown on landscape aspect ratio viewports, like desktop browsers.'
+    name: Landscape
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:d507d988-558f-49c4-b53b-471a38e1d525' # Assets
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: thumbs
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:d507d988-558f-49c4-b53b-471a38e1d525' # Assets
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  d1b83162-d8d7-4409-b3e0-bb1be43bb297: # Portrait
+    contentColumnType: string
+    fieldGroup: null
+    handle: portrait
+    instructions: 'This image will be shown on portrait aspect ratio viewports, like mobile browsers.'
+    name: Portrait
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:d507d988-558f-49c4-b53b-471a38e1d525' # Assets
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: thumbs
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:d507d988-558f-49c4-b53b-471a38e1d525' # Assets
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
