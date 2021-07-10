@@ -183,7 +183,7 @@ module.exports =
 
 		# Show link to login to CMS
 		if @answers.cms == 'craft'
-		logStep 'Login to local CMS', localCraftUrl @answers
+		then logStep 'Login to local CMS', localCraftUrl @answers
 
 		# Add links to Craft docs
 		if @answers.cms == 'craft'
