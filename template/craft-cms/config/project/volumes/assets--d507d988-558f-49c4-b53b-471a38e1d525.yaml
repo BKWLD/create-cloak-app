@@ -42,6 +42,6 @@ settings:
   subfolder: cms
 sortOrder: 1
 titleTranslationKeyFormat: null
-titleTranslationMethod: null
+titleTranslationMethod: site
 type: vaersaagod\dospaces\Volume
 url: '@spacesBaseUrl'
