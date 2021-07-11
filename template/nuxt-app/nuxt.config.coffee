@@ -22,3 +22,9 @@ module.exports = mergeConfig boilerplate,
 	anchorParser: internalUrls: [
 		# /^https?:\/\/(www\.)?domain\.com/
 	]
+
+	<%_ if (cms == 'craft') { _%>
+	buildModules: [
+		'@bkwld/cloak/build/craft-netlify-redirects.js'
+	]
+	<%_ } _%>

@@ -1,0 +1,57 @@
+#import "@bkwld/cloak/fragments/craft/responsive-srcset.gql"
+#import "@bkwld/cloak/fragments/craft/responsive-video.gql"
+
+# Get list of blocks. This gets weird because you can't have recursion in gql
+fragment blocks on NeoBlockInterface {
+
+	# Majority of blocks
+	...nonWrapperBlocks
+
+	# Recursive blocks
+	...wrapperBlock
+}
+
+# Wrapper block
+fragment wrapperBlock on blocks_wrapper_BlockType {
+	backgroundColor
+	blocks: children {
+		...nonWrapperBlocks
+	}
+}
+
+# The majority of blocks
+fragment nonWrapperBlocks on NeoBlockInterface {
+	id
+	__typename
+
+	# Copy
+	... on blocks_copy_BlockType {
+		body: fullWysiwyg
+		balanceText
+		unorphan
+	}
+
+	# Media
+	... on blocks_mediaAsset_BlockType {
+		image: responsiveImage { ... responsiveSrcset }
+		video: responsiveVideo { ... responsiveVideo }
+		maxWidth
+	}
+
+	# Simple marquee
+	... on blocks_simpleMarquee_BlockType {
+		title: text
+		buttons {
+			... on buttons_BlockType {
+				id
+				label
+				to
+			}
+		}
+	}
+
+	# Spacer
+	... on blocks_spacer_BlockType {
+		height: spacing
+	}
+}

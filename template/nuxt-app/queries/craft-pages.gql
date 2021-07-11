@@ -1,0 +1,21 @@
+#import "./pages/tower.gql"
+
+# Get all pages and their content for SSG
+query getCraftPages(
+	$section:[String!]
+	$type:[String!]
+	$uri:[String]) {
+
+	entries(
+		section:$section
+		type:$type
+		uri:$uri) {
+
+		# Shared fields
+		uri
+		title
+
+		# Page types
+		...tower
+	}
+}
