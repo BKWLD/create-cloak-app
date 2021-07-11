@@ -3,12 +3,10 @@ fieldGroup: 350f57c3-762b-4c5a-b36c-864cbe3f5e4f # Text
 handle: fullWysiwyg
 instructions: ''
 name: 'Full WYSIWYG'
-searchable: false
+searchable: true
 settings:
-  availableTransforms:
-    - a82556ad-c575-48f1-93a9-772482f6e7e1
-  availableVolumes:
-    - d507d988-558f-49c4-b53b-471a38e1d525 # Assets
+  availableTransforms: '*'
+  availableVolumes: '*'
   cleanupHtml: true
   columnType: text
   configSelectionMode: choose

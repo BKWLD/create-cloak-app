@@ -1,6 +1,8 @@
 isPublic: true
 name: 'Public Schema'
 scope:
+  - 'sections.8b15badc-af4c-44f7-a29d-0efff2f88cfc:read' # Redirects
+  - 'entrytypes.acc19cab-c962-4a2b-ab8b-c6a1a0e754ad:read' # Redirects
   - 'sections.6a560d02-778f-4c45-ba9b-8d733af642a2:read' # Towers
   - 'entrytypes.ddd6b23b-385f-40b3-8454-5b03c755ce50:read' # Towers
   - 'volumes.d507d988-558f-49c4-b53b-471a38e1d525:read' # Assets

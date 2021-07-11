@@ -1,0 +1,65 @@
+fieldLayouts:
+  08fae988-cc26-472b-a2f4-01ea6cc1d874:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 738a9619-9a83-40ff-b6ab-4156e9ff0790 # Redirect - From
+            instructions: ''
+            label: From
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: cf3a29b0-7f16-4093-b6be-4340e57a3e24 # Redirect - To
+            instructions: ''
+            label: To
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3287fd8e-5dec-40b8-a8bb-1d81124f3db2 # Redirect - Code
+            instructions: ''
+            label: Code
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: redirects
+hasTitleField: true
+name: Redirects
+section: 8b15badc-af4c-44f7-a29d-0efff2f88cfc # Redirects
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

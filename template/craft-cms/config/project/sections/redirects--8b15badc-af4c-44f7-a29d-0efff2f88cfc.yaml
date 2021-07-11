@@ -1,0 +1,11 @@
+enableVersioning: false
+handle: redirects
+name: Redirects
+propagationMethod: all
+siteSettings:
+  c669537f-8a7f-4bde-962a-2e61c9b653c2: # Site
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+type: channel
