@@ -1,2 +1,5 @@
 export actions =
-	nuxtServerInit: ->
+
+	# Fetch global data
+	nuxtServerInit: ({ dispatch }) ->
+		await dispatch 'globals/fetch'

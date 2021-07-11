@@ -1,0 +1,48 @@
+contentColumnType: string
+fieldGroup: 4723082f-b4ea-427d-8daa-882f0807e848 # Towers
+handle: seo
+instructions: ''
+name: SEO
+searchable: false
+settings:
+  columns:
+    __assoc__:
+      -
+        - 6fc04ae2-bc2a-4021-aed9-24b0a9a6ec9e # Title
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - d8e7d38f-9b07-4e45-bb42-946070c16724 # Description
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - c56835da-8ddd-4bce-b6fc-a8f0de829635 # Image
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 8738446a-ff18-4110-9a8e-29c2f68ff4de # Robots
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_seo}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  placeholderKey: null
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

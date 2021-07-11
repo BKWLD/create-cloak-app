@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 4723082f-b4ea-427d-8daa-882f0807e848 # Towers
+handle: uriPath
+instructions: 'If specified, this is used to form the URI instead of being generated from the slug, allowing you make make the route appear to contain directories. Do not include a leading or trailing slash.'
+name: 'URI Path'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: '1'
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: example/path
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

@@ -1,14 +1,7 @@
 #import "../fragments/blocks.gql"
+#import "@bkwld/cloak/fragments/craft/seo.gql"
 
 fragment tower on towers_towers_Entry {
-	id
-	slug
 	blocks { ...blocks }
-
-	# metaTitle
-	# metaDescription
-	# metaImage { path }
-	# robots
-	# canonical: simpleText
-
+	seo { ...seo }
 }

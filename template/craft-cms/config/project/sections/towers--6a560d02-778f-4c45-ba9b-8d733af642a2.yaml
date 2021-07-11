@@ -19,5 +19,5 @@ siteSettings:
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: '{%if path %}{ path }{% else %}{ slug }{% endif %}'
+    uriFormat: '{%if uriPath %}{ uriPath }{% else %}{ slug }{% endif %}'
 type: channel
