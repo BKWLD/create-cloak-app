@@ -9,7 +9,7 @@ The project config ships with two Asset Volumes (see /admin/settings/assets):
 
 If you are using craft-cms locally, I recommend going to the Assets tab and uploading directly to "Local" (/admin/assets/local) since all of the Asset _fields_ default to the "Assets" volume.  Then you can use the "Add an Asset" button to find those assets from your local Entries.
 
-When you setup Craft CMS on a production server, you would delete the "Local" volume and only use "Assets".
+When you setup Craft CMS on a production server, you should delete the "Local" volume and only use "Assets".
 
 ## Branding
 
@@ -18,6 +18,12 @@ Go to `/admin/settings/general` and customize update the `System Name` and logos
 ## Email
 
 A Bukwild mailgun provider is baked into the project config.  Just provide the `EMAIL_PASSWORD` value to the .env (this can be found [in Passwork](https://passwork.me/#!/p/60a68d7715aaca7283342a7e)).
+
+## Project Config
+
+A rule in the .gitignore disables future changes to config/project (from Craft's [Project Config](https://craftcms.com/docs/3.x/project-config.html) feature) from being committed and deployed.  This was done with an assumption the Craft will be installed to a public server early on and all configuration changes will be done on the server.  If config changes were also committed locally, we would likely run into git conflicts when deploying the CMS.
+
+If you want manage the schema on dev environments only, just remove the `config/project` line from the gitignore.
 
 ## Redactor
 

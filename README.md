@@ -17,7 +17,7 @@ This will ask you a handful of questions, copy relevant files from the [template
 After you've created a new cloak-app, there are subsequent steps you'll likely need to take based on your choices.  You'll be prompted to visit the following docs pages following a successful completion.
 
 - [Setup Netlify app](./docs/netlify.md)
-- [Configure Craft](./docs/craft-cms/index.md)
+- [Configure Craft](./docs/craft-cms/config.md)
 
 ## Contributing
 
@@ -33,4 +33,4 @@ The [template/craft-cms](./template/craft-cms) directory is setup so you can run
 4. Run `valet link create-cloak-app`
 5. Visit `http://create-cloak-app.test/admin` to access CMS.
 
-As you make changes in the Craft Admin, the project config yaml files will get updated. Before committing changes, make sure the changes that you are making are evergreen and contain no secrets.
+As you make changes in the Craft Admin, the project config yaml files will get updated. Before committing changes, make sure the changes that you are making are evergreen and contain no secrets.  You'll need to force add those changes with `git add -f template/craft-cms/config/project` because there is a gitignore rule in `template/craft-cms/.gitignore` that will hide them.
