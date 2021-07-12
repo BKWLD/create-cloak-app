@@ -3,6 +3,12 @@
  * Craft web bootstrap file
  */
 
+// Redirect to /admin from root
+if ($_SERVER['REQUEST_URI'] == '/') {
+    header('Location: /admin');
+    exit;
+}
+
 // Define path constants
 define('CRAFT_BASE_PATH', dirname(__DIR__));
 define('CRAFT_VENDOR_PATH', CRAFT_BASE_PATH . '/vendor');
