@@ -89,13 +89,16 @@ module.exports =
 				templateDir: 'template/nuxt-app'
 				files: '**'
 				transformInclude: nuxtTransformInclude
-			actions.push # Merge gitgnores
+			actions.push # Merge gitignores
 				type: 'modify'
 				files: '.gitignore'
 				handler: (data) =>
 					rootGitignorePath = path.resolve __dirname, 'template/.gitignore'
 					rootGitignore = @fs.readFileSync rootGitignorePath
 					return rootGitignore + "\n" + data
+			actions.push # Rename .env
+				type: 'move'
+				patterns: '_env': '.env'
 			return actions
 
 		# Else, nuxt-app will be installed in a child directory
@@ -105,17 +108,25 @@ module.exports =
 			transformInclude: nuxtTransformInclude.map (file) ->
 				"nuxt-app/#{file}"
 
-		# Add craft-cms. Explitly not including the storage directory so I can
-		# test the generator successfully while also running a Craft instance that
-		# runs from this directory.  Without this change I would get "No primary
-		# site exists" from the `./craft setup` command.
-		if cms == 'craft' then actions.push
-			type: 'add'
-			files: 'craft-cms/**'
-			filters:
-				'craft-cms/config/license.key': false
-				'craft-cms/storage/**': false
-			transform: false
+		# Add craft-cms
+		if cms == 'craft'
+			actions.push
+				type: 'add'
+				files: 'craft-cms/**'
+				transform: false
+
+			# Don't commit project config changes, expecting configuration to be done
+			# on the prod server.  This gets added late so that they still get
+			# installed with npm/pack
+			actions.push
+				type: 'modify'
+				files: 'craft-cms/.gitignore'
+				handler: (data) ->
+					data += """
+
+					# Expecting configuration to be done on prod server
+					config/project
+					"""
 
 		# Add shopify-theme
 		if shopify then actions.push
@@ -128,6 +139,13 @@ module.exports =
 			type: 'add'
 			files: 'library/**'
 			transform: false
+
+		# Move env files into place, which would otherwise be ignored by npm pack
+		actions.push
+			type: 'move'
+			patterns:
+				'craft-cms/_env': 'craft-cms/.env'
+				'nuxt-app/_env': 'nuxt-app/.env'
 
 		# Populate yarn workspaces
 		actions.push

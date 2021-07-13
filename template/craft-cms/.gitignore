@@ -4,7 +4,3 @@ web/cp.css
 
 # Composer deps
 vendor
-
-# Don't commit project config changes, expecting configuration to be done on
-# prod server
-config/project
