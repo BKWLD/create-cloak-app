@@ -161,12 +161,20 @@ module.exports =
 				stdio: 'inherit'
 				cwd: "#{@outDir}/craft-cms"
 
-			# Install Craft
-			@logger.info 'Running Craft install'
+			# Make Craft CLI executable
 			@fs.chmodSync "#{@outDir}/craft-cms/craft", @fs.constants.S_IRWXU
-			await spawn './craft', ['setup'],
+
+			# Install Craft. I broke this up into multiple commands because I ran
+			# into `No primary site exists` issues when running just `craft setup`
+			@logger.info 'Running Craft install'
+			spawnOptions =
 				stdio: 'inherit'
 				cwd: "#{@outDir}/craft-cms"
+			await spawn './craft', ['setup/app-id'], spawnOptions
+			await spawn './craft', ['setup/security-key'], spawnOptions
+			await spawn './craft', ['setup/db'], spawnOptions
+			@logger.info 'Setup your initial admin user'
+			await spawn './craft', ['install'], spawnOptions
 
 			# Link via Valet if installed
 			{ status } = await spawn 'which', ['valet']
@@ -181,11 +189,12 @@ module.exports =
 
 		# Show next steps
 		logBanner 'Done! Time for next steps:'
+		docs = 'https://github.com/BKWLD/create-cloak-app/blob/main/docs'
 
 		# Show link to run nuxt-app locally
 		nuxtPath = if rootNuxtApp @answers
 		then @outDir else "#{@outDir}/nuxt-app"
-		logStep 'Run Hello World', "cd #{@nuxtPath} && yarn dev --spa"
+		logStep 'Run Hello World', "cd #{nuxtPath} && yarn dev --spa"
 
 		# Show link to login to CMS
 		if @answers.cms == 'craft'
@@ -193,8 +202,7 @@ module.exports =
 
 		# Add links to Craft docs
 		if @answers.cms == 'craft'
-		then logStep 'Configure Craft', "#{docs}/craft-cms/index.md"
-		docs = 'https://github.com/BKWLD/create-cloak-app/blob/main/docs'
+		then logStep 'Configure & Deploy Craft', "#{docs}/craft-cms/config.md"
 
 		# Add link to Netlify docs
 		logStep 'Setup Netlify app', "#{docs}/netlify.md"
