@@ -9,14 +9,14 @@ settings:
   allowUploads: true
   allowedKinds:
     - video
-  defaultUploadLocationSource: 'volume:d507d988-558f-49c4-b53b-471a38e1d525' # Assets
+  defaultUploadLocationSource: 'volume:17a25a7a-86c8-4cfd-8a67-1bdc99703ecb' # Local
   defaultUploadLocationSubpath: ''
   limit: '1'
   localizeRelations: false
   previewMode: full
   restrictFiles: '1'
   selectionLabel: ''
-  showSiteMenu: false
+  showSiteMenu: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
   singleUploadLocationSource: 'volume:d507d988-558f-49c4-b53b-471a38e1d525' # Assets
