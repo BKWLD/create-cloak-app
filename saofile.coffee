@@ -172,7 +172,8 @@ module.exports =
 			await spawn './craft', ['setup/security-key'], spawnOptions
 			await spawn './craft', ['setup/db'], spawnOptions
 			@logger.info 'Setup your initial admin user'
-			await spawn './craft', ['install'], spawnOptions
+			await spawn './craft', ['install', '--site-name=Site',
+				'--site-url=$PRIMARY_SITE_URL', '--language=en-US'], spawnOptions
 			await spawn './craft', ['migrate/all', '--no-backup=1',
 				'--interactive=0'], spawnOptions
 
