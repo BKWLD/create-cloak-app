@@ -15,7 +15,7 @@
 		"transpile:watch": "coffee -cw nuxt.config.coffee"
 	},
 	"dependencies": {
-		"@bkwld/cloak": "https://github.com/BKWLD/cloak#009b99b3",
+		"@bkwld/cloak": "https://github.com/BKWLD/cloak#d08da806",
 		"@bkwld/light-or-dark": "^1.0.1",
 		"nuxt": "^2",
 		"vue-detachable-header": "^0.2.0"
