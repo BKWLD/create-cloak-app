@@ -18,3 +18,9 @@ After you've created a new cloak-app, there are subsequent steps you'll likely n
 
 - [Setup Netlify app](./docs/netlify.md)
 - [Configure Craft](./docs/craft-cms/config.md)
+
+## Contributing
+
+1. Run `yarn sao ./ ~/Desktop/cloak-app` to create an Cloak instance to iterate on on your desktop.
+2. Track the changes you make to that instance using the git repo that was automatically set up.
+3. Replay those changes (manually, unless someone has some git brilliance to share), back onto the /template directory as part of a PR.
