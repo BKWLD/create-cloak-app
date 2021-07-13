@@ -154,12 +154,13 @@ module.exports =
 
 		# Run Craft installation steps
 		if @answers.cms == 'craft'
+			spawnOptions =
+				stdio: 'inherit'
+				cwd: "#{@outDir}/craft-cms"
 
 			# Install composer deps
 			@logger.info 'Installing Craft Composer deps'
-			await spawn 'composer', ['install'],
-				stdio: 'inherit'
-				cwd: "#{@outDir}/craft-cms"
+			await spawn 'composer', ['install'], spawnOptions
 
 			# Make Craft CLI executable
 			@fs.chmodSync "#{@outDir}/craft-cms/craft", @fs.constants.S_IRWXU
@@ -167,23 +168,20 @@ module.exports =
 			# Install Craft. I broke this up into multiple commands because I ran
 			# into `No primary site exists` issues when running just `craft setup`
 			@logger.info 'Running Craft install'
-			spawnOptions =
-				stdio: 'inherit'
-				cwd: "#{@outDir}/craft-cms"
 			await spawn './craft', ['setup/app-id'], spawnOptions
 			await spawn './craft', ['setup/security-key'], spawnOptions
 			await spawn './craft', ['setup/db'], spawnOptions
 			@logger.info 'Setup your initial admin user'
 			await spawn './craft', ['install'], spawnOptions
+			await spawn './craft', ['migrate/all', '--no-backup=1',
+				'--interactive=0'], spawnOptions
 
 			# Link via Valet if installed
 			{ status } = await spawn 'which', ['valet']
 			unless status
 				@logger.info 'Adding Valet link,
 					you\'ll be asked for your OS user password'
-				await spawn 'valet', ['link', @answers.packageName],
-					stdio: 'inherit'
-					cwd: "#{@outDir}/craft-cms"
+				await spawn 'valet', ['link', @answers.packageName], spawnOptions
 				cmsUrl = "http://#{@answers.packageName}.test"
 				@logger.success "Craft CMS installed at #{cmsUrl}"
 
