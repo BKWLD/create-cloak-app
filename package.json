@@ -6,11 +6,6 @@
 	"author": "Bukwild <info@bukwild.com>",
 	"license": "MIT",
 	"bin": "./cli.js",
-	"files": [
-		"cli.js",
-		"saofile*",
-		"template/"
-	],
 	"dependencies": {
 		"@expo/spawn-async": "^1.5.0",
 		"chalk": "^2.4.1",
