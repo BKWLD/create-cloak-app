@@ -96,9 +96,9 @@ module.exports =
 					rootGitignorePath = path.resolve __dirname, 'template/.gitignore'
 					rootGitignore = @fs.readFileSync rootGitignorePath
 					return rootGitignore + "\n" + data
-			actions.push # Rename .env
+			actions.push # Rename .gitignore
 				type: 'move'
-				patterns: '_env': '.env'
+				patterns: '_gitignore': '.gitignore'
 			return actions
 
 		# Else, nuxt-app will be installed in a child directory
@@ -115,19 +115,6 @@ module.exports =
 				files: 'craft-cms/**'
 				transform: false
 
-			# Don't commit project config changes, expecting configuration to be done
-			# on the prod server.  This gets added late so that they still get
-			# installed with npm/pack
-			actions.push
-				type: 'modify'
-				files: 'craft-cms/.gitignore'
-				handler: (data) ->
-					data += """
-
-					# Expecting configuration to be done on prod server
-					config/project
-					"""
-
 		# Add shopify-theme
 		if shopify then actions.push
 			type: 'add'
@@ -140,12 +127,13 @@ module.exports =
 			files: 'library/**'
 			transform: false
 
-		# Move env files into place, which would otherwise be ignored by npm pack
+		# Move .gitignore files into place, which get ignored by npm pack
 		actions.push
 			type: 'move'
 			patterns:
-				'craft-cms/_env': 'craft-cms/.env'
-				'nuxt-app/_env': 'nuxt-app/.env'
+				'_gitignore': '.gitignore'
+				'craft-cms/_gitignore': 'craft-cms/.gitignore'
+				'nuxt-app/_gitignore': 'nuxt-app/.gitignore'
 
 		# Populate yarn workspaces
 		actions.push
