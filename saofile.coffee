@@ -194,6 +194,7 @@ module.exports =
 				'--site-url=$PRIMARY_SITE_URL', '--language=en-US'], spawnOptions
 			await spawn './craft', ['migrate/all', '--no-backup=1',
 				'--interactive=0'], spawnOptions
+			await spawn './craft', ['update', 'all', '--backup=0'], spawnOptions
 
 			# Link via Valet if installed
 			{ status } = await spawn 'which', ['valet']
