@@ -31,7 +31,7 @@ export default
 			if color.match(/^(\#|rgb)/i) then color else '#' + color
 
 		# Is it a dark background color
-		isDark: -> isDark @backgroundColor
+		isDark: -> isDark @backgroundColor if @backgroundColor
 
 		# Root classes
 		classes: -> 'dark-wrapper': @isDark
