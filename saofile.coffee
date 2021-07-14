@@ -76,7 +76,7 @@ module.exports =
 			'package.json'
 			'README.md'
 			'nuxt.config.coffee'
-			'_env'
+			'.env'
 			'.env.example'
 			'components/layout/header/desktop.vue'
 			'components/layout/header/mobile.vue'
