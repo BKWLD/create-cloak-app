@@ -20,3 +20,4 @@ fieldLayouts:
         sortOrder: 1
 handle: defaultSeo
 name: 'Default SEO'
+sortOrder: 2

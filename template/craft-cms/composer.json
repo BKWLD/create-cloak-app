@@ -1,6 +1,6 @@
 {
   "require": {
-    "craftcms/cms": "3.6.18",
+    "craftcms/cms": "3.7.0",
     "craftcms/redactor": "^2.8.5",
     "craftcms/webhooks": "^2.3.3",
     "doublesecretagency/craft-cpcss": "^2.3.0",
@@ -8,7 +8,7 @@
     "lukeyouell/craft-sentry": "^1.5",
     "presseddigital/colorit": "dev-bugfix",
     "putyourlightson/craft-dashboard-begone": "^1.0",
-    "spicyweb/craft-neo": "^2.9.11",
+    "spicyweb/craft-neo": "^2.11.0",
     "vaersaagod/dospaces": "^1.1",
     "verbb/super-table": "^2.6.7",
     "vlucas/phpdotenv": "^3.4.0"

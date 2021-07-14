@@ -13,6 +13,10 @@ When you setup Craft CMS on a production server, you should delete the "Local" v
 
 Go to `/admin/settings/general` and customize update the `System Name` and logos to be specific to your project.
 
+## Colors
+
+Change the Background Color field from being of type "color" to being "colorit" so you can enforce brand colors.  You'll also want to define presets for this field in the Colorit plugin settings.  The project doesn't ship with Background Color as "colorit" because that plugin doesn't currently support Project Config.
+
 ## Email
 
 A Bukwild mailgun provider is baked into the project config.  Just provide the `EMAIL_PASSWORD` value to the .env (this can be found [in Passwork](https://passwork.me/#!/p/60a68d7715aaca7283342a7e)).
