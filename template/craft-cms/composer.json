@@ -1,6 +1,6 @@
 {
   "require": {
-    "craftcms/cms": "^3.6.4",
+    "craftcms/cms": "3.6.18",
     "craftcms/redactor": "^2.8.5",
     "craftcms/webhooks": "^2.3.3",
     "doublesecretagency/craft-cpcss": "^2.3.0",
