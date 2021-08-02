@@ -21,14 +21,14 @@ module.exports =
 
 		{ # Get the GitLab project organization
 			name: 'organization'
-			message: 'What is the GitLab organization for the project?'
+			message: 'What is the full (not slugified) GitLab organization for the project?'
 		}
 
 		{ # Get the GitLab project organization
 			name: 'sentryRepoName'
-			message: 'What is the GitLab full name for the project?'
+			message: 'What is the full (not slugified) GitLab name for the project?'
 			when: ({ organization }) -> !!organization
-			default: ({ name, organization }) -> "#{organization} / #{name}"
+			default: ({ name }) -> name
 		}
 
 		{ # Choose a CMS type
