@@ -6,7 +6,7 @@
     "doublesecretagency/craft-cpcss": "^2.3.0",
     "doublesecretagency/craft-cpjs": "^2.2",
     "lukeyouell/craft-sentry": "^1.5",
-    "presseddigital/colorit": "dev-bugfix",
+    "presseddigital/colorit": "1.1.2.1",
     "putyourlightson/craft-dashboard-begone": "^1.0",
     "spicyweb/craft-neo": "^2.11.0",
     "vaersaagod/dospaces": "^1.1",
@@ -32,11 +32,5 @@
     "post-root-package-install": [
       "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
     ]
-  },
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "https://github.com/MatsonIsomTech/colorit"
-		}
-	]
+  }
 }
