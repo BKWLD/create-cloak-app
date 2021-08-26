@@ -91,9 +91,9 @@ module.exports =
 				transformInclude: nuxtTransformInclude
 			actions.push # Merge gitignores
 				type: 'modify'
-				files: '.gitignore'
+				files: '_gitignore'
 				handler: (data) =>
-					rootGitignorePath = path.resolve __dirname, 'template/.gitignore'
+					rootGitignorePath = path.resolve __dirname, 'template/_gitignore'
 					rootGitignore = @fs.readFileSync rootGitignorePath
 					return rootGitignore + "\n" + data
 			actions.push # Rename .gitignore
