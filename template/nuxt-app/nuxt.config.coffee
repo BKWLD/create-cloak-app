@@ -28,3 +28,8 @@ module.exports = mergeConfig boilerplate,
 		'@bkwld/cloak/build/craft-netlify-redirects.js'
 	]
 	<%_ } _%>
+
+	modules: [
+		'vue-unorphan/nuxt/module'
+		'vue-balance-text/nuxt/module'
+	]
