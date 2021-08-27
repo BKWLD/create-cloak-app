@@ -9,9 +9,13 @@
 		"build": "yarn transpile && nuxt build",
 		"start": "nuxt start",
 		"generate": "yarn transpile && nuxt generate --fail-on-error --target=static",
+		<%_ if (cms == 'craft') { _%>
 		"transpile": "yarn transpile:coffee && yarn transpile:gql",
-		"transpile:coffee": "coffee -c nuxt.config.coffee",
 		"transpile:gql": "yarn webpack --config <%= rootNuxtApp ? '' : '../' %>node_modules/@bkwld/cloak/build/transpile-gql.coffee",
+		<%_ } else { _%>
+		"transpile": "yarn transpile:coffee",
+		<%_ } _%>
+		"transpile:coffee": "coffee -c nuxt.config.coffee",
 		"transpile:watch": "coffee -cw nuxt.config.coffee"
 	},
 	"dependencies": {
