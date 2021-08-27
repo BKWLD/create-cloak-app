@@ -28,7 +28,14 @@ export default
 		# https://github.com/presseddigital/colorit/pull/35
 		backgroundColor: ->
 			return unless color = @block.backgroundColor
+			<%_ if (cms == 'craft') { _%>
 			if color.match(/^(\#|rgb)/i) then color else '#' + color
+			<%_ } else if (cms == 'contentful') { _%>
+			switch color
+				when 'Primary' then colors['primary-color']
+				when 'Secondary' then colors['secondary-color']
+				when 'Offwhite' then colors['offwhite']
+			<%_ } _%>
 
 		# Is it a dark background color
 		isDark: -> isDark @backgroundColor if @backgroundColor
