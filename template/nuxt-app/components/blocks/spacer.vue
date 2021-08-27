@@ -16,7 +16,19 @@ export default
 	computed:
 
 		# Root classes
+		<%_ if (cms == 'craft') { _%>
+		classes: -> "height-#{@heightSlug}"
+		<%_ } else if (cms == 'contentful') { _%>
 		classes: -> "height-#{@block.height}"
+
+		# Map heights to shorthands
+		heightSlug: -> switch @block.height
+			when 'Small' then 's'
+			when 'Medium' then 'm'
+			when 'Large' then 'l'
+			when 'Extra Large' then 'xl'
+			else throw "Unknown height #{@block.height}"
+		<%_ } _%>
 
 </script>
 
