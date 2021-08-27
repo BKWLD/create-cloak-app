@@ -112,15 +112,19 @@ module.exports =
 			actions.push # Rename .gitignore
 				type: 'move'
 				patterns: '_gitignore': '.gitignore'
+			installQueries actions, answers
 			return actions
 
 		# Else, nuxt-app will be installed in a child directory
-		else actions.push
+		actions.push
 			type: 'add'
 			files: 'nuxt-app/**'
 			transformInclude: nuxtTransformInclude.map (file) ->
 				"nuxt-app/#{file}"
 			filters: mapKeys nuxtFilters, (val, key) -> "nuxt-app/#{key}"
+
+		# Copy the queries over
+		installQueries actions, answers, 'nuxt-app/'
 
 		# Add craft-cms
 		if cms == 'craft'
@@ -252,3 +256,17 @@ logStep = (label, step) ->
 	console.log ''
 	console.log chalk.bold label
 	console.log chalk.italic step
+
+# Install queries from the cms to the queries directory.  This requires a
+# couple of steps
+installQueries = (actions, answers, prefix = '') ->
+	return unless answers.cms
+	actions.push
+		type: 'move'
+		patterns: "#{prefix}queries": "#{prefix}queries.tmp"
+	actions.push
+		type: 'move'
+		patterns: "#{prefix}queries.tmp/#{answers.cms}": "#{prefix}queries"
+	actions.push
+		type: 'remove'
+		files: "#{prefix}queries.tmp"

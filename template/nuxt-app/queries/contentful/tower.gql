@@ -1,0 +1,29 @@
+#import "./fragments/blocks.gql"
+#import "./fragments/block-wrapper.gql"
+#import "@bkwld/cloak/fragments/contentful/image.gql"
+
+# Get a tower
+query($path: String) {
+	towerCollection(limit: 1, where: { path: $path }) {
+		items {
+			... on Tower {
+
+				# Unique fields
+				title
+				path
+				blocks: blocksCollection(limit: 20) {
+					items {
+						...blockItems
+						...blockWrapper
+					}
+				}
+
+				# Seo fields
+				metaTitle
+				metaDescription
+				metaImage { ...image }
+				robots
+			}
+		}
+	}
+}

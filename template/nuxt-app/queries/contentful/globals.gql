@@ -1,0 +1,14 @@
+#import "@bkwld/cloak/fragments/contentful/image.gql"
+
+# Get globals entry, there should only be 1
+query {
+	globalsCollection(limit: 1) {
+		items {
+			... on Globals {
+				metaTitle
+				metaDescription
+				metaImage { ...image }
+			}
+		}
+	}
+}

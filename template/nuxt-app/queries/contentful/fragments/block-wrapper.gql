@@ -1,0 +1,8 @@
+#import "./blocks.gql"
+
+fragment blockWrapper on BlockWrapper {
+	backgroundColor
+	blocks: blocksCollection(limit: 20) {
+		items { ...blockItems }
+	}
+}

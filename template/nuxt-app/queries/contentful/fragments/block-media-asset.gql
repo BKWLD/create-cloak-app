@@ -1,0 +1,7 @@
+#import "@bkwld/cloak/fragments/contentful/responsive-asset.gql"
+
+# Renders a responsive asset
+fragment blockMediaAsset on BlockMediaAsset {
+	asset { ...responsiveAsset }
+	maxWidth
+}

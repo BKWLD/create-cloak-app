@@ -1,0 +1,7 @@
+# Simple rich text renderer
+fragment blockCopy on BlockCopy {
+	body { json }
+	textAlignment
+	balanceText
+	unorphan
+}

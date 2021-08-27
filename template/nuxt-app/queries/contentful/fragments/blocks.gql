@@ -1,0 +1,12 @@
+#import "./block-copy.gql"
+#import "./block-media-asset.gql"
+#import "./block-spacer.gql"
+
+fragment blockItems on Entry {
+	__typename
+	sys { id }
+	...blockCopy
+	...blockMediaAsset
+	...blockSpacer
+}
+
