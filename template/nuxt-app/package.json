@@ -19,7 +19,7 @@
 		"transpile:watch": "coffee -cw nuxt.config.coffee"
 	},
 	"dependencies": {
-		"@bkwld/cloak": "^1.3.0",
+		"@bkwld/cloak": "^1.4.0",
 		"@bkwld/light-or-dark": "^1.0.1",
 		"nuxt": "^2.15.7",
 		"vue-balance-text": "^1.2.3",
