@@ -1,7 +1,7 @@
 kebabCase = require 'lodash/kebabCase'
 mapKeys = require 'lodash/mapKeys'
 path = require 'path'
-spawn = require '@expo/spawn-async'
+spawnAsync = require '@expo/spawn-async'
 chalk = require 'chalk'
 module.exports =
 
@@ -41,6 +41,18 @@ module.exports =
 				{ name: 'Contentful', value: 'contentful' }
 				{ name: 'None of the above', value: false }
 			]
+		}
+
+		{ # Get Contentful space id
+			name: 'contentfulSpace'
+			message: 'What is your Contentful Space ID?'
+			when: ({ cms }) -> cms == 'contentful'
+		}
+
+		{ # Get Contentful token id
+			name: 'contentfulAccessToken'
+			message: 'What is your Contentful Access Token?'
+			when: ({ cms }) -> cms == 'contentful'
 		}
 
 		{ # Is Shopify supported?
@@ -178,13 +190,15 @@ module.exports =
 
 		# Run Craft installation steps
 		if @answers.cms == 'craft'
-			spawnOptions =
+
+			# Make a spawn helper
+			spawn = (cmd, args) -> spawnAsync cmd, args,
 				stdio: 'inherit'
 				cwd: "#{@outDir}/craft-cms"
 
 			# Install composer deps
 			@logger.info 'Installing Craft Composer deps'
-			await spawn 'composer', ['install'], spawnOptions
+			await spawn 'composer', ['install']
 
 			# Make Craft CLI executable
 			@fs.chmodSync "#{@outDir}/craft-cms/craft", @fs.constants.S_IRWXU
@@ -192,25 +206,46 @@ module.exports =
 			# Install Craft. I broke this up into multiple commands because I ran
 			# into `No primary site exists` issues when running just `craft setup`
 			@logger.info 'Running Craft install'
-			await spawn './craft', ['setup/app-id'], spawnOptions
-			await spawn './craft', ['setup/security-key'], spawnOptions
-			await spawn './craft', ['setup/db'], spawnOptions
+			await spawn './craft', ['setup/app-id']
+			await spawn './craft', ['setup/security-key']
+			await spawn './craft', ['setup/db']
 			@logger.info 'Setup your initial admin user'
 			await spawn './craft', ['install', '--site-name=Site',
-				'--site-url=$PRIMARY_SITE_URL', '--language=en-US'], spawnOptions
+				'--site-url=$PRIMARY_SITE_URL', '--language=en-US']
 			await spawn './craft', ['migrate/all', '--no-backup=1',
-				'--interactive=0'], spawnOptions
-			await spawn './craft', ['update', 'all', '--backup=0'], spawnOptions
-			await spawn 'yarn', ['build'], spawnOptions
+				'--interactive=0']
+			await spawn './craft', ['update', 'all', '--backup=0']
+			await spawn 'yarn', ['build']
 
 			# Link via Valet if installed
 			{ status } = await spawn 'which', ['valet']
 			unless status
 				@logger.info 'Adding Valet link,
 					you\'ll be asked for your OS user password'
-				await spawn 'valet', ['link', @answers.packageName], spawnOptions
+				await spawn 'valet', ['link', @answers.packageName]
 				cmsUrl = "http://#{@answers.packageName}.test"
 				@logger.success "Craft CMS installed at #{cmsUrl}"
+
+		# Run Contentful mirgation steps
+		if @answers.cms == 'contentful'
+
+			# Make a spawn helper
+			spawn = (cmd, args) -> spawnAsync cmd, args, stdio: 'inherit'
+
+			# Login to Contentful CLI
+			@logger.info 'Logging into Contentful for running migrations'
+			await spawn 'yarn', ['contentful', 'login']
+
+			# Run migrations
+			@logger.info 'Running migrations'
+			migration = path.resolve __dirname, 'migrations/contentful/all.json'
+			await spawn 'yarn', [
+				'contentful'
+				'space'
+				'import'
+				"--space-id=#{@answers.contentfulSpace}"
+				"--content-file=#{migration}"
+			]
 
 		# Show next steps
 		logBanner 'Done! Time for next steps:'
@@ -221,9 +256,15 @@ module.exports =
 		then @outDir else "#{@outDir}/nuxt-app"
 		logStep 'Run Hello World', "cd #{nuxtPath} && yarn dev --spa"
 
-		# Show link to login to CMS
+		# Show link to login to Craft CMS
 		if @answers.cms == 'craft'
 		then logStep 'Login to local CMS', localCraftUrl @answers
+
+		# Show link to Contentful CMS
+		if @answers.cms == 'contentful'
+		then logStep 'Edit the starter Tower',
+			"https://app.contentful.com/spaces/#{@answers.contentfulSpace}/entries?\
+				contentTypeId=tower"
 
 		# Add links to Craft docs
 		if @answers.cms == 'craft'
