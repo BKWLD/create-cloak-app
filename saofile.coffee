@@ -81,6 +81,7 @@ module.exports =
 			'components/layout/header/desktop.vue'
 			'components/layout/header/mobile.vue'
 			'components/blocks/copy.vue'
+			'components/blocks/media-asset.vue'
 		]
 
 		# Install nuxt-app to root if no other workspaces are needed and exit
