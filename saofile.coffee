@@ -230,7 +230,9 @@ module.exports =
 		if @answers.cms == 'contentful'
 
 			# Make a spawn helper
-			spawn = (cmd, args) -> spawnAsync cmd, args, stdio: 'inherit'
+			spawn = (cmd, args) -> spawnAsync cmd, args,
+				stdio: 'inherit'
+				cwd: __dirname
 
 			# Login to Contentful CLI
 			@logger.info 'Logging into Contentful for running migrations'
