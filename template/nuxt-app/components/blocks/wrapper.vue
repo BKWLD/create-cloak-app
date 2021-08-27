@@ -15,6 +15,9 @@ section.wrapper(
 
 <script lang='coffee'>
 import { isDark } from '@bkwld/light-or-dark'
+if (cms == 'contentful') { _%>
+import colors from '~/assets/vars/colors.json'
+<%_ } _%>
 export default
 
 	props: block: Object
