@@ -19,7 +19,7 @@ export default
 		<%_ if (cms == 'craft') { _%>
 		classes: -> "height-#{@heightSlug}"
 		<%_ } else if (cms == 'contentful') { _%>
-		classes: -> "height-#{@block.height}"
+		classes: -> "height-#{@heightSlug}"
 
 		# Map heights to shorthands
 		heightSlug: -> switch @block.height
