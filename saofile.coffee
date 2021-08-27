@@ -1,4 +1,5 @@
 kebabCase = require 'lodash/kebabCase'
+mapKeys = require 'lodash/mapKeys'
 path = require 'path'
 spawn = require '@expo/spawn-async'
 chalk = require 'chalk'
@@ -89,6 +90,10 @@ module.exports =
 			'store/globals.coffee'
 		]
 
+		# nuxt-app filter rules
+		nuxtFilters =
+			'components/globals/rich-text/*': answers.cms == 'contentful'
+
 		# Install nuxt-app to root if no other workspaces are needed and exit
 		if rootNuxtApp answers
 			actions.push # Copy all the files
@@ -96,6 +101,7 @@ module.exports =
 				templateDir: 'template/nuxt-app'
 				files: '**'
 				transformInclude: nuxtTransformInclude
+				filters: nuxtFilters
 			actions.push # Merge gitignores
 				type: 'modify'
 				files: '_gitignore'
@@ -114,6 +120,7 @@ module.exports =
 			files: 'nuxt-app/**'
 			transformInclude: nuxtTransformInclude.map (file) ->
 				"nuxt-app/#{file}"
+			filters: mapKeys nuxtFilters, (val, key) -> "nuxt-app/#{key}"
 
 		# Add craft-cms
 		if cms == 'craft'

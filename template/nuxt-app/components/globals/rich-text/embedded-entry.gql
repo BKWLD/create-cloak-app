@@ -1,0 +1,18 @@
+# Lookup an entry that is embedable in a rich-text field
+query($id: String) {
+	entryCollection(limit: 1, where: {sys: {id: $id}}) {
+		items {
+
+			# Common vars
+			__typename
+			sys { id }
+
+			# A standard button instance
+			... on Button {
+				text
+				url
+			}
+
+		}
+	}
+}
