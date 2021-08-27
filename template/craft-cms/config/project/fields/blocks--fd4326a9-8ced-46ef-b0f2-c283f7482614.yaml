@@ -1,3 +1,4 @@
+columnSuffix: null
 contentColumnType: string
 fieldGroup: 4723082f-b4ea-427d-8daa-882f0807e848 # Towers
 handle: blocks
@@ -10,7 +11,7 @@ settings:
   maxTopBlocks: ''
   minBlocks: ''
   propagationMethod: all
-  wasModified: false
+  wasModified: true
 translationKeyFormat: null
 translationMethod: site
 type: benf\neo\Field

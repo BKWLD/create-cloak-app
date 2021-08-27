@@ -1,4 +1,4 @@
-childBlocks: null
+childBlocks: ''
 field: fd4326a9-8ced-46ef-b0f2-c283f7482614 # Blocks
 fieldLayouts:
   b2473d25-6559-428a-9777-1174c536d33f:
@@ -13,6 +13,15 @@ fieldLayouts:
             fieldUid: 835037b1-cdf8-4cb3-880c-88910f020cd4 # Full WYSIWYG
             instructions: ''
             label: Copy
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1ac617c7-6c7b-4a88-9a21-da83b6fb9db7 # Text Alignment
+            instructions: null
+            label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField

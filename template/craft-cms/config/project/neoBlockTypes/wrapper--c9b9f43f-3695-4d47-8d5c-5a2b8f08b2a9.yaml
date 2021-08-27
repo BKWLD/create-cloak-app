@@ -21,8 +21,6 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
-          -
-            type: benf\neo\fieldlayoutelements\ChildBlocksUiElement
         name: Content
         sortOrder: 1
 handle: wrapper

@@ -80,6 +80,7 @@ module.exports =
 			'.env.example'
 			'components/layout/header/desktop.vue'
 			'components/layout/header/mobile.vue'
+			'components/blocks/copy.vue'
 		]
 
 		# Install nuxt-app to root if no other workspaces are needed and exit

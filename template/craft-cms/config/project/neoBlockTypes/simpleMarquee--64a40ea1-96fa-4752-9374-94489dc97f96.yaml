@@ -1,4 +1,4 @@
-childBlocks: null
+childBlocks: ''
 field: fd4326a9-8ced-46ef-b0f2-c283f7482614 # Blocks
 fieldLayouts:
   c1966eaf-31ee-45a3-b760-92b32f4a0b56:
@@ -13,7 +13,7 @@ fieldLayouts:
             fieldUid: 1a4b6751-b39b-4889-a185-e55df4e88fdb # Text
             instructions: ''
             label: Title
-            required: ''
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
