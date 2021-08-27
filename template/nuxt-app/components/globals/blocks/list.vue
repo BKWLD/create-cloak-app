@@ -10,7 +10,7 @@
 		<%_ if (cms == 'craft') { _%>
 		:key='block.id || index'
 		<%_ } else if (cms == 'contentful') { _%>
-		:key='id'
+		:key='index'
 		<%_ } _%>
 		:index='index + indexOffset')
 		component(:is='block.componentName' :block='block')
