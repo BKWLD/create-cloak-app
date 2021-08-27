@@ -24,11 +24,18 @@ import Vue from 'vue'
 
 # Mapping of Craft _typename to component
 export mapping =
+	<%_ if (cms == 'craft') { _%>
 	blocks_copy_BlockType: 'blocks-copy'
 	blocks_mediaAsset_BlockType: 'blocks-media-asset'
 	blocks_simpleMarquee_BlockType: 'blocks-simple-marquee'
 	blocks_spacer_BlockType: 'blocks-spacer'
 	blocks_wrapper_BlockType: 'blocks-wrapper'
+	<%_ } else if (cms == 'contentful') { _%>
+	BlockCopy: 'blocks-copy'
+	BlockMediaAsset: 'blocks-media-asset'
+	BlockSpacer: 'blocks-spacer'
+	BlockWrapper: 'blocks-wrapper'
+	<%_ } _%>
 
 # Hard import marquee components so they don't get chunked
 import '~/components/blocks/simple-marquee'
