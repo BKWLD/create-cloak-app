@@ -99,6 +99,9 @@ export default
 	align-items center
 	justify-content center
 
+	// Clear possibly inheritted underline
+	text-decoration none
+
 	// Disable cursor when disabled
 	&[disabled]
 		cursor default
