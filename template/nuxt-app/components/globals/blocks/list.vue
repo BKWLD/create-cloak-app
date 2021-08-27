@@ -7,7 +7,11 @@
 	//- Render component
 	blocks-commons(
 		v-for='(block, index) in createdBlocks'
+		<%_ if (cms == 'craft') { _%>
 		:key='block.id || index'
+		<%_ } else if (cms == 'contentful') { _%>
+		:key='id'
+		<%_ } _%>
 		:index='index + indexOffset')
 		component(:is='block.componentName' :block='block')
 
