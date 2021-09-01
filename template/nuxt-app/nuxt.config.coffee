@@ -2,9 +2,6 @@
 { mergeConfig, makeBoilerplate, isDev, isGenerating } = require '@bkwld/cloak'
 boilerplate = makeBoilerplate
 	siteName: '<%= name %>'
-	<%_ if (sentryRepoName) { _%>
-	repoName: '<%= sentryRepoName %>'
-	<%_ } _%>
 	<%_ if (cms) { _%>
 	cms: '<%= cms %>'
 	<%_ if (cms == 'craft') { _%>

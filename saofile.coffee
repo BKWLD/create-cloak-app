@@ -20,16 +20,10 @@ module.exports =
 			default: ({ name }) -> kebabCase name
 		}
 
-		{ # Get the GitLab project organization
-			name: 'organization'
-			message: 'What is the full (not slugified) GitLab organization for the project?'
-		}
-
-		{ # Get the GitLab project organization
-			name: 'sentryRepoName'
-			message: 'What is the full (not slugified) GitLab name for the project?'
-			when: ({ organization }) -> !!organization
-			default: ({ name }) -> name
+		{ # Get the sentry project name
+			name: 'sentryProjectName'
+			message: 'What is the name of the project in Sentry?'
+			default: ({ packageName }) -> packageName
 		}
 
 		{ # Choose a CMS type
@@ -80,6 +74,7 @@ module.exports =
 			type: 'add'
 			files: '*'
 			transformInclude: [
+				'.sentryclirc'
 				'package.json'
 				'README.md'
 			]
