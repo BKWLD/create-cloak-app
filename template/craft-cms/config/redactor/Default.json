@@ -8,16 +8,9 @@
 		"image",
 		"html"
 	],
-	"plugins": [
-		"fontcolor"
-	],
 	"linkNewTab": true,
 	"toolbarFixed": true,
 	"structure": true,
-	"fontcolors": [
-		"#685ff7",
-		"#919191"
-	],
 	"formatting": [],
 	"formattingAdd": {
 		"regular": {
