@@ -46,11 +46,14 @@ main
 .skip-content
 	position absolute
 	left -1000px
-	top (header-h + 10px)
+	+tablet-up()
+		top (header-h + spacing-s)
+	+tablet-down()
+		top (header-h-mobile + spacing-s-min)
 	z-index header-z // stacked below nav but above page content
 
 	&:focus
-		left 10px
+		fluid left, gutter, gutter-mobile
 		outline none
 
 </style>
