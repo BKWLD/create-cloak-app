@@ -3,13 +3,14 @@
 <template lang='pug'>
 
 .default-layout
+	a.skip-content(href='#main') Skip to main content
 
 	//- Header stuff
 	layout-header-desktop
 	layout-header-mobile
 
 	//- Page content
-	main
+	main#main
 		nuxt.page
 		layout-footer
 
@@ -41,5 +42,18 @@ main
 	margin-h auto
 	width 100%
 	overflow hidden
+
+.skip-content
+	position absolute
+	left -1000px
+	+tablet-up()
+		top (header-h + spacing-s)
+	+tablet-down()
+		top (header-h-mobile + spacing-s-min)
+	z-index header-z // stacked below nav but above page content
+
+	&:focus
+		fluid left, gutter, gutter-mobile
+		outline none
 
 </style>
