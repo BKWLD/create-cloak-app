@@ -17,7 +17,13 @@ class m210710_202119_create_hello_world_tower extends Migration
      */
     public function safeUp()
     {
+        $this->makeHomepage();
+        $this->make404();
+        $this->make500();
+    }
 
+    private function makeHomepage()
+    {
         $tower = $this->makeTowerEntry();
         $tower->title = 'Homepage';
         $tower->slug = '__home__';
@@ -57,6 +63,60 @@ class m210710_202119_create_hello_world_tower extends Migration
                 //     ],
                 // ]
 
+            ],
+        ]);
+        Craft::$app->elements->saveElement($tower);
+    }
+
+    private function make404()
+    {
+        $tower = $this->makeTowerEntry();
+        $tower->title = 'Page Not Found';
+        $tower->slug = 'page-not-found';
+        $tower->setFieldValues([
+            'blocks' => [
+                [
+                    'type' => 'simpleMarquee',
+                    'fields' => [
+                        'text' => 'Page Not Found',
+                        'buttons' => [
+                            [
+                                'type' => $this->getButtonsTypeId(),
+                                'fields' => [
+                                    'label' => 'Return home',
+                                    'to' => '/',
+                                ]
+                            ]
+                        ]
+                    ],
+                ],
+            ],
+        ]);
+        Craft::$app->elements->saveElement($tower);
+    }
+
+    private function make500()
+    {
+        $tower = $this->makeTowerEntry();
+        $tower->title = 'Error';
+        $tower->slug = 'error';
+        $tower->setFieldValues([
+            'blocks' => [
+                [
+                    'type' => 'simpleMarquee',
+                    'fields' => [
+                        'text' => 'An Error Occurred',
+                        'buttons' => [
+                            [
+                                'type' => $this->getButtonsTypeId(),
+                                'fields' => [
+                                    'label' => 'Return home',
+                                    'to' => '/',
+                                ]
+                            ]
+                        ]
+                    ],
+                ],
             ],
         ]);
         Craft::$app->elements->saveElement($tower);

@@ -21,11 +21,6 @@ boilerplate = makeBoilerplate
 # Nuxt config
 module.exports = mergeConfig boilerplate,
 
-	# Add production internal URL
-	anchorParser: internalUrls: [
-		# /^https?:\/\/(www\.)?domain\.com/
-	]
-
 	<%_ if (cms == 'craft') { _%>
 	buildModules: [
 		'@bkwld/cloak/build/craft-netlify-redirects.js'
@@ -36,3 +31,12 @@ module.exports = mergeConfig boilerplate,
 		'vue-unorphan/nuxt/module'
 		'vue-balance-text/nuxt/module'
 	]
+
+	# Expect specially slug-ed towers to exist that will be loaded by error.vue
+	generate: fallback: true
+
+	# Add production internal URL
+	anchorParser: internalUrls: [
+		# /^https?:\/\/(www\.)?domain\.com/
+	]
+
