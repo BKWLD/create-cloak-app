@@ -11,7 +11,7 @@ cd craft-cms
 composer install --no-interaction --prefer-dist --optimize-autoloader
 
 # Rebuild CMS Stylesheet
-yarn
+yarn install --frozen-lockfile
 yarn build
 
 # Prevent cache from getting too large
