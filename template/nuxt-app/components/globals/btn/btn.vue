@@ -64,6 +64,10 @@ export default
 		if @to
 			create 'smart-link', {
 				...data
+				domProps: {
+					...data.domProps
+					role: 'button'
+				}
 				props: { @to }
 			}, children
 
