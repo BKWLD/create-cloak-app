@@ -11,7 +11,7 @@
 use craft\helpers\App;
 
 $isDev = App::env('ENVIRONMENT') === 'dev';
-$isProd = App::env('ENVIRONMENT') === 'production';
+$isProd = App::env('ENVIRONMENT') === 'prod';
 
 return [
 
@@ -63,11 +63,11 @@ return [
 
     // Aliases config
     'aliases' => [
-        
+
         // Support clearing caches from CLI
         // https://github.com/craftcms/cms/issues/3787#issuecomment-462971290
         '@webroot' => dirname(__DIR__) . '/web',
-        
+
         // Form the Spaces Base URL from other vars
         '@spacesBaseUrl' => '//'.App::env('SPACES_BUCKET')
             .'.'.App::env('SPACES_REGION')
