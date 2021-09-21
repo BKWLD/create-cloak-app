@@ -64,6 +64,10 @@ export default
 		if @to
 			create 'smart-link', {
 				...data
+				attrs: {
+					...data.attrs
+					role: 'button'
+				}
 				props: { @to }
 			}, children
 
