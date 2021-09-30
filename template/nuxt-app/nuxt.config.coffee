@@ -27,6 +27,11 @@ module.exports = mergeConfig boilerplate,
 	]
 	<%_ } _%>
 
+	<%_ if (cms == 'contentful') { _%>
+	env:
+		CONTENTFUL_PREVIEW: process.env.CONTENTFUL_PREVIEW
+	<%_ } _%>
+
 	modules: [
 		'vue-unorphan/nuxt/module'
 		'vue-balance-text/nuxt/module'

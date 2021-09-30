@@ -38,7 +38,9 @@ export default
 		<%_ } else if (cms == 'contentful') { _%>
 		page = payload || await app.$contentful.getEntry
 			query: getTower
-			variables: route: params.tower || '/'
+			variables:
+				route: params.tower || '/'
+				preview: !!process.env.CONTENTFUL_PREVIEW
 		<%_ } _%>
 		return app.$notFound() unless page
 

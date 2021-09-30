@@ -3,8 +3,12 @@
 #import "@bkwld/cloak/fragments/contentful/image.gql"
 
 # Get a tower
-query($path: String) {
-	towerCollection(limit: 1, where: { path: $path }) {
+query($path: String, $preview:Boolean = false) {
+	towerCollection(
+		limit: 1,
+		preview: $preview,
+		where: { path: $path }
+	) {
 		items {
 			... on Tower {
 
