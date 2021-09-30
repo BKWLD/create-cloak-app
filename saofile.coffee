@@ -200,7 +200,7 @@ module.exports =
 			@fs.chmodSync "#{@outDir}/craft-cms/craft", @fs.constants.S_IRWXU
 
 			# Install Craft. I broke this up into multiple commands because I ran
-			# into `No primary site exists` issues when running just `craft setup`
+			# into `No primary site exists` issues when running just `craft setup`.
 			@logger.info 'Running Craft install'
 			await spawn './craft', ['setup/app-id']
 			await spawn './craft', ['setup/security-key']
@@ -210,6 +210,7 @@ module.exports =
 				'--site-url=$PRIMARY_SITE_URL', '--language=en-US']
 			await spawn './craft', ['migrate/all', '--no-backup=1',
 				'--interactive=0']
+			await spawn './craft', ['update', 'craft', '--backup=0']
 			await spawn './craft', ['update', 'all', '--backup=0']
 			await spawn 'yarn', ['build']
 
