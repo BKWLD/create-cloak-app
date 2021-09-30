@@ -112,7 +112,7 @@ export default
 
 	// Add hover/active effects
 	&:not([disabled])
-		+hover-focus(true)
+		+hover(true)
 			.shape
 				background primary-color-dark
 				transition-duration .2s
