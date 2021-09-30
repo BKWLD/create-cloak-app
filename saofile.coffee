@@ -188,7 +188,7 @@ module.exports =
 		if @answers.cms == 'craft'
 
 			# Make a spawn helper
-			spawn = (cmd, args) -> spawnAsync cmd, args,
+			spawn = (cmd, args) => spawnAsync cmd, args,
 				stdio: 'inherit'
 				cwd: "#{@outDir}/craft-cms"
 
