@@ -39,7 +39,7 @@ export default
 		page = payload || await app.$contentful.getEntry
 			query: getTower
 			variables:
-				route: params.tower || '/'
+				path: params.tower || '/'
 				preview: !!process.env.CONTENTFUL_PREVIEW
 		<%_ } _%>
 		return app.$notFound() unless page
