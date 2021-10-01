@@ -43,9 +43,15 @@ module.exports =
 			when: ({ cms }) -> cms == 'contentful'
 		}
 
-		{ # Get Contentful token id
+		{ # Get Contentful access token
 			name: 'contentfulAccessToken'
-			message: 'What is your Contentful Access Token?'
+			message: 'What is your Contentful Delivery API Access Token?'
+			when: ({ cms }) -> cms == 'contentful'
+		}
+
+		{ # Get Contentful preview access token
+			name: 'contentfulPreviewAccessToken'
+			message: 'What is your Contentful Preview API Access Token?'
 			when: ({ cms }) -> cms == 'contentful'
 		}
 
