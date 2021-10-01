@@ -3,7 +3,7 @@
 #import "@bkwld/cloak/fragments/contentful/image.gql"
 
 # Get a tower
-query($path: String, $preview:Boolean = false) {
+query($path: String, $preview: Boolean = false) {
 	towerCollection(
 		limit: 1,
 		preview: $preview,
