@@ -31,7 +31,7 @@ return [
     'devMode' => $isDev,
 
     // Whether administrative changes should be allowed
-    'allowAdminChanges' => $isDev,
+    'allowAdminChanges' => true,
 
     // Whether crawlers should be allowed to index pages and following links
     'disallowRobots' => !$isProd,
@@ -47,6 +47,9 @@ return [
 
     // Don't transform gifs, GD doesnt support gifs
     'transformGifs' => false,
+    
+    // No need to transform SVGs either
+    'transformSvgs' => false,
 
     // Keep fewer database backups
     'maxBackups' => 5,
