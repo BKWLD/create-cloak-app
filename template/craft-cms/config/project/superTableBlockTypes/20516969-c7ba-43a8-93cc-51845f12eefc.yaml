@@ -40,10 +40,20 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
+          -
+            fieldUid: f2c0a6d4-dbae-4a40-aaf5-9ba8f676f926 # Canonical URL
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 fields:
   6fc04ae2-bc2a-4021-aed9-24b0a9a6ec9e: # Title
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: metaTitle
@@ -63,6 +73,7 @@ fields:
     translationMethod: none
     type: craft\fields\PlainText
   8738446a-ff18-4110-9a8e-29c2f68ff4de: # Robots
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: robots
@@ -109,6 +120,7 @@ fields:
     translationMethod: none
     type: craft\fields\Checkboxes
   c56835da-8ddd-4bce-b6fc-a8f0de829635: # Image
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: metaImage
@@ -142,6 +154,7 @@ fields:
     translationMethod: site
     type: craft\fields\Assets
   d8e7d38f-9b07-4e45-bb42-946070c16724: # Description
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: metaDescription
@@ -160,3 +173,19 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
+  f2c0a6d4-dbae-4a40-aaf5-9ba8f676f926: # Canonical URL
+    columnSuffix: null
+    contentColumnType: string(255)
+    fieldGroup: null
+    handle: canonicalUrl
+    instructions: 'If present, this will override the default behavior of using the current URL as the canonical value.'
+    name: 'Canonical URL'
+    searchable: false
+    settings:
+      maxLength: '255'
+      placeholder: null
+      types:
+        - url
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
