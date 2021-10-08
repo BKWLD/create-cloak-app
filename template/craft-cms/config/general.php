@@ -47,6 +47,9 @@ return [
 
     // Don't transform gifs, GD doesnt support gifs
     'transformGifs' => false,
+    
+    // No need to transform SVGs either
+    'transformSvgs' => false,
 
     // Keep fewer database backups
     'maxBackups' => 5,
