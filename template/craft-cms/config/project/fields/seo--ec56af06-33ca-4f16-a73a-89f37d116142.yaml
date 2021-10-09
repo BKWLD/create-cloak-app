@@ -1,3 +1,4 @@
+columnSuffix: null
 contentColumnType: string
 fieldGroup: 4723082f-b4ea-427d-8daa-882f0807e848 # Towers
 handle: seo
@@ -30,6 +31,13 @@ settings:
               - ''
       -
         - 8738446a-ff18-4110-9a8e-29c2f68ff4de # Robots
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - f2c0a6d4-dbae-4a40-aaf5-9ba8f676f926 # Canonical URL
         -
           __assoc__:
             -
