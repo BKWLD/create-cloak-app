@@ -6,7 +6,7 @@ boilerplate = makeBoilerplate
 	cms: '<%= cms %>'
 	<%_ if (cms == 'craft') { _%>
 	pageTypes: [ 'towers_towers_Entry' ]
-	<%_ } else { _%>
+	<%_ } else if (cms == 'contentful') { _%>
 	pageTypes: pageTypes: [
 		{
 			contentType: 'tower'
@@ -28,6 +28,9 @@ module.exports = mergeConfig boilerplate,
 	<%_ } _%>
 
 	modules: [
+		<%_ if (cms == '@nuxt/content') { _%>
+		'@nuxt/content'
+		<%_ } _%>
 		'vue-unorphan/nuxt/module'
 		'vue-balance-text/nuxt/module'
 	]

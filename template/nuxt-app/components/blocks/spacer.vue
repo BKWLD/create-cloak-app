@@ -16,8 +16,8 @@ export default
 	computed:
 
 		# Root classes
-		<%_ if (cms == 'craft') { _%>
-		classes: -> "height-#{@heightSlug}"
+		<%_ if (cms == 'craft' || cms == '@nuxt/content') { _%>
+		classes: -> "height-#{@block.height}"
 		<%_ } else if (cms == 'contentful') { _%>
 		classes: -> "height-#{@heightSlug}"
 

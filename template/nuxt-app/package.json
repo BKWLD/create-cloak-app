@@ -19,8 +19,11 @@
 		"transpile:watch": "coffee -cw nuxt.config.coffee"
 	},
 	"dependencies": {
-		"@bkwld/cloak": "^1.7.0",
+		"@bkwld/cloak": "^1.9.2",
 		"@bkwld/light-or-dark": "^1.0.1",
+		<%_ if (cms == '@nuxt/content') { _%>
+		"@nuxt/content": "1.14.0",
+		<%_ } _%>
 		"nuxt": "^2.15.7",
 		"vue-balance-text": "^1.2.3",
 		"vue-detachable-header": "^0.2.0",

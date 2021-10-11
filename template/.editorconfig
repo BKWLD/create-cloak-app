@@ -15,3 +15,8 @@ trim_trailing_whitespace = false
 [*.php]
 indent_style = space
 indent_size = 4
+
+<%_ if (cms == '@nuxt/content') { _%>
+[content/*.yml]
+indent_style = space
+<%_ } _%>

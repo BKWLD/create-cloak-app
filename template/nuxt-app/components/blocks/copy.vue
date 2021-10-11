@@ -4,7 +4,7 @@
 
 section.copy.max-w-small(:class='classes')
 
-	<%_ if (cms == 'craft') { _%>
+	<%_ if (cms == 'craft' || cms == '@nuxt/content') { _%>
 	wysiwyg(
 		:html='block.body'
 		:balance-text='block.balanceText'

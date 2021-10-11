@@ -9,7 +9,7 @@
 		v-for='(block, index) in createdBlocks'
 		<%_ if (cms == 'craft') { _%>
 		:key='block.id || index'
-		<%_ } else if (cms == 'contentful') { _%>
+		<%_ } else if (cms == 'contentful' || cms == '@nuxt/content') { _%>
 		:key='index'
 		<%_ } _%>
 		:index='index + indexOffset')
@@ -35,6 +35,11 @@ export mapping =
 	BlockMediaAsset: 'blocks-media-asset'
 	BlockSpacer: 'blocks-spacer'
 	BlockWrapper: 'blocks-wrapper'
+	<%_ } else if (cms == '@nuxt/content') { _%>
+	copy: 'blocks-copy'
+	mediaAsset: 'blocks-media-asset'
+	simpleMarquee: 'blocks-simple-marquee'
+	spacer: 'blocks-spacer'
 	<%_ } _%>
 
 # Hard import marquee components so they don't get chunked

@@ -33,6 +33,7 @@ module.exports =
 			choices: [
 				{ name: 'Craft', value: 'craft' }
 				{ name: 'Contentful', value: 'contentful' }
+				{ name: '@nuxt/content', value: '@nuxt/content' }
 				{ name: 'None of the above', value: false }
 			]
 		}
@@ -80,6 +81,7 @@ module.exports =
 			type: 'add'
 			files: '*'
 			transformInclude: [
+				'.editorconfig'
 				'.sentryclirc'
 				'package.json'
 				'README.md'
@@ -107,6 +109,9 @@ module.exports =
 		# nuxt-app filter rules
 		nuxtFilters =
 			'components/globals/rich-text/*': answers.cms == 'contentful'
+			'content/*': answers.cms == '@nuxt/content'
+			'static/imgs/*': answers.cms == '@nuxt/content'
+			'store/*': answers.cms in ['craft', 'contentful']
 
 		# Install nuxt-app to root if no other workspaces are needed and exit
 		if rootNuxtApp answers

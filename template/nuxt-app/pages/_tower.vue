@@ -22,7 +22,11 @@ export default
 	mixins: [ pageMixin ]
 
 	# Get Tower data
-	asyncData: ({ app, store, params, payload }) ->
+	<%_ if (cms == '@nuxt/content') { _%>
+	asyncData: ({ app, params, $content }) ->
+	<%_ } else { _%>
+	asyncData: ({ app, params, payload }) ->
+	<%_ } _%>
 
 		# Don't query for these paths
 		return app.$notFound() if params.tower in [ '__webpack_hmr' ]
@@ -39,6 +43,8 @@ export default
 		page = payload || await app.$contentful.getEntry
 			query: getTower
 			variables: path: params.tower || '/'
+		<%_ } else if (cms == '@nuxt/content') { _%>
+		page = await $content(params.tower || 'home').fetch()
 		<%_ } _%>
 		return app.$notFound() unless page
 

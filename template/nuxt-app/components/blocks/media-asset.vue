@@ -17,6 +17,11 @@ section.media-asset(:class='classes')
 		:portraitImage='block.asset.imagePortrait'
 		:landscapeVideo='block.asset.videoLandscape'
 		:portraitVideo='block.asset.videoPortrait')
+	<%_ } else if (cms == '@nuxt/content') { _%>
+	cloak-visual(
+		sizes='100vw'
+		:image='block.image'
+		:video='block.video')
 	<%_ } _%>
 
 </template>
@@ -31,7 +36,7 @@ export default
 	computed:
 
 		# Apply max-width choice
-		<%_ if (cms == 'craft') { _%>
+		<%_ if (cms == 'craft' || cms == '@nuxt/content') { _%>
 		classes: -> @block.maxWidth
 		<%_ } else if (cms == 'contentful') { _%>
 		classes: -> @maxWidth
