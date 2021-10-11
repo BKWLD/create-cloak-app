@@ -42,7 +42,7 @@ export default
 		<%_ } else if (cms == 'contentful') { _%>
 		page = payload || await app.$contentful.getEntry
 			query: getTower
-			variables: path: params.tower || '/'
+			variables: path: params.tower || '__home__'
 		<%_ } else if (cms == '@nuxt/content') { _%>
 		page = await $content(params.tower || 'home').fetch()
 		<%_ } _%>
