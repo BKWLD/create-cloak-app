@@ -31,4 +31,4 @@ blocks:
   -
     __typename: 'mediaAsset'
     image: '/imgs/home/image.png'
-		maxWidth: 'max-w'
+    maxWidth: 'max-w'
