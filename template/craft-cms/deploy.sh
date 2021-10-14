@@ -9,6 +9,8 @@ git push
 # Install Composer changes from local dev
 cd craft-cms
 composer install --no-interaction --prefer-dist --optimize-autoloader
+./craft migrate/all --interactive=0
+./craft project-config/apply --interactive=0
 
 # Rebuild CMS Stylesheet
 yarn install --frozen-lockfile
