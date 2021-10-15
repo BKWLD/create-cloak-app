@@ -28,9 +28,6 @@ export default
 	asyncData: ({ app, params, payload }) ->
 	<%_ } _%>
 
-		# Don't query for these paths
-		return app.$notFound() if params.tower in [ '__webpack_hmr' ]
-
 		# Get data
 		<%_ if (cms == 'craft') { _%>
 		[ page ] = payload || await app.$craft.getEntries
