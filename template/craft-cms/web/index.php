@@ -21,6 +21,12 @@ if (class_exists('Dotenv\Dotenv') && file_exists(CRAFT_BASE_PATH . '/.env')) {
     Dotenv\Dotenv::create(CRAFT_BASE_PATH)->load();
 }
 
+// Redirect requests to correct hostname
+if (!str_contains(getenv('BASE_CP_URL'), $_SERVER['HTTP_HOST'])) {
+    header('Location: '.getenv('BASE_CP_URL').$_SERVER['REQUEST_URI']);
+    exit;
+}
+
 // Define additional PHP constants
 // (see https://craftcms.com/docs/3.x/config/#php-constants)
 define('CRAFT_ENVIRONMENT', getenv('ENVIRONMENT') ?: 'prod');
