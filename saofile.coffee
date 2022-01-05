@@ -20,10 +20,16 @@ module.exports =
 			default: ({ name }) -> kebabCase name
 		}
 
-		{ # Get the sentry project name
+		{ # Get the Sentry project name
 			name: 'sentryProjectName'
 			message: 'What is the name of the project in Sentry?'
 			default: ({ packageName }) -> packageName
+		}
+
+		{ # Get the Sentry DSN
+			name: 'sentryDsn'
+			message: 'What is the Sentry DSN?'
+			when: ({ sentryProjectName }) -> !!sentryProjectName
 		}
 
 		{ # Choose a CMS type
@@ -61,7 +67,37 @@ module.exports =
 			type: 'confirm'
 			message: 'Is this a hybrid Shopify site?'
 			default: false
+			when: ({ cms }) -> cms == 'craft' # Only supporting Craft at the moment
 		}
+
+		{ # Get the Shopify dev hostname
+			name: 'shopifyDevHostname'
+			message: 'What is the Shopify dev hostname'
+			when: 'shopify'
+			default: ({ packageName }) -> "dev-shop.#{packageName}.bukwild.com"
+		}
+
+		{ # Get the Shopify prod hostname
+			name: 'shopifyProdHostname'
+			message: 'What is the Shopify prod hostname'
+			when: 'shopify'
+			default: ({ packageName }) -> "prod-shop.#{packageName}.bukwild.com"
+		}
+
+		{ # Get the Nuxt dev hostname
+			name: 'nuxtDevHostname'
+			message: 'What is the Nuxt app\'s dev hostname'
+			when: 'shopify'
+			default: ({ packageName }) -> "dev-www.#{packageName}.bukwild.com"
+		}
+
+		{ # Get the Nuxt prod hostname
+			name: 'nuxtProdHostname'
+			message: 'What is the Nuxt app\'s prod hostname'
+			when: 'shopify'
+			default: ({ packageName }) -> "prod-www.#{packageName}.bukwild.com"
+		}
+
 	]
 
 	# Assemble some additional shared data
@@ -83,9 +119,12 @@ module.exports =
 			transformInclude: [
 				'.editorconfig'
 				'.sentryclirc'
+				'.gitlab-ci.yml'
 				'package.json'
 				'README.md'
 			]
+			filters:
+				'.gitlab-ci.yml': shopify # Only needed for pushing Shopify themes
 
 		# nuxt-app paths that have template data
 		nuxtTransformInclude = [

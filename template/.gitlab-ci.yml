@@ -1,0 +1,118 @@
+################################################################################
+# Setup
+
+# Use a Cypress image in expectation of future E2E tests
+image: cypress/base:12
+
+# Caching by yarn.lock so multiple pipelines can use the same cache if the lock
+# hasn't changed.
+cache:
+  key:
+    files:
+      - yarn.lock
+  paths:
+    - cache # May be used in the future
+    - node_modules
+    - "*/node_modules"
+
+# Global variables
+variables: &global-variables
+
+  # All enviornmants and jobs use the same CMS
+  <%_ if (cms == 'craft') { _%>
+  CMS_ENDPOINT=<%= localCraftUrl %>/api
+  CMS_SITE=
+  <%_ } else if (cms == 'contentful') { _%>
+  CONTENTFUL_SPACE=<%= contentfulSpace %>
+  CONTENTFUL_ACCESS_TOKEN=<%= contentfulAccessToken %>
+  CONTENTFUL_PREVIEW_ACCESS_TOKEN=<%= contentfulPreviewAccessToken %>
+  CONTENTFUL_PREVIEW=true
+  <%_ } _%>
+
+  # I don't _think_ this is necessary to be cached, so not doing it to
+  # reduce the size of the cache. But not 100% sure, so leaving it commented
+  # out as a reminder for now. Note, this is different than Yarn recommends,
+  # they say don't cache node_modules. But pulling the cache was a lot faster
+  # this way.  I think cypress is less concerned about speed than I am with
+  # their recommendation.
+  # https://docs.cypress.io/guides/guides/continuous-integration.html#We-recommend-users
+  # YARN_CACHE_FOLDER: $CI_PROJECT_DIR/cache/yarn
+
+# Only one stage since starting jobs has so much overhead
+stages:
+  - execute
+
+# Make variables to DRY up changes check that limits jobs running to the stacks
+# that had changes.
+.shopify-changes: &shopify-changes
+  changes:
+    - .gitlab-ci.yml
+    - library/**/*
+    - shopify-theme/**/*
+.nuxt-changes: &nuxt-changes
+  changes:
+    - .gitlab-ci.yml
+    - library/**/*
+    - nuxt-app/**/*
+
+# Shopify theme deploys cannot be run simultaneously on an environment
+.deploy-shopify-theme:
+
+  # Don't allow multiple deploys to run at once
+  resource_group: $APP_ENV
+
+  # Use same Sentry DSN for all Shopify deploys
+  variables:
+    <<: *global-variables
+    SENTRY_DSN: <%= sentryDsn %>
+
+  # Deployment URL
+  environment:
+    name: Shopify / $APP_ENV
+    url: $SHOPIFY_URL
+
+  # Add theme kit as well as install yarn deps
+  before_script:
+    - yarn install --frozen-lockfile
+    - curl -s https://raw.githubusercontent.com/Shopify/themekit/master/scripts/install.py | python
+
+
+################################################################################
+# Deploy master and shopify branches on commit, using shared runners
+Shopify theme deploy:
+  stage: execute
+  extends: .deploy-shopify-theme
+
+  # Swap out vars for each environment
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'deploy/dev'
+      <<: *shopify-changes
+      variables:
+        APP_ENV: dev
+        NUXT_APP_URL: https://<%= nuxtDevHostname %>
+        SHOPIFY_API_PASSWORD: $SHOPIFY_API_PASSWORD_DEV
+        SHOPIFY_STOREFRONT_TOKEN: $SHOPIFY_STOREFRONT_TOKEN_DEV
+        SHOPIFY_THEMEKIT_ENV: dev
+        SHOPIFY_URL: https://<%= shopifyDevHostname %>
+        URL: https://<%= shopifyDevHostname %>
+    - if: $CI_COMMIT_BRANCH == 'main'
+      <<: *shopify-changes
+      variables:
+        APP_ENV: prod
+        NUXT_APP_URL: https://<%= nuxtProdHostname %>
+        SHOPIFY_API_PASSWORD: $SHOPIFY_API_PASSWORD_PROD
+        SHOPIFY_STOREFRONT_TOKEN: $SHOPIFY_STOREFRONT_TOKEN_PROD
+        SHOPIFY_THEMEKIT_ENV: prod
+        SHOPIFY_URL: https://<%= shopifyProdHostname %>
+        URL: https://<%= shopifyProdHostname %>
+
+  # Run the build command
+  script:
+
+    # Build chunks
+    - cd shopify-theme
+    - yarn transpile
+    - NODE_ENV=production yarn webpack
+
+    # Deploy the theme
+    - theme deploy --env=$SHOPIFY_THEMEKIT_ENV --nodelete --allow-live
