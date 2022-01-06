@@ -3,5 +3,51 @@
 	"author": "Bukwild",
 	"version": "0.0.1",
 	"license": "UNLICENSED",
-	"private": true
+	"private": true,
+	"scripts": {
+		"dev": "yarn transpile && webpack-dev-server",
+		"dev:theme": "yarn theme deploy && yarn theme open && yarn theme watch",
+		"watch": "yarn transpile && NODE_ENV=production webpack --watch --progress",
+		"stats": "NODE_ENV=production webpack --profile --json > /tmp/shopify-theme-stats.json && webpack-bundle-analyzer /tmp/shopify-theme-stats.json",
+		"build": "yarn install && yarn transpile && NODE_ENV=production APP_ENV=$APP_ENV SENTRY_DSN=$SENTRY_DSN webpack --progress --hide-modules",
+		"theme": "source .env && SHOPIFY_API_PASSWORD=$SHOPIFY_API_PASSWORD theme --env=$SHOPIFY_DEFAULT_ENV",
+		"download:data:dev": "source .env && SHOPIFY_API_PASSWORD=$SHOPIFY_API_PASSWORD theme download config/settings_data.json --env=dev",
+		"deploy:dev": "source .env && export APP_ENV=dev SHOPIFY_API_PASSWORD=$SHOPIFY_API_PASSWORD SENTRY_DSN=$SENTRY_DSN && yarn build && theme deploy --env=dev --nodelete --allow-live",
+		"transpile": "yarn transpile:fonts",
+		"transpile:fonts": "yarn fontagon generate --style=stylus --fontName=fontagon --dist=styles/fontagon-dist --baseClass=icon --classPrefix=icon --styleTemplate='../node_modules/@bkwld/cloak/build/fontagon-template.hbs' '../library/assets/fonts/fontagon/*'"
+	},
+	"dependencies": {
+		"@sentry/integrations": "^5.15.5",
+		"library": "*",
+		"nuxt-app": "*",
+		"objectFitPolyfill": "^2.3.0",
+		"vue": "^2.6.11",
+		"vuex": "^3.1.3"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.8.7",
+		"@babel/preset-env": "^7.8.7",
+		"@weotch/fontagon-cli": "^1.1.0",
+		"autoprefixer": "^9.7.5",
+		"babel-loader": "^8.0.6",
+		"deepmerge": "^4.2.2",
+		"dotenv": "^8.2.0",
+		"dotenv-webpack": "^1.7.0",
+		"fibers": "^4.0.2",
+		"file-loader": "^6.0.0",
+		"html-webpack-plugin": "^3.2.0",
+		"mini-css-extract-plugin": "^0.9.0",
+		"optimize-css-assets-webpack-plugin": "^5.0.3",
+		"postcss-loader": "^3.0.0",
+		"regenerator-runtime": "^0.13.5",
+		"style-loader": "^1.1.3",
+		"url-loader": "^4.1.0",
+		"vue-loader": "^15.9.1",
+		"vue-template-compiler": "^2.6.11",
+		"webpack": "^4.42.0",
+		"webpack-bundle-analyzer": "^3.7.0",
+		"webpack-dev-server": "^3.10.3",
+		"webpack-require-from": "^1.8.1",
+		"wrapper-webpack-plugin": "^2.1.0"
+	}
 }
