@@ -210,6 +210,7 @@ module.exports =
 				'_gitignore': '.gitignore'
 				'craft-cms/_gitignore': 'craft-cms/.gitignore'
 				'nuxt-app/_gitignore': 'nuxt-app/.gitignore'
+				'shopify-theme/_gitignore': 'shopify-theme/.gitignore'
 
 		# Populate yarn workspaces
 		actions.push
