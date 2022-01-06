@@ -10,32 +10,32 @@ module.exports =
 
 		{ # Get project name
 			name: 'name'
-			message: 'What is the full name of the new project?'
+			message: 'Project full name'
 			default: this.outFolder
 		}
 
 		{ # Get the package name
 			name: 'packageName'
-			message: 'What should be the package name of the project?'
+			message: 'Project package name'
 			default: ({ name }) -> kebabCase name
 		}
 
 		{ # Get the Sentry project name
 			name: 'sentryProjectName'
-			message: 'What is the name of the project in Sentry?'
+			message: 'Sentry project name'
 			default: ({ packageName }) -> packageName
 		}
 
 		{ # Get the Sentry DSN
 			name: 'sentryDsn'
-			message: 'What is the Sentry DSN?'
+			message: 'Sentry DSN'
 			when: ({ sentryProjectName }) -> !!sentryProjectName
 		}
 
 		{ # Choose a CMS type
 			name: 'cms'
 			type: 'list'
-			message: 'Which CMS are you using?'
+			message: 'CMS Choice'
 			choices: [
 				{ name: 'Craft', value: 'craft' }
 				{ name: 'Contentful', value: 'contentful' }
@@ -46,58 +46,81 @@ module.exports =
 
 		{ # Get Contentful space id
 			name: 'contentfulSpace'
-			message: 'What is your Contentful Space ID?'
+			message: 'Contentful Space ID'
 			when: ({ cms }) -> cms == 'contentful'
 		}
 
 		{ # Get Contentful access token
 			name: 'contentfulAccessToken'
-			message: 'What is your Contentful Delivery API Access Token?'
+			message: 'Contentful Delivery API Access Token?'
 			when: ({ cms }) -> cms == 'contentful'
 		}
 
 		{ # Get Contentful preview access token
 			name: 'contentfulPreviewAccessToken'
-			message: 'What is your Contentful Preview API Access Token?'
+			message: 'Contentful Preview API Access Token?'
 			when: ({ cms }) -> cms == 'contentful'
 		}
 
 		{ # Is Shopify supported?
 			name: 'shopify'
 			type: 'confirm'
-			message: 'Is this a hybrid Shopify site?'
+			message: 'Is hybrid Shopify site'
 			default: false
 			when: ({ cms }) -> cms == 'craft' # Only supporting Craft at the moment
 		}
 
 		{ # Get the Shopify dev hostname
 			name: 'shopifyDevHostname'
-			message: 'What is the Shopify dev hostname'
-			when: 'shopify'
+			message: '[Dev store] Shopify hostname'
+			when: ({ shopify }) -> shopify
 			default: ({ packageName }) -> "dev-shop.#{packageName}.bukwild.com"
 		}
 
-		{ # Get the Shopify prod hostname
-			name: 'shopifyProdHostname'
-			message: 'What is the Shopify prod hostname'
-			when: 'shopify'
-			default: ({ packageName }) -> "prod-shop.#{packageName}.bukwild.com"
+		{ # Get Shopify dev API key used for theme publishing
+			name: 'shopifyDevApiPassword'
+			message: '[Dev store] Private app\'s Admin API Password'
+			when: ({ shopify }) -> shopify
+		}
+
+		{ # Get Shopify dev Storefont API token
+			name: 'shopifyDevStorefrontToken'
+			message: '[Dev store] Private app\'s Storefront Access Token'
+			when: ({ shopify }) -> shopify
 		}
 
 		{ # Get the Nuxt dev hostname
 			name: 'nuxtDevHostname'
-			message: 'What is the Nuxt app\'s dev hostname'
-			when: 'shopify'
+			message: '[Dev store] Nuxt app\'s dev hostname'
+			when: ({ shopify }) -> shopify
 			default: ({ packageName }) -> "dev-www.#{packageName}.bukwild.com"
+		}
+
+		{ # Get the Shopify prod hostname
+			name: 'shopifyProdHostname'
+			message: '[Prod store] Shopify hostname'
+			when: ({ shopify }) -> shopify
+			default: ({ packageName }) -> "prod-shop.#{packageName}.bukwild.com"
+		}
+
+		{ # Get Shopify prod API key used for theme publishing
+			name: 'shopifyProdApiPassword'
+			message: '[Prod store] Private app\'s Admin API Password'
+			when: ({ shopify }) -> shopify
+		}
+
+		{ # Get Shopify prod Storefont API token
+			name: 'shopifyProdStorefrontToken'
+			message: '[Prod store] Private app\'s Storefront Access Token'
+			when: ({ shopify }) -> shopify
 		}
 
 		{ # Get the Nuxt prod hostname
 			name: 'nuxtProdHostname'
-			message: 'What is the Nuxt app\'s prod hostname'
-			when: 'shopify'
+			message: '[Prod store] Nuxt app\'s prod hostname'
+			when: ({ shopify }) -> shopify
 			default: ({ packageName }) -> "prod-www.#{packageName}.bukwild.com"
 		}
-
 	]
 
 	# Assemble some additional shared data
@@ -195,7 +218,11 @@ module.exports =
 		if shopify then actions.push
 			type: 'add'
 			files: 'shopify-theme/**'
-			transform: false
+			transformInclude: [
+				'.env'
+				'.env.example'
+				'config.yml'
+			]
 
 		# Is there a shared library package
 		if hasLibrary answers then actions.push
