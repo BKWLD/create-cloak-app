@@ -38,3 +38,8 @@ export getNuxtAppHost = once -> (new URL getNuxtAppUrl()).host
 # Get the current apex (root) domain
 export currentApexDomain = ->
 	location.hostname.match(/(?:^|\.)((?:[^.]+\.)?[^.]+)$/)[1]
+
+# Should we fetch statically generated data
+export shouldUseStaticData = ->
+	process.env.APP_ENV == 'prod' and
+	window? and isShopifyUrl window.location.href

@@ -26,17 +26,22 @@ boilerplate = makeBoilerplate
 # Nuxt config
 module.exports = mergeConfig boilerplate,
 
-	<%_ if (cms == 'craft') { _%>
 	<%_ if (shopify) { _%>
 	env:
 		SHOPIFY_URL: process.env.SHOPIFY_URL
 		SHOPIFY_STOREFRONT_TOKEN: process.env.SHOPIFY_STOREFRONT_TOKEN
 	<%_ } _%>
 
+
 	buildModules: [
+		<%_ if (cms == 'craft') { _%>
 		'@bkwld/cloak/build/craft-netlify-redirects.js'
+		<%_ } _%>
+		<%_ if (shopify) { _%>
+		'~/modules/compiled/ssg-variants.js'
+		'~/modules/compiled/static-data.js'
+		<%_ } _%>
 	]
-	<%_ } _%>
 
 	modules: [
 		<%_ if (cms == '@nuxt/content') { _%>
@@ -52,6 +57,13 @@ module.exports = mergeConfig boilerplate,
 		{ src: 'plugins/services' }
 		<%_ } _%>
 	]
+
+	<%_ if (hasLibrary) { _%>
+	# External code that needs transpiling
+	build: transpile: [
+		/^library\/.+/ # Library workspace files
+	]
+	<%_ } _%>
 
 	# Expect specially slug-ed towers to exist that will be loaded by error.vue
 	generate: fallback: true
