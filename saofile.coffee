@@ -190,6 +190,7 @@ module.exports =
 			'components/blocks/spacer.vue'
 			'components/blocks/wrapper.vue'
 			'components/globals/blocks/list.vue'
+			'queries/craft/craft-pages.gql'
 			'plugins/components.coffee'
 			'layouts/error.vue'
 			'pages/_tower.vue'
@@ -202,6 +203,8 @@ module.exports =
 			'content/*': answers.cms == '@nuxt/content'
 			'static/imgs/*': answers.cms == '@nuxt/content'
 			'store/*': answers.cms in ['craft', 'contentful']
+			'queries/craft/shopify-product.gql': shopify
+			'queries/craft/pages/product.gql': shopify
 
 		# Install nuxt-app to root if no other workspaces are needed and exit
 		if rootNuxtApp answers

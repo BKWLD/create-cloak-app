@@ -1,0 +1,66 @@
+#import "library/queries/shopify/fragments/image.gql"
+
+# Get the data needed for the PDP from a product
+query ($handle: String!) {
+	product: productByHandle(handle:$handle) {
+
+		# Product options
+		description: descriptionHtml
+		onlineStoreUrl
+		options {
+			name
+			values
+		}
+
+		# List of variants
+		variants(first:100) {
+			edges {
+				node { ...variant }
+			}
+		}
+	}
+}
+
+# Variant info
+fragment variant on ProductVariant {
+
+	# General
+	id
+	sku
+	title
+	image { ...image }
+
+	# Options
+	selectedOptions {
+		name
+		value
+	}
+
+	# Pricing
+	price: priceV2 { ...price }
+	compareAtPrice: compareAtPriceV2 { ...price }
+	available: availableForSale
+	sellingPlanAllocations(first: 20) {
+		edges {  node { ...sellingPlanAllocation } }
+	}
+}
+
+# Get selling plan options
+fragment sellingPlanAllocation on SellingPlanAllocation {
+
+	# The plan id and interval description
+	sellingPlan {
+		id
+		name
+	}
+
+	# The effective price
+	priceAdjustments {
+		price { ...price }
+	}
+}
+
+# Money helper
+fragment price on MoneyV2 {
+	amount
+}

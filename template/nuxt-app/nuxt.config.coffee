@@ -5,7 +5,12 @@ boilerplate = makeBoilerplate
 	<%_ if (cms) { _%>
 	cms: '<%= cms %>'
 	<%_ if (cms == 'craft') { _%>
-	pageTypes: [ 'towers_towers_Entry' ]
+	pageTypes: [
+		'towers_towers_Entry'
+		<%_ if (shopify) { _%>
+		'products_products_Entry'
+		<%_ } _%>
+	]
 	<%_ } else if (cms == 'contentful') { _%>
 	pageTypes: pageTypes: [
 		{
@@ -43,6 +48,9 @@ module.exports = mergeConfig boilerplate,
 
 	plugins: [
 		{ src: 'plugins/components' }
+		<%_ if (shopify) { _%>
+		{ src: 'plugins/services' }
+		<%_ } _%>
 	]
 
 	# Expect specially slug-ed towers to exist that will be loaded by error.vue

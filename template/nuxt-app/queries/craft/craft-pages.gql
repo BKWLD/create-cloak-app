@@ -1,12 +1,17 @@
 #import "./pages/tower.gql"
+<%_ if (shopify) { _%>
+#import "./pages/product.gql"
+<%_ } _%>
 
 # Get all pages and their content for SSG
 query getCraftPages(
+	$site:[String]
 	$section:[String!]
 	$type:[String!]
 	$uri:[String]) {
 
 	entries(
+		site:$site
 		section:$section
 		type:$type
 		uri:$uri) {
@@ -17,5 +22,8 @@ query getCraftPages(
 
 		# Page types
 		...tower
+		<%_ if (shopify) { _%>
+		...product
+		<%_ } _%>
 	}
 }
