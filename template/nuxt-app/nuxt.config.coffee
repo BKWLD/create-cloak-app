@@ -22,6 +22,12 @@ boilerplate = makeBoilerplate
 module.exports = mergeConfig boilerplate,
 
 	<%_ if (cms == 'craft') { _%>
+	<%_ if (shopify) { _%>
+	env:
+		SHOPIFY_URL: process.env.SHOPIFY_URL
+		SHOPIFY_STOREFRONT_TOKEN: process.env.SHOPIFY_STOREFRONT_TOKEN
+	<%_ } _%>
+
 	buildModules: [
 		'@bkwld/cloak/build/craft-netlify-redirects.js'
 	]
