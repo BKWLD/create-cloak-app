@@ -1,6 +1,8 @@
 isPublic: true
 name: 'Public Schema'
 scope:
+  - 'sections.032b2c9b-ff4b-4191-b76a-1ecad594e614:read' # Products
+  - 'entrytypes.6cf89d15-da1d-4624-9120-c33ada5df8d4:read' # Products
   - 'sections.8b15badc-af4c-44f7-a29d-0efff2f88cfc:read' # Redirects
   - 'entrytypes.acc19cab-c962-4a2b-ab8b-c6a1a0e754ad:read' # Redirects
   - 'sections.6a560d02-778f-4c45-ba9b-8d733af642a2:read' # Towers
