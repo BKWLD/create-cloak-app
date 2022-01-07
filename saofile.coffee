@@ -148,6 +148,9 @@ module.exports =
 		hasLibrary: hasLibrary @answers
 		localCraftUrl: localCraftUrl @answers
 
+		# Defaults for action specific vars
+		loadFromLibrary: false
+
 	# Setup the template manipulation actions. I'm explicitly whitelisting
 	# transformed files so it's easy to track where those are.
 	actions: ({ answers }) ->
@@ -175,6 +178,7 @@ module.exports =
 			'nuxt.config.coffee'
 			'.env'
 			'.env.example'
+			'assets/app.styl'
 			'components/layout/header/desktop.vue'
 			'components/layout/header/mobile.vue'
 			'components/blocks/copy.vue'
@@ -244,10 +248,20 @@ module.exports =
 			]
 
 		# Is there a shared library package
-		if hasLibrary answers then actions.push
-			type: 'add'
-			files: 'library/**'
-			transform: false
+		if hasLibrary answers
+			actions.push # Copy all simple files
+				type: 'add'
+				files: 'library/**'
+				transform: false
+			actions.push # Move nuxt-app assets over to the library
+				type: 'move'
+				patterns: 'nuxt-app/assets': 'library/assets'
+			actions.push # Restore nuxt-app's app.styl but have it load from library
+				type: 'add'
+				files: 'nuxt-app/assets/app.styl'
+				templateData:
+					hasLibrary: true
+					loadFromLibrary: true
 
 		# Move .gitignore files into place, which get ignored by npm pack
 		actions.push
