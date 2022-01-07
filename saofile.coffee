@@ -169,7 +169,11 @@ module.exports =
 				'README.md'
 			]
 			filters:
-				'.gitlab-ci.yml': shopify # Only needed for pushing Shopify themes
+				'.gitlab-ci.yml': shopify # For pushing Shopify theme on git push
+
+				# Used by shopify-theme webpack config
+				'babel.config.json': shopify
+				'postcss.config.js': shopify
 
 		# nuxt-app paths that have template data
 		nuxtTransformInclude = [
