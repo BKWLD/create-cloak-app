@@ -57,3 +57,7 @@ module.exports = mergeConfig boilerplate,
 			# /^https?:\/\/(www\.)?domain\.com/
 		]
 
+	<%_ if (hasLibrary) { _%>
+	# Load source icons from library
+	iconFont: files: ['../library/assets/fonts/fontagon/*.svg']
+	<%_ } _%>
