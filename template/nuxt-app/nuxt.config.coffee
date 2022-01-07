@@ -35,11 +35,19 @@ module.exports = mergeConfig boilerplate,
 		'vue-balance-text/nuxt/module'
 	]
 
+	plugins: [
+		{ src: 'plugins/components' }
+	]
+
 	# Expect specially slug-ed towers to exist that will be loaded by error.vue
 	generate: fallback: true
 
 	# Add production internal URL
-	anchorParser: internalUrls: [
-		# /^https?:\/\/(www\.)?domain\.com/
-	]
+	anchorParser:
+		<%_ if (shopify) { _%>
+		disableSmartLinkRegistration: true
+		<%_ } _%>
+		internalUrls: [
+			# /^https?:\/\/(www\.)?domain\.com/
+		]
 

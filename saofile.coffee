@@ -186,6 +186,7 @@ module.exports =
 			'components/blocks/spacer.vue'
 			'components/blocks/wrapper.vue'
 			'components/globals/blocks/list.vue'
+			'plugins/components.coffee'
 			'layouts/error.vue'
 			'pages/_tower.vue'
 			'store/globals.coffee'
