@@ -1,1 +1,1 @@
-// Put your application javascript here
+// Required to exist by Shopify themekit
