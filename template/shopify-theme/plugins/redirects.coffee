@@ -1,5 +1,5 @@
 # Deps
-import { makeNuxtUrl } from 'library/services/helpers'
+import { makeNuxtUrl } from 'library/helpers/routing'
 
 # Redirect to www's 404 page
 location.href = makeNuxtUrl '/404' if window.IS_404

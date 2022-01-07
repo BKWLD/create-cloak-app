@@ -118,7 +118,7 @@ module.exports =
 					{
 						loader: 'stylus-loader'
 						options: import: path.resolve __dirname,
-							'../library/styles/definitions.styl'
+							'../library/assets/definitions.styl'
 					}
 				]
 			}
