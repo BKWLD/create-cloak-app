@@ -1,0 +1,19 @@
+dev:
+  password: ${SHOPIFY_API_PASSWORD}
+  theme_id:
+  store: <%= shopifyDevHostname %>
+
+prod:
+  password: ${SHOPIFY_API_PASSWORD}
+  theme_id:
+  store: <%= shopifyProdHostname %>
+
+<%= firstName %>:
+  password: ${SHOPIFY_API_PASSWORD}
+  theme_id:
+  store: <%= shopifyDevHostname %>
+
+<%= firstName %>-prod:
+  password: ${SHOPIFY_API_PASSWORD}
+  theme_id:
+  store: <%= shopifyProdHostname %>

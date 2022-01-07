@@ -1,5 +1,6 @@
 kebabCase = require 'lodash/kebabCase'
 mapKeys = require 'lodash/mapKeys'
+capitalize = require 'lodash/capitalize'
 path = require 'path'
 spawnAsync = require '@expo/spawn-async'
 chalk = require 'chalk'
@@ -53,12 +54,16 @@ module.exports =
 		{ # Get Contentful access token
 			name: 'contentfulAccessToken'
 			message: 'Contentful Delivery API Access Token?'
+			type: 'password'
+			mask: '*'
 			when: ({ cms }) -> cms == 'contentful'
 		}
 
 		{ # Get Contentful preview access token
 			name: 'contentfulPreviewAccessToken'
 			message: 'Contentful Preview API Access Token?'
+			type: 'password'
+			mask: '*'
 			when: ({ cms }) -> cms == 'contentful'
 		}
 
@@ -70,6 +75,12 @@ module.exports =
 			when: ({ cms }) -> cms == 'craft' # Only supporting Craft at the moment
 		}
 
+		{ # Name for Shopify themes
+			name: 'firstName'
+			message: 'Your first name, lowercase'
+			when: ({ shopify }) -> shopify
+		}
+
 		{ # Get the Shopify dev hostname
 			name: 'shopifyDevHostname'
 			message: '[Dev store] Shopify hostname'
@@ -79,13 +90,17 @@ module.exports =
 
 		{ # Get Shopify dev API key used for theme publishing
 			name: 'shopifyDevApiPassword'
-			message: '[Dev store] Private app\'s Admin API Password'
+			message: '[Dev store] Bukwild Connect\'s Admin API password'
+			type: 'password'
+			mask: '*'
 			when: ({ shopify }) -> shopify
 		}
 
 		{ # Get Shopify dev Storefont API token
 			name: 'shopifyDevStorefrontToken'
-			message: '[Dev store] Private app\'s Storefront Access Token'
+			message: '[Dev store] Bukwild Connect\'s Storefront API access token'
+			type: 'password'
+			mask: '*'
 			when: ({ shopify }) -> shopify
 		}
 
@@ -105,13 +120,17 @@ module.exports =
 
 		{ # Get Shopify prod API key used for theme publishing
 			name: 'shopifyProdApiPassword'
-			message: '[Prod store] Private app\'s Admin API Password'
+			message: '[Prod store] Bukwild Connect\'s Admin API password'
+			type: 'password'
+			mask: '*'
 			when: ({ shopify }) -> shopify
 		}
 
 		{ # Get Shopify prod Storefont API token
 			name: 'shopifyProdStorefrontToken'
-			message: '[Prod store] Private app\'s Storefront Access Token'
+			message: '[Prod store] Bukwild Connect\'s Storefront API access token'
+			type: 'password'
+			mask: '*'
 			when: ({ shopify }) -> shopify
 		}
 
@@ -219,9 +238,9 @@ module.exports =
 			type: 'add'
 			files: 'shopify-theme/**'
 			transformInclude: [
-				'.env'
-				'.env.example'
-				'config.yml'
+				'shopify-theme/.env'
+				'shopify-theme/.env.example'
+				'shopify-theme/config.yml'
 			]
 
 		# Is there a shared library package
@@ -324,9 +343,75 @@ module.exports =
 				"--content-file=#{migration}"
 			]
 
+		# Run Shopify mirgation steps
+		if @answers.shopify
+
+			# Make a spawn helper
+			spawn = (cmd, args, options = {}) => spawnAsync cmd, args, {
+				stdio: 'inherit'
+				cwd: "#{@outDir}/shopify-theme"
+				...options
+			}
+
+			# Create dev themes
+			if @answers.shopifyDevApiPassword
+				@logger.info 'Creating dev themes'
+				await spawn 'theme', [
+					'new'
+					"--name=Dev"
+					"--store=#{@answers.shopifyDevHostname}"
+					"--password=#{@answers.shopifyDevApiPassword}"
+				]
+				@logger.info 'Creating dev store developer theme'
+				await spawn 'theme', [
+					'new'
+					"--name=Developer: #{capitalize(@answers.firstName)}"
+					"--store=#{@answers.shopifyDevHostname}"
+					"--password=#{@answers.shopifyDevApiPassword}"
+				]
+				devThemes = (await spawn 'theme', [
+					'get'
+					'--list'
+					"--store=#{@answers.shopifyDevHostname}"
+					"--password=#{@answers.shopifyDevApiPassword}"
+				], stdio: false).stdout
+
+			# Create prod themes
+			if @answers.shopifyProdApiPassword
+				@logger.info 'Creating prod store public theme'
+				await spawn 'theme', [
+					'new'
+					"--name=Prod"
+					"--store=#{@answers.shopifyProdHostname}"
+					"--password=#{@answers.shopifyProdApiPassword}"
+				]
+				@logger.info 'Creating prod store developer theme'
+				await spawn 'theme', [
+					'new'
+					"--name=Developer: #{capitalize(@answers.firstName)}"
+					"--store=#{@answers.shopifyProdHostname}"
+					"--password=#{@answers.shopifyProdApiPassword}"
+				]
+				prodThemes = (await spawn 'theme', [
+					'get'
+					'--list'
+					"--store=#{@answers.shopifyProdHostname}"
+					"--password=#{@answers.shopifyProdApiPassword}"
+				], stdio: false).stdout
+
 		# Show next steps
 		logBanner 'Done! Time for next steps:'
 		docs = 'https://github.com/BKWLD/create-cloak-app/blob/main/docs'
+
+		# Show instructions to replace theme ids. I'm replacing the first line,
+		# which is "Available theme versions:", with my own header
+		if @answers.shopify
+			if devThemes or prodThemes
+				logStep 'Populate shopify-theme/config.yml'
+			if devThemes
+				console.log chalk.italic devThemes.replace /^.+/, 'Dev themes:'
+			if prodThemes
+				console.log chalk.italic prodThemes.replace /^.+/, 'Prod themes:'
 
 		# Show link to run nuxt-app locally
 		nuxtPath = if rootNuxtApp @answers
@@ -373,7 +458,7 @@ logBanner = (text, color = 'green') ->
 logStep = (label, step) ->
 	console.log ''
 	console.log chalk.bold label
-	console.log chalk.italic step
+	if step then console.log chalk.italic step
 
 # Install queries from the cms to the queries directory.  This requires a
 # couple of steps
