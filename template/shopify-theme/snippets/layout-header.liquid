@@ -1,22 +1,14 @@
 {% comment %} The header nav {% endcomment %}
-<div inline-template is='header-placeholder'>
+<div inline-template is='header-placeholder'><div>
 
 	{% comment %} Placeholder while vue header loads {% endcomment %}
-	<div v-if='!loaded' class='header-placeholder'>
-
-		{% comment %}
-			The site logo with max-width so not huge while CSS inits
-		{% endcomment %}
-		<img
-			src='{{ "logo.svg" | asset_url }}'
-			class='header-placeholder__logo-site'
-			style='max-width: 182px;'>
+	<div class='header-placeholder' v-if='!$store.state.globals.hydrated'>
+		<span>Loading...</span>
 	</div>
 
 	{% comment %} The Vue data hydrated header {% endcomment %}
-	<div v-else>
-		<cart-flyout></cart-flyout>
+	<template v-else>
 		<header-desktop></header-desktop>
 		<header-mobile></header-mobile>
-	</div>
-</div>
+	</template>
+</div></div>

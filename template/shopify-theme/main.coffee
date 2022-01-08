@@ -12,10 +12,17 @@ import './plugins/sentry'
 # Global styles
 import './styles/app.styl'
 
+# VueX
+import './plugins/vuex'
+
+# Setup GTM instrumentation
+# import './plugins/gtm'
+
 # Add global helpers
 import './plugins/helpers'
 
 # Boot misc global JS
 import 'focus-visible'
 import './plugins/directives'
-import './plugins/components'
+import { initComponents } from './plugins/components'
+initComponents()

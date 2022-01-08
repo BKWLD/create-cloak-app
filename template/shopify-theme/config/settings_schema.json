@@ -1,9 +1,20 @@
 [
-  {
-    "name": "theme_info",
-    "theme_name": "Cloak",
-    "theme_version": "1.0.0",
-    "theme_author": "Bukwild",
-    "theme_support_url": "https://www.bukwild.com/contact"
-  }
+	{
+		"name": "theme_info",
+		"theme_name": "Cloak",
+		"theme_version": "1.0.0",
+		"theme_author": "Bukwild",
+		"theme_documentation_url": "https://github.com/BKWLD/create-cloak-app",
+		"theme_support_url": "https://www.bukwild.com/contact"
+	},
+	{
+		"name": "Google Tag Manager",
+		"settings": [
+			{
+				"type": "text",
+				"id": "gtm_id",
+				"label": "GTM ID"
+			}
+		]
+	}
 ]

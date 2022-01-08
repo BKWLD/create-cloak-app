@@ -28,19 +28,25 @@
 	{% comment %} No-JS GTM {% endcomment %}
 	{% render 'gtm-body' %}
 
-	{% comment %} The header nav {% endcomment %}
-	{% render 'layout-header' %}
+	{% comment %} Page container {% endcomment %}
+	<div class='default-layout'>
 
-	{% comment %} Page content {% endcomment %}
-	<main role="main">
-		{{ content_for_layout }}
-	</main>
+		{% comment %} The header nav {% endcomment %}
+		{% render 'layout-header' %}
 
-	{% comment %} Load JS chunks {% endcomment %}
-	{% render 'webpack-body' %}
+		{% comment %} Page content {% endcomment %}
+		<main class="default-layout_main" role='main'>
+			<div class="default-layout_page">
+				{{ content_for_layout }}
+			</div>
 
-	{% comment %} Smile.io SDK {% endcomment %}
-	{% render 'smile-initializer' %}
+			{% comment %} The header nav {% endcomment %}
+			{% render 'layout-footer' %}
+		</main>
 
+		{% comment %} Load JS chunks {% endcomment %}
+		{% render 'webpack-body' %}
+
+	</div>
 </body>
 </html>

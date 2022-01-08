@@ -5,12 +5,13 @@ import { execute } from '@bkwld/cloak/services/craft'
 
 # Global data
 export state = ->
+	hydrated: false
 	defaultSeo: null
 
 export mutations =
 
 	# Replace the whole state
-	set: (state, data) -> Object.assign state, data
+	set: (state, data) -> Object.assign state, data, hydrated: true
 
 export actions =
 

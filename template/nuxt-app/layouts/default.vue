@@ -28,6 +28,13 @@ export default
 
 <style lang='stylus' scoped>
 
+// Prevent mega-wide pages
+.default-layout
+	max-width max-w-full
+	margin-h auto
+	width 100%
+	overflow hidden
+
 // On short pages, pin the footer to the bottom of the page
 main
 	min-height 100vh
@@ -35,13 +42,6 @@ main
 	flex-direction column
 .page
 	flex-grow 1
-
-// Prevent mega-wide pages
-.default-layout
-	max-width max-w-full
-	margin-h auto
-	width 100%
-	overflow hidden
 
 .skip-content
 	position absolute

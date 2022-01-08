@@ -21,3 +21,25 @@ Vue.component 'smart-link',
 		if isNuxtUrl to
 		then makeAnchor create, context, makeNuxtUrl to
 		else makeAnchor create, context
+
+# Shared header & footer
+import HeaderPlaceholder from '../components/layout/header-placeholder'
+import Footer from 'library/components/layout/footer/footer'
+Vue.component 'header-placeholder', HeaderPlaceholder
+Vue.component 'layout-footer', Footer
+
+# Mount components
+export initComponents = ->
+
+	# Find places to mount components
+	# - inline-templates are used for components who use liquid for the template
+	# - data-vue-component is for rendering a component in place
+	els = document.querySelectorAll('[inline-template], [data-vue-component]')
+
+	# Mount components
+	els.forEach ( el ) ->
+		return if el.matches '[inline-template] [inline-template]'
+		new Vue
+			store: window.$store
+			delimiters: ['${', '}']
+			el: el
