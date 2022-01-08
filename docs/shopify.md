@@ -17,3 +17,7 @@
   - `SHOPIFY_API_PASSWORD_PROD`
   - `SHOPIFY_STOREFRONT_TOKEN_DEV`
   - `SHOPIFY_STOREFRONT_TOKEN_PROD`
+
+4. Publish the Dev and Prod themes on the respective Shopify store
+
+5. Populate GTM ID in the Theme Settings
