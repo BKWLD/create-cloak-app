@@ -83,9 +83,16 @@ module.exports =
 
 		{ # Get the Shopify dev hostname
 			name: 'shopifyDevHostname'
-			message: '[Dev store] Shopify hostname'
+			message: '[Dev store] Shopify public hostname'
 			when: ({ shopify }) -> shopify
 			default: ({ packageName }) -> "dev-shop.#{packageName}.bukwild.com"
+		}
+
+		{ # Get the myshopify.com dev hostname
+			name: 'shopifyDevMyShopifyHostname'
+			message: '[Dev store] Shopify internal myshopify.com hostname'
+			when: ({ shopify }) -> shopify
+			default: ({ packageName }) -> "#{packageName}-dev.myshopify.com"
 		}
 
 		{ # Get Shopify dev API key used for theme publishing
@@ -113,9 +120,16 @@ module.exports =
 
 		{ # Get the Shopify prod hostname
 			name: 'shopifyProdHostname'
-			message: '[Prod store] Shopify hostname'
+			message: '[Prod store] Shopify public hostname'
 			when: ({ shopify }) -> shopify
 			default: ({ packageName }) -> "prod-shop.#{packageName}.bukwild.com"
+		}
+
+		{ # Get the myshopify.com prod hostname
+			name: 'shopifyProdMyShopifyHostname'
+			message: '[Prod store] Shopify internal myshopify.com hostname'
+			when: ({ shopify }) -> shopify
+			default: ({ packageName }) -> "#{packageName}.myshopify.com"
 		}
 
 		{ # Get Shopify prod API key used for theme publishing
@@ -402,20 +416,20 @@ module.exports =
 				await spawn 'theme', [
 					'new'
 					"--name=Dev"
-					"--store=#{@answers.shopifyDevHostname}"
+					"--store=#{@answers.shopifyDevMyShopifyHostname}"
 					"--password=#{@answers.shopifyDevApiPassword}"
 				]
 				@logger.info 'Creating dev store developer theme'
 				await spawn 'theme', [
 					'new'
 					"--name=Developer: #{capitalize(@answers.firstName)}"
-					"--store=#{@answers.shopifyDevHostname}"
+					"--store=#{@answers.shopifyDevMyShopifyHostname}"
 					"--password=#{@answers.shopifyDevApiPassword}"
 				]
 				devThemes = (await spawn 'theme', [
 					'get'
 					'--list'
-					"--store=#{@answers.shopifyDevHostname}"
+					"--store=#{@answers.shopifyDevMyShopifyHostname}"
 					"--password=#{@answers.shopifyDevApiPassword}"
 				], stdio: false).stdout
 
@@ -425,20 +439,20 @@ module.exports =
 				await spawn 'theme', [
 					'new'
 					"--name=Prod"
-					"--store=#{@answers.shopifyProdHostname}"
+					"--store=#{@answers.shopifyProdMyShopifyHostname}"
 					"--password=#{@answers.shopifyProdApiPassword}"
 				]
 				@logger.info 'Creating prod store developer theme'
 				await spawn 'theme', [
 					'new'
 					"--name=Developer: #{capitalize(@answers.firstName)}"
-					"--store=#{@answers.shopifyProdHostname}"
+					"--store=#{@answers.shopifyProdMyShopifyHostname}"
 					"--password=#{@answers.shopifyProdApiPassword}"
 				]
 				prodThemes = (await spawn 'theme', [
 					'get'
 					'--list'
-					"--store=#{@answers.shopifyProdHostname}"
+					"--store=#{@answers.shopifyProdMyShopifyHostname}"
 					"--password=#{@answers.shopifyProdApiPassword}"
 				], stdio: false).stdout
 
