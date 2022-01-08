@@ -48,12 +48,11 @@ export default
 	mixins: [ pageMixin ]
 
 	# Structured meta
-	head: -> {
-		...@buildHead
-			title: @product.title
-			description: @product.description
-			image: @primaryImage
-	}
+	head: -> @buildHead
+		title: @product.title
+		description: @product.description
+		image: @primaryImage
+		canonical: @currentVariant?.url
 
 	# Get Product data
 	asyncData: ({ app, store, params, payload }) ->
