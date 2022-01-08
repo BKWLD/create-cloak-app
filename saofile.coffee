@@ -199,12 +199,23 @@ module.exports =
 
 		# nuxt-app filter rules
 		nuxtFilters =
+
+			# Contentful only
 			'components/globals/rich-text/*': answers.cms == 'contentful'
+
+			# @nuxt/content only
 			'content/*': answers.cms == '@nuxt/content'
 			'static/imgs/*': answers.cms == '@nuxt/content'
+
+			# CMSs with global data
 			'store/*': answers.cms in ['craft', 'contentful']
+
+			# Shopify-only
+			'pages/products/_product/_variant.vue': shopify
+			'plugins/hydrate-cart.coffee': shopify
 			'queries/craft/shopify-product.gql': shopify
 			'queries/craft/pages/product.gql': shopify
+			'store/cart.coffee': shopify
 
 		# Install nuxt-app to root if no other workspaces are needed and exit
 		if rootNuxtApp answers

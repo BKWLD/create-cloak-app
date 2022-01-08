@@ -2,6 +2,7 @@
 Helpers related to persistent storage like cookies or local storage
 ###
 import Cookies from 'js-cookie'
+import { currentApexDomain } from './routing'
 
 # Helpers for interacting with cookies that get shared across domains
 export cookie = new class SharedCookie

@@ -55,6 +55,7 @@ module.exports = mergeConfig boilerplate,
 		{ src: 'plugins/components' }
 		<%_ if (shopify) { _%>
 		{ src: 'plugins/services' }
+		{ src: 'plugins/hydrate-cart', mode: 'client' }
 		<%_ } _%>
 	]
 
@@ -62,6 +63,14 @@ module.exports = mergeConfig boilerplate,
 	# External code that needs transpiling
 	build: transpile: [
 		/^library\/.+/ # Library workspace files
+	]
+	<%_ } _%>
+
+	<%_ if (hasLibrary) { _%>
+	# Customize component autoloading
+	components: [
+		...boilerplate.components
+		'~/../library/components' # Support auto loading from library
 	]
 	<%_ } _%>
 
