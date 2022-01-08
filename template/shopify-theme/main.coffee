@@ -16,7 +16,7 @@ import './styles/app.styl'
 import './plugins/vuex'
 
 # Setup GTM instrumentation
-# import './plugins/gtm'
+import './plugins/gtm'
 
 # Add global helpers
 import './plugins/helpers'

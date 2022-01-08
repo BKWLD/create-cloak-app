@@ -29,6 +29,9 @@
 		"@nuxt/content": "1.14.0",
 		<%_ } _%>
 		"nuxt": "^2.15.7",
+		<%_ if (shopify) { _%>
+		"shopify-gtm-instrumentor": "^1.3.0",
+		<%_ } _%>
 		"vue-balance-text": "^1.2.3",
 		"vue-detachable-header": "^0.2.0",
 		"vue-unorphan": "^1.2.3"

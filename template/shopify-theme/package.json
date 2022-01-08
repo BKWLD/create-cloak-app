@@ -21,6 +21,7 @@
 		"library": "*",
 		"nuxt-app": "*",
 		"objectFitPolyfill": "^2.3.0",
+		"shopify-gtm-instrumentor": "^1.3.0",
 		"vue": "^2.6.11",
 		"vuex": "^3.1.3"
 	},
