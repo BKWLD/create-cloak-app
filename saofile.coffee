@@ -314,9 +314,8 @@ module.exports =
 				type: 'move'
 				patterns:
 					'nuxt-app/assets': 'library/assets'
-					'nuxt-app/queries/craft/globals.gql':
-						'library/queries/craft/globals.gql'
 					'nuxt-app/components/layout': 'library/components/layout'
+					'nuxt-app/queries/globals.gql': 'library/queries/craft/globals.gql'
 			actions.push # Restore nuxt-app's app.styl but have it load from library
 				type: 'add'
 				files: 'nuxt-app/assets/app.styl'
