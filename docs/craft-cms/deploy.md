@@ -14,26 +14,32 @@ You will intially install the Craft CMS locally.  When you are ready to collabor
   - Start of with a small one; you can always go up in scale but you can't go down to a Droplet with a smaller disk size.  I've been doing the 1GB Premium Intel one ($6/mo).  Choose the same datacenter as your Space (usually SFO3). The rest of the setting should be straightforward.
   - Forge will show you the sudo and database passwords in a modal window.  Store these in Passwork within the "Hosting - Privileged" Vault.
 
-6. After it's done provisioning, create a new Site.  Make the root domain what you intent it to ultimately be (usually cms.clientdomain.com) and add a *.bukwild.com subdomain as an alias (like client-cms.bukwild.com).  The rest of the defaults are fine, though choose to create a database called `craft`.
+6. Run the following [Recipes](https://forge.laravel.com/recipes) on the server:
+  - "Install Python 2.7 for Fontagon"
+  - ["Install Node 12 for Craft"](https://github.com/BKWLD/create-cloak-app/issues/25)
 
-7. While that provisions, delete the "default" site that was created.
+7. After it's done provisioning, create a new Site.
+  - Make the root domain what you intent it to ultimately be (usually cms.clientdomain.com) and add a *.bukwild.com subdomain as an alias (like cms.client.bukwild.com).
+  - Set the Web Directory to `/craft-cms/web`.
+  - Choose to create a database called `craft`.
+  - The rest of the defaults are fine.
 
-8. Go into the Forge UI for the Site and click "Git Repository" to connect it to GitLab.  The "Repository" is the full path of the URL of the repo, like "client-group/client-project".  Uncheck "Install composer dependencies" since these aren't in the root.
+8. While that provisions, delete the "default" site that was created.
 
-9. Once the setup of the repo for the Site succeeds, edit the Deploy Script, replacing the `git pull ...` line with `chmod +x craft-cms/deploy.sh && craft-cms/deploy.sh` which will run our own commands to update and build the CMS.
+9. Go into the Forge UI for the Site and click "Git Repository" to connect it to GitLab.  The "Repository" is the full path of the URL of the repo, like "client-group/client-project".  Uncheck "Install composer dependencies" since these aren't in the root.
 
-10. Click "Enable Quick Deploy" button so the deploy commands will run on git push.
+10. Once the setup of the repo for the Site succeeds, edit the Deploy Script, replacing the `git pull ...` line with `chmod +x craft-cms/deploy.sh && craft-cms/deploy.sh` which will run our own commands to update and build the CMS.
 
-11. Click on the Server for the Site and go to PHP and...
+11. Click "Enable Quick Deploy" button so the deploy commands will run on git push.
+
+12. Click on the Server for the Site and go to PHP and...
   - Set "Max File Upload Size" to `100`
   - Set "Max Execution Time" to `120`
   - Enable OPCache
 
-12. Login to the Bukwild CloudFlare account and edit the DNS Zones for bukwild.com to create an `A` record using the IP of the server from Forge,  the subdomain you added as an alias when setting up the new Site, and turning "Proxy status" off.
+13. Login to the Bukwild CloudFlare account and edit the DNS Zones for bukwild.com to create an `A` record using the IP of the server from Forge,  the subdomain you added as an alias when setting up the new Site, and turning "Proxy status" off.
 
-13. Go back to Forge, go the Site you created, click "SSL", create a new LetsEncrypt certificate, and edit the Domains to *only* inlcude the bukwild.com alias (since the other domain won't exist yet).
-
-14. Also in the Site, go to Meta and change the Web Directory to `/craft-cms/web`.
+14. Go back to Forge, go the Site you created, click "SSL", create a new LetsEncrypt certificate, and edit the Domains to *only* inlcude the bukwild.com alias (since the other domain won't exist yet).
 
 15. Go the Environment tab and paste the `.env` from your local directory there.  Then, populate the following values:
   - Set `ENVIRONMENT=production`
@@ -50,8 +56,10 @@ You will intially install the Craft CMS locally.  When you are ready to collabor
 
 16. Export your local database and import it into the DO database using Querious or some other means.
 
-17. You should now be able to visit the *.bukwild.com hostname you created and login using the credentials you created locally.  If you used insecure credentials or a generic username like `admin`, this is a good time to invite yourself using a unique username with a good password and to delete your orginial user.
+17. Manually trigger a deploy using the Deploy Now button under the App tab of your Forge Site.
 
-18. You are done!  You may want to review the [config docs](./config.md) at the is point to take additional steps like:
+18. You should now be able to visit the *.bukwild.com hostname you created and login using the credentials you created locally.  If you used insecure credentials or a generic username like `admin`, this is a good time to invite yourself using a unique username with a good password and to delete your orginial user.
+
+19. You are done!  You may want to review the [config docs](./config.md) at the is point to take additional steps like:
   - Delete the "Local" Assets Volume
   - Customize the CMS name and icons
