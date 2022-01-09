@@ -67,6 +67,23 @@ module.exports =
 			when: ({ cms }) -> cms == 'contentful'
 		}
 
+		{ # Choose an image CDN provider
+			name: 'imageCdn'
+			type: 'list'
+			message: 'Image CDN provider'
+			choices: [
+				{ name: 'Imgix', value: 'imgix' }
+				{ name: 'None', value: false }
+			]
+		}
+
+		{ # Collect imgix address
+			name: 'imgixHostname'
+			message: 'Imgix hostname'
+			when: ({ imageCdn }) -> imageCdn == 'imgix'
+			default: ({ packageName }) -> "#{packageName}.imgix.net"
+		}
+
 		{ # Is Shopify supported?
 			name: 'shopify'
 			type: 'confirm'
@@ -284,6 +301,7 @@ module.exports =
 				'shopify-theme/.env'
 				'shopify-theme/.env.example'
 				'shopify-theme/config.yml'
+				'shopify-theme/webpack.config.coffee'
 			]
 
 		# Is there a shared library package

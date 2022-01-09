@@ -13,6 +13,11 @@ isDev = process.env.NODE_ENV != 'production'
 hmr = process.argv[1].includes 'webpack-dev-server'
 port = 8080
 
+<%_ if (imgixHostname) { _%>
+# Hardcoded ENV values
+process.env.IMGIX_URL = 'https://<%= imgixHostname %>'
+<%_ } _%>
+
 # Only extract CSS when building for prod
 rootStyleLoader = if isDev then 'vue-style-loader' else
 	loader: MiniCssExtractPlugin.loader

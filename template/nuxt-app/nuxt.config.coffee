@@ -21,6 +21,9 @@ boilerplate = makeBoilerplate
 	]
 	<%_ } _%>
 	<%_ } _%>
+	<%_ if (imgixHostname) { _%>
+	imgixUrl: 'https://<%= imgixHostname %>'
+	<%_ } _%>
 	srcsetWidths: [ 1920, 1440, 1024, 768, 425, 210 ]
 
 # Nuxt config
