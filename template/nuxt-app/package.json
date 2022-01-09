@@ -16,9 +16,9 @@
 		"transpile": "yarn transpile:coffee",
 		<%_ } _%>
 		<%_ if (shopify) { _%>
-		"transpile:coffee": "coffee -c nuxt.config.coffee",
-		<%_ } else { _%>
 		"transpile:coffee": "coffee -c nuxt.config.coffee && yarn webpack --config modules/compiler.coffee",
+		<%_ } else { _%>
+		"transpile:coffee": "coffee -c nuxt.config.coffee",
 		<%_ } _%>
 		"transpile:watch": "coffee -cw nuxt.config.coffee"
 	},
