@@ -69,6 +69,9 @@ module.exports = mergeConfig boilerplate,
 	]
 	<%_ } _%>
 
+	# Expect specially slug-ed towers to exist that will be loaded by error.vue
+	generate: fallback: true
+
 	<%_ if (hasLibrary) { _%>
 	# Customize component autoloading
 	components: [
@@ -77,8 +80,10 @@ module.exports = mergeConfig boilerplate,
 	]
 	<%_ } _%>
 
-	# Expect specially slug-ed towers to exist that will be loaded by error.vue
-	generate: fallback: true
+	<%_ if (hasLibrary) { _%>
+	# Load Stylus libraries from library
+	styleResources: stylus: 'library/assets/definitions.styl'
+	<%_ } _%>
 
 	# Add production internal URL
 	anchorParser:
