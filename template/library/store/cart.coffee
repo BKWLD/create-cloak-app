@@ -45,7 +45,7 @@ export getters =
 
 	# Get the quantity of items in the cart
 	itemCount: (state) ->
-		unless state.hydrated then return cookie.get CART_COUNT_KEY || 0
+		unless state.hydrated then return cookie.get(CART_COUNT_KEY) || 0
 		state.lines.reduce (sum, line) ->
 			sum + line.quantity
 		, 0
