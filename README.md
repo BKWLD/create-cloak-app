@@ -18,6 +18,7 @@ After you've created a new cloak-app, there are subsequent steps you'll likely n
 
 - [Setup Netlify app](./docs/netlify.md)
 - [Configure Craft](./docs/craft-cms/config.md)
+- [Setup Shopify](./docs/shopify.md)
 
 ## Contributing
 

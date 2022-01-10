@@ -1,3 +1,4 @@
 # Transpiled at build time files
 nuxt.config.js
 queries/compiled/*
+modules/compiled/*

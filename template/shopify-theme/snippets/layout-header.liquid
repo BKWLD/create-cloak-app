@@ -1,0 +1,14 @@
+{% comment %} The header nav {% endcomment %}
+<div inline-template is='header-placeholder'><div>
+
+	{% comment %} Placeholder while vue header loads {% endcomment %}
+	<div class='header-placeholder' v-if='!$store.state.globals.hydrated'>
+		<span>Loading...</span>
+	</div>
+
+	{% comment %} The Vue data hydrated header {% endcomment %}
+	<template v-else>
+		<header-desktop></header-desktop>
+		<header-mobile></header-mobile>
+	</template>
+</div></div>

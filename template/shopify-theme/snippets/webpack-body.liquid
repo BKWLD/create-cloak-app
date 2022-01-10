@@ -1,0 +1,18 @@
+{% comment %} Capture variables from Webpack {% endcomment %}
+{% capture is_hmr %}{% render 'is-hmr' %}{% endcapture %}
+
+{% comment %} Browser-specific polyfills {% endcomment %}
+	{{ 'https://polyfill.io/v3/polyfill.min.js?features=default%2CString.prototype.repeat%2CNodeList.prototype.forEach%2CIntersectionObserver%2CObject.values' | script_tag }}
+
+{% comment %} Used to calculate CDN URL {% endcomment %}
+<script>
+	cdnTextUrl = '{{ 'cdn.txt' | asset_url }}'
+	cdnUrl = cdnTextUrl.match(/^(.+)cdn\.txt.*$/)[1]
+</script>
+
+{% comment %} Main JS entry point {% endcomment %}
+{% unless is_hmr contains 'true' %}
+	{{ 'dist-main.js' | asset_url | script_tag }}
+{% else %}
+	{{ 'https://localhost:8080/assets/dist-main.js' | script_tag }}
+{% endunless %}

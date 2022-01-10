@@ -1,6 +1,12 @@
+<%_ if (!hasLibrary || loadFromLibrary) { _%>
 // Load fonts
 @import './fonts/fontagon/dist/fontagon'
 
+<%_ } _%>
+<%_ if (loadFromLibrary) { _%>
+// Load global styles
+@import '~library/assets/app'
+<%_ } else { _%>
 // Load boilerplate.  Had to put normalize in the script section because webpack
 // was having trouble resolving.  I think the .css suffix was the issue.
 @import '~bukwild-stylus-library/boilerplate'
@@ -11,3 +17,4 @@
 @import './utils'
 @import './whitespace'
 @import './transitions'
+<%_ } _%>

@@ -1,0 +1,25 @@
+#import "library/queries/shopify/fragments/image.gql"
+
+fragment productCard on Product {
+	id
+	handle
+	title
+	onlineStoreUrl
+	availableForSale
+	variants(first:100) {
+		edges {
+			node {
+				id
+				sku
+				title
+				price
+				available
+			}
+		}
+	}
+	images(first:1) {
+		edges {
+			node { ...image }
+		}
+	}
+}

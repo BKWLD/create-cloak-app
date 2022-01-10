@@ -18,7 +18,11 @@ detachable-header.layout-header-mobile(:height='height')
 <script lang='coffee'>
 import DetachableHeader from 'vue-detachable-header'
 import 'vue-detachable-header/index.css'
+<%_ if (hasLibrary) { _%>
+import dimensions from 'library/assets/vars/dimensions'
+<%_ } else { _%>
 import dimensions from '~/assets/vars/dimensions'
+<%_ } _%>
 export default
 
 	components: { DetachableHeader }

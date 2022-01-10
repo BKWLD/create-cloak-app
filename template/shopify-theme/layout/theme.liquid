@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="{{ shop.locale }}">
+<head>
+	<title>{{ page_title }}</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="{{ page_description | escape }}">
+	<link rel="canonical" href="{{ canonical_url }}">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	{% comment %} If DEV, add noindex {% endcomment %}
+	{% if shop.domain contains 'dev' %}
+		<meta name="robots" content="noindex" />
+	{% endif %}
+
+	{% comment %} Add CSS chunks {% endcomment %}
+	{% render 'webpack-head' %}
+
+	{% comment %} GTM {% endcomment %}
+	{% render 'gtm-head' %}
+
+	{% comment %} Header hook for plugins {% endcomment %}
+	{{ content_for_header }}
+
+</head>
+<body>
+
+	{% comment %} No-JS GTM {% endcomment %}
+	{% render 'gtm-body' %}
+
+	{% comment %} Page container {% endcomment %}
+	<div class='default-layout'>
+
+		{% comment %} The header nav {% endcomment %}
+		{% render 'layout-header' %}
+
+		{% comment %} Page content {% endcomment %}
+		<main class="default-layout_main" role='main'>
+			<div class="default-layout_page">
+				{{ content_for_layout }}
+			</div>
+
+			{% comment %} The header nav {% endcomment %}
+			{% render 'layout-footer' %}
+		</main>
+
+		{% comment %} Load JS chunks {% endcomment %}
+		{% render 'webpack-body' %}
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# Image asset helper
+fragment image on Image {
+	id
+	src: originalSrc
+	altText
+	width
+	height
+}

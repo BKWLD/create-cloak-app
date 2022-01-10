@@ -15,16 +15,23 @@
 		<%_ } else { _%>
 		"transpile": "yarn transpile:coffee",
 		<%_ } _%>
+		<%_ if (shopify) { _%>
+		"transpile:coffee": "coffee -c nuxt.config.coffee && yarn webpack --config modules/compiler.coffee",
+		<%_ } else { _%>
 		"transpile:coffee": "coffee -c nuxt.config.coffee",
+		<%_ } _%>
 		"transpile:watch": "coffee -cw nuxt.config.coffee"
 	},
 	"dependencies": {
-		"@bkwld/cloak": "^1.9.2",
+		"@bkwld/cloak": "^1.13.0",
 		"@bkwld/light-or-dark": "^1.0.1",
 		<%_ if (cms == '@nuxt/content') { _%>
 		"@nuxt/content": "1.14.0",
 		<%_ } _%>
 		"nuxt": "^2.15.7",
+		<%_ if (shopify) { _%>
+		"shopify-gtm-instrumentor": "^1.3.0",
+		<%_ } _%>
 		"vue-balance-text": "^1.2.3",
 		"vue-detachable-header": "^0.2.0",
 		"vue-unorphan": "^1.2.3"

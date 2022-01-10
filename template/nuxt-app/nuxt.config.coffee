@@ -5,7 +5,12 @@ boilerplate = makeBoilerplate
 	<%_ if (cms) { _%>
 	cms: '<%= cms %>'
 	<%_ if (cms == 'craft') { _%>
-	pageTypes: [ 'towers_towers_Entry' ]
+	pageTypes: [
+		'towers_towers_Entry'
+		<%_ if (shopify) { _%>
+		'products_products_Entry'
+		<%_ } _%>
+	]
 	<%_ } else if (cms == 'contentful') { _%>
 	pageTypes: pageTypes: [
 		{
@@ -16,16 +21,30 @@ boilerplate = makeBoilerplate
 	]
 	<%_ } _%>
 	<%_ } _%>
+	<%_ if (imgixHostname) { _%>
+	imgixUrl: 'https://<%= imgixHostname %>'
+	<%_ } _%>
 	srcsetWidths: [ 1920, 1440, 1024, 768, 425, 210 ]
 
 # Nuxt config
 module.exports = mergeConfig boilerplate,
 
-	<%_ if (cms == 'craft') { _%>
-	buildModules: [
-		'@bkwld/cloak/build/craft-netlify-redirects.js'
-	]
+	<%_ if (shopify) { _%>
+	env:
+		SHOPIFY_URL: process.env.SHOPIFY_URL
+		SHOPIFY_STOREFRONT_TOKEN: process.env.SHOPIFY_STOREFRONT_TOKEN
 	<%_ } _%>
+
+
+	buildModules: [
+		<%_ if (cms == 'craft') { _%>
+		'@bkwld/cloak/build/craft-netlify-redirects.js'
+		<%_ } _%>
+		<%_ if (shopify) { _%>
+		'~/modules/compiled/ssg-variants.js'
+		'~/modules/compiled/static-data.js'
+		<%_ } _%>
+	]
 
 	modules: [
 		<%_ if (cms == '@nuxt/content') { _%>
@@ -35,11 +54,48 @@ module.exports = mergeConfig boilerplate,
 		'vue-balance-text/nuxt/module'
 	]
 
+	plugins: [
+		{ src: 'plugins/components' }
+		<%_ if (shopify) { _%>
+		{ src: 'plugins/services' }
+		{ src: 'plugins/hydrate-cart', mode: 'client' }
+		<%_ } _%>
+	]
+
+	<%_ if (hasLibrary) { _%>
+	# External code that needs transpiling
+	build: transpile: [
+		/^library\/.+/ # Library workspace files
+	]
+	<%_ } _%>
+
 	# Expect specially slug-ed towers to exist that will be loaded by error.vue
 	generate: fallback: true
 
-	# Add production internal URL
-	anchorParser: internalUrls: [
-		# /^https?:\/\/(www\.)?domain\.com/
+	# Customize component autoloading
+	components: [
+		...boilerplate.components
+		'~/components/pages' # Don't require "pages" prefix
+		<%_ if (hasLibrary) { _%>
+		'~/../library/components' # Support auto loading from library
+		<%_ } _%>
 	]
 
+	<%_ if (hasLibrary) { _%>
+	# Load Stylus libraries from library
+	styleResources: stylus: 'library/assets/definitions.styl'
+	<%_ } _%>
+
+	# Add production internal URL
+	anchorParser:
+		<%_ if (shopify) { _%>
+		disableSmartLinkRegistration: true
+		<%_ } _%>
+		internalUrls: [
+			# /^https?:\/\/(www\.)?domain\.com/
+		]
+
+	<%_ if (hasLibrary) { _%>
+	# Load source icons from library
+	iconFont: files: ['../library/assets/fonts/fontagon/*.svg']
+	<%_ } _%>

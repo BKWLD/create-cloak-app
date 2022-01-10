@@ -1,0 +1,69 @@
+#import "library/queries/shopify/fragments/image.gql"
+
+# All the data needed to represent the cart in the UI
+
+fragment cart on Cart {
+	id
+	checkoutUrl
+
+	# Order value
+	estimatedCost {
+		subtotalAmount { amount }
+		totalAmount { amount }
+		totalTaxAmount { amount }
+	}
+
+	# List of discount codes
+	discountCodes {
+		applicable
+		code
+	}
+
+	# The list of line items
+	lines (first: 100) {
+		edges {
+			cursor
+			node { ...cartLine }
+		}
+	}
+}
+
+fragment cartLine on CartLine {
+	id
+	quantity
+	variant: merchandise { ...productVariant }
+	estimatedCost {
+		subtotalAmount { amount }
+		totalAmount { amount }
+	}
+	sellingPlanAllocation { ...sellingPlanAllocation }
+}
+
+fragment productVariant on ProductVariant {
+	id
+	title
+	compareAtPrice
+	price
+	sku
+	image { ...image }
+	product {
+		id
+		handle
+		title
+		productType
+	}
+	sellingPlanAllocations(first: 20) {
+		edges {  node { ...sellingPlanAllocation } }
+	}
+}
+
+fragment sellingPlanAllocation on SellingPlanAllocation {
+	sellingPlan {
+		id
+		name
+	}
+	priceAdjustments {
+		compareAtPrice { amount }
+		price { amount }
+	}
+}

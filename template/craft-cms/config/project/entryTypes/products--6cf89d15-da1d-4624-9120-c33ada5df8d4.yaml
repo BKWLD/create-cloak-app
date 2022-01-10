@@ -1,0 +1,64 @@
+fieldLayouts:
+  01cef381-db7d-488c-9462-dcdcef7866d9:
+    tabs:
+      -
+        elements:
+          -
+            style: tip
+            tip: 'The slug should be identical to the handle of a Shopify product.'
+            type: craft\fieldlayoutelements\Tip
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: fd4326a9-8ced-46ef-b0f2-c283f7482614 # Blocks
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: ec56af06-33ca-4f16-a73a-89f37d116142 # SEO
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: SEO
+        sortOrder: 2
+handle: products
+hasTitleField: true
+name: Products
+section: 032b2c9b-ff4b-4191-b76a-1ecad594e614 # Products
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

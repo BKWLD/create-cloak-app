@@ -1,0 +1,10 @@
+{% comment %} Capture variables from Webpack {% endcomment %}
+{% capture is_dev %}{% render 'is-dev' %}{% endcapture %}
+
+{% comment %}
+	Load webpack generate CSS if not HMR-ing.
+{% endcomment %}
+{% unless is_dev contains 'true'  %}
+	{{ 'dist-main.css' | asset_url | stylesheet_tag }}
+{% endunless %}
+
