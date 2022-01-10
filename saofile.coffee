@@ -196,11 +196,15 @@ module.exports =
 				'.editorconfig'
 				'.sentryclirc'
 				'.gitlab-ci.yml'
+				'jsconfig.json'
 				'package.json'
 				'README.md'
 			]
 			filters:
-				'.gitlab-ci.yml': shopify # For pushing Shopify theme on git push
+				'jsconfig.json': !rootNuxtApp @answers
+
+				# For pushing Shopify theme on git push
+				'.gitlab-ci.yml': shopify
 
 				# Used by shopify-theme webpack config
 				'babel.config.json': shopify

@@ -1,0 +1,25 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			<%_ if (cms == 'craft') { _%>
+			"craft-cms/*": [
+				"./craft-cms/*"
+			],
+			<%_ } _%>
+			<%_ if (hasLibrary) { _%>
+			"library/*": [
+				"./library/*"
+			],
+			<%_ } _%>
+			"nuxt-app/*": [
+				"./nuxt-app/*"
+			],
+			<%_ if (shopify) { _%>
+			"shopify-theme/*": [
+				"./shopify-theme/*"
+			],
+			<%_ } _%>
+		}
+	}
+}
