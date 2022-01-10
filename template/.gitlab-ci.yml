@@ -1,8 +1,8 @@
 ################################################################################
 # Setup
 
-# Use a Cypress image in expectation of future E2E tests
-image: cypress/base:12
+# Use Node 12.x
+image: node:12
 
 # Caching by yarn.lock so multiple pipelines can use the same cache if the lock
 # hasn't changed.
