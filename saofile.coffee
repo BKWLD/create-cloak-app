@@ -242,6 +242,7 @@ module.exports =
 			'store/*': answers.cms in ['craft', 'contentful']
 
 			# Shopify-only
+			'components/pages/pdp/marquee.vue': shopify
 			'pages/products/_product/_variant.vue': shopify
 			'plugins/hydrate-cart.coffee': shopify
 			'queries/craft/shopify-product.gql': shopify
