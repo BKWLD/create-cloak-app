@@ -36,7 +36,7 @@ module.exports =
 		{ # Choose a CMS type
 			name: 'cms'
 			type: 'list'
-			message: 'CMS Choice'
+			message: 'CMS choice'
 			choices: [
 				{ name: 'Craft', value: 'craft' }
 				{ name: 'Contentful', value: 'contentful' }
@@ -47,13 +47,13 @@ module.exports =
 
 		{ # Get Contentful space id
 			name: 'contentfulSpace'
-			message: 'Contentful Space ID'
+			message: 'Contentful space ID'
 			when: ({ cms }) -> cms == 'contentful'
 		}
 
 		{ # Get Contentful access token
 			name: 'contentfulAccessToken'
-			message: 'Contentful Delivery API Access Token?'
+			message: 'Contentful delivery API access token?'
 			type: 'password'
 			mask: '*'
 			when: ({ cms }) -> cms == 'contentful'
@@ -61,7 +61,7 @@ module.exports =
 
 		{ # Get Contentful preview access token
 			name: 'contentfulPreviewAccessToken'
-			message: 'Contentful Preview API Access Token?'
+			message: 'Contentful preview API access token?'
 			type: 'password'
 			mask: '*'
 			when: ({ cms }) -> cms == 'contentful'
