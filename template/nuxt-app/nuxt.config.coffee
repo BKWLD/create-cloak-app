@@ -72,13 +72,14 @@ module.exports = mergeConfig boilerplate,
 	# Expect specially slug-ed towers to exist that will be loaded by error.vue
 	generate: fallback: true
 
-	<%_ if (hasLibrary) { _%>
 	# Customize component autoloading
 	components: [
 		...boilerplate.components
+		'~/components/pages' # Don't require "pages" prefix
+		<%_ if (hasLibrary) { _%>
 		'~/../library/components' # Support auto loading from library
+		<%_ } _%>
 	]
-	<%_ } _%>
 
 	<%_ if (hasLibrary) { _%>
 	# Load Stylus libraries from library
