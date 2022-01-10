@@ -210,6 +210,7 @@ module.exports =
 		nuxtTransformInclude = [
 			'package.json'
 			'README.md'
+			'netlify.toml'
 			'nuxt.config.coffee'
 			'.env'
 			'.env.example'

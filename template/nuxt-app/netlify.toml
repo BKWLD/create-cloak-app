@@ -1,0 +1,19 @@
+[dev]
+   command = "yarn dev"
+
+[build]
+  command = 'CI= yarn generate'
+  publish = 'dist'
+
+	<%_ if (hasLibrary) { _%>
+	# Trigger redeploys on library changes
+	ignore = 'git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF ../library ./ ./netlify.toml ../yarn.lock'
+	<%_ } _%>
+
+<%_ if (shopify) { _%>
+# Allow static-data to pass CORS check from shopify-theme
+[[headers]]
+  for = '/data/*'
+    [headers.values]
+    Access-Control-Allow-Origin = '*'
+<%_ } _%>
