@@ -28,6 +28,10 @@ btn-pad-h = 30px
 btn-pad-h-min = 30px
 btn-pad-h-small = 20px
 
+// input sizing
+input-h = 45px
+input-h-min = 45px
+
 // Typography
 body-font-size = 16px
 body-font-size-min = 14px
@@ -44,6 +48,10 @@ spacing-s = 30px
 spacing-s-min = spacing-s * 0.8
 spacing-xs = 15px
 spacing-xs-min = spacing-xs * 0.9
+
+// Misc
+radius = 5px
+base-speed = 200ms
 
 /**
  * Vendor
@@ -99,6 +107,14 @@ style-h5()
 style-body()
 	fluid-font 'body', body-font-size, body-font-size-min
 	line-height body-line-height
+
+// Media query helpers
+on-desktop()
+	@media(min-width tablet)
+		{block}
+on-mobile()
+	@media(max-width tablet - 1px)
+		{block}
 
 // Shorthand for making fluid spacing
 fluid-space(property, size, negative = false)
