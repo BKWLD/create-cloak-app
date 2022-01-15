@@ -25,6 +25,9 @@
 	"dependencies": {
 		"@bkwld/cloak": "^1.13.0",
 		"@bkwld/light-or-dark": "^1.0.1",
+		"@bkwld/vue-embed": "BKWLD/vue-embed#ab9fc58",
+		"@bkwld/vue-modal": "BKWLD/vue-modal#7313bd5",
+		"@bkwld/vue-form": "BKWLD/vue-form#ee83e3e",
 		<%_ if (cms == '@nuxt/content') { _%>
 		"@nuxt/content": "1.14.0",
 		<%_ } _%>
@@ -34,6 +37,7 @@
 		<%_ } _%>
 		"vue-balance-text": "^1.2.3",
 		"vue-detachable-header": "^0.2.0",
+		"vue-hamburger": "^1.0.0",
 		"vue-unorphan": "^1.2.3"
 	}
 }
