@@ -23,7 +23,7 @@ export mountComponent = (
 	mount = ->
 		vm = new (Vue.extend component)(options)
 		vm.$mount()
-		element[if prepend then 'prepend' else 'appendChild'](vm.$el)
+		el[if prepend then 'prepend' else 'appendChild'](vm.$el)
 		resolve vm
 
 	# Wait until Nuxt is booted to mount
