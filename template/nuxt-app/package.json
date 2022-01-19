@@ -28,6 +28,7 @@
 		<%_ if (cms == '@nuxt/content') { _%>
 		"@nuxt/content": "1.14.0",
 		<%_ } _%>
+		"body-scroll-lock": "^3.0.2",
 		"nuxt": "^2.15.7",
 		<%_ if (shopify) { _%>
 		"shopify-gtm-instrumentor": "^1.3.0",
