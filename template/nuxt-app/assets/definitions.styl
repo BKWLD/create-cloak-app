@@ -112,14 +112,6 @@ style-body()
 	fluid-font 'body', body-font-size, body-font-size-min
 	line-height body-line-height
 
-// Media query helpers
-tablet-up()
-	@media(min-width tablet)
-		{block}
-tablet-down()
-	@media(max-width tablet - 1px)
-		{block}
-
 // Shorthand for making fluid spacing
 fluid-space(property, size, negative = false)
 	mod = negative ? -1 : 1
