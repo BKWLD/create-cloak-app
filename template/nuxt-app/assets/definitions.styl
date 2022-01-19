@@ -28,9 +28,9 @@ btn-pad-h = 30px
 btn-pad-h-min = 30px
 btn-pad-h-small = 20px
 
-// input sizing
-input-h = 45px
-input-h-min = 45px
+// Input sizing
+input-h = btn-desktop-h
+input-h-min = btn-mobile-h
 
 // Typography
 body-font-size = 16px
@@ -51,9 +51,10 @@ spacing-xs-min = spacing-xs * 0.9
 spacing-xxs = 8px
 spacing-xxs-min = spacing-xxs * 0.9
 
+// UI
+card-radius = 5px
 
-// Misc
-radius = 5px
+// Animation
 base-speed = 200ms
 
 /**
@@ -112,10 +113,10 @@ style-body()
 	line-height body-line-height
 
 // Media query helpers
-on-desktop()
+tablet-up()
 	@media(min-width tablet)
 		{block}
-on-mobile()
+tablet-down()
 	@media(max-width tablet - 1px)
 		{block}
 
