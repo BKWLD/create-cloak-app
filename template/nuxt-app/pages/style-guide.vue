@@ -20,6 +20,21 @@
 		.s S
 		.xs XS
 
+	h1.header Colors
+	.swatches
+		.swatch
+			.box.primary-color
+			label primary-color
+		.swatch
+			.box.primary-color-dark
+			label primary-color-dark
+		.swatch
+			.box.secondary-color
+			label secondary-color
+		.swatch
+			.box.offwhite
+			label offwhite
+
 </template>
 
 <!-- ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -64,5 +79,30 @@ export default
 	for size in 'xl' 'l' 'm' 's' 'xs'
 		&.{size}
 			fluid-space height, size
+
+.swatches
+	display flex
+	flex-wrap wrap
+
+.swatch
+	margin-right spacing-xs
+	margin-bottom spacing-xs
+
+	.box
+		width 200px
+		height 100px
+		margin-bottom 10px
+
+		&.primary-color
+			background primary-color
+
+		&.primary-color-dark
+			background primary-color-dark
+
+		&.secondary-color
+			background secondary-color
+
+		&.offwhite
+			background offwhite
 
 </style>
