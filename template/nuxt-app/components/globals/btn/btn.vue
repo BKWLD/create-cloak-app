@@ -136,9 +136,9 @@ export default
 
 	// Disabled state
 	&[disabled]
-		color darken(grey, 20%)
+		color darken(disabled-fill, 20%)
 		.shape
-			background-color grey
+			background-color disabled-fill
 
 // Make backgound state
 .shape

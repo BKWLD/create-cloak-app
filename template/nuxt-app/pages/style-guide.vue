@@ -35,8 +35,8 @@
 			.box.offwhite
 			label offwhite
 		.swatch
-			.box.grey
-			label grey
+			.box.disabled-fill
+			label disabled-fill
 		.swatch
 			.box.ui-border-color
 			label ui-border-color
@@ -120,8 +120,8 @@ export default
 		&.offwhite
 			background offwhite
 
-		&.grey
-			background grey
+		&.disabled-fill
+			background disabled-fill
 
 		&.ui-border-color
 			background white
