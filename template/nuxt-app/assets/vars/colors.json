@@ -3,6 +3,7 @@
 	"primary-color-dark": "#008c44",
 	"secondary-color": "#e8179e",
 	"offwhite": "#edf0f5",
+	"grey": "#cccccc",
 	"ui-border-color": "#e0e0e0",
 	"warning-color": "#AF4242"
 }

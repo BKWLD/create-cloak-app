@@ -34,6 +34,21 @@
 		.swatch
 			.box.offwhite
 			label offwhite
+		.swatch
+			.box.grey
+			label grey
+		.swatch
+			.box.ui-border-color
+			label ui-border-color
+		.swatch
+			.box.warning-color
+			label warning-color
+
+	h1.header Buttons
+		.btn-wrap
+			btn Primary Button
+		.btn-wrap
+			btn(disabled) Disabled Button
 
 </template>
 
@@ -104,5 +119,18 @@ export default
 
 		&.offwhite
 			background offwhite
+
+		&.grey
+			background grey
+
+		&.ui-border-color
+			background white
+			border 1px solid ui-border-color
+
+		&.warning-color
+			background warning-color
+
+.btn-wrap
+	margin-bottom spacing-xs
 
 </style>
