@@ -134,6 +134,12 @@ export default
 	color white
 	fluid font-size, body-font-size, body-font-size-min
 
+	// Disabled state
+	&[disabled]
+		color darken(disabled-fill, 20%)
+		.shape
+			background-color disabled-fill
+
 // Make backgound state
 .shape
 	expand()
@@ -145,10 +151,6 @@ export default
 		border-radius btn-mobile-h * 0.5
 		&.size-small
 			height btn-small-h * 0.5
-
-	// Disabled state
-	[disabled] &
-		background-color grey-bkgd
 
 .slot
 
