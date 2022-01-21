@@ -110,7 +110,10 @@ export actions =
 
 	# Fetch the current cart status or start a new cart
 	fetch: ({ commit, state }) ->
-		cart = await getCart()
+		try cart = await getCart()
+		catch e
+			cookie.remove CART_ID_KEY
+			cart = await getCart()
 		commit 'replace', cart
 		commit 'isHydrated' unless state.hydrated
 
