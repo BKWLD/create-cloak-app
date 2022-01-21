@@ -2,7 +2,7 @@
 #import "./fragments/errors.gql"
 
 # Update a line item
-mutation ($cartId: ID!, $lines: [ID!]!) {
+mutation cartLinesRemove($cartId: ID!, $lines: [ID!]!) {
   mutation: cartLinesRemove(cartId: $cartId, lineIds: $lines) {
 		cart { ...cart }
 		userErrors { ...cartUserError }

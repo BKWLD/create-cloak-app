@@ -1,6 +1,6 @@
 #import "./fragments/cart.gql"
 
 # Lookup a cart by id
-query ($id: ID!) {
+query fetchCart($id: ID!) {
   cart(id: $id) { ...cart }
 }
