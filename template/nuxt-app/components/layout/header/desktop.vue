@@ -3,7 +3,7 @@
 <template lang='pug'>
 
 detachable-header.layout-header-desktop(:height='height')
-	header.max-w-full: .columns.max-w-medium
+	header.max-w-full: .columns.max-w-m
 		.left
 			//- Left aligned links
 

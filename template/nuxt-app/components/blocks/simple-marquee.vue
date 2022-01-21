@@ -2,7 +2,7 @@
 
 <template lang='pug'>
 
-section.simple-marquee.max-w-full: .max-w
+section.simple-marquee.max-w-full: .max-w-l
 
 	//- The title
 	h1.style-h1 {{ block.title }}

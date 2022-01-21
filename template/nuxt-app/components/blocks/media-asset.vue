@@ -43,10 +43,10 @@ export default
 
 		# Map maxWidth options to classes
 		maxWidth: -> switch @block.maxWidth
-			when 'Medium' then 'max-w-medium'
-			when 'Small' then 'max-w-small'
+			when 'Medium' then 'max-w-m'
+			when 'Small' then 'max-w-s'
 			when 'Full' then 'max-w-full'
-			else 'max-w'
+			else 'max-w-l'
 		<%_ } _%>
 
 </script>

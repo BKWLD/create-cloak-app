@@ -2,7 +2,7 @@
 
 <template lang='pug'>
 
-section.copy.max-w-small(:class='classes')
+section.copy.max-w-s(:class='classes')
 
 	<%_ if (cms == 'craft' || cms == '@nuxt/content') { _%>
 	wysiwyg(
