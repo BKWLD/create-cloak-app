@@ -1,4 +1,4 @@
-{% if settings.gtm_id? %}
+{% unless settings.gtm_id == empty %}
 
 	{% comment %} GTM {% endcomment %}
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -13,4 +13,4 @@
 	{% comment %} Add vars used by shopify-gtm-instrumentor {% endcomment %}
 	{%- render 'gtm-instrumentor-vars' -%}
 
-{% endif %}
+{% endunless %}
