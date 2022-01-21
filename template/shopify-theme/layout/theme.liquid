@@ -13,11 +13,11 @@
 		<meta name="robots" content="noindex" />
 	{% endif %}
 
-	{% comment %} Add CSS chunks {% endcomment %}
-	{% render 'webpack-head' %}
-
 	{% comment %} GTM {% endcomment %}
 	{% render 'gtm-head' %}
+
+	{% comment %} Add CSS chunks {% endcomment %}
+	{% render 'webpack-head' %}
 
 	{% comment %} Header hook for plugins {% endcomment %}
 	{{ content_for_header }}
