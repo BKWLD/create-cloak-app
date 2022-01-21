@@ -1,6 +1,9 @@
 {
-  "current": "Default",
-  "presets": {
-    "Default": { }
-  }
+	"current": {
+		"gtm_id": "",
+		"content_for_index": []
+	},
+	"presets": {
+		"Default": {}
+	}
 }
