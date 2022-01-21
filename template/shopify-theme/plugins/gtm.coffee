@@ -4,24 +4,27 @@ import ShopifyGtmInstrumentor from 'shopify-gtm-instrumentor'
 import { addGtmCartSubscribers } from 'library/services/gtm/cart-events'
 import { cookie } from 'library/helpers/storage'
 
-# Setup GTM instrumentor
-gtmEcomm = new ShopifyGtmInstrumentor
-	debug: process.env.APP_ENV == 'dev'
-	enableCheckoutEcommerceProperty: true
+# Require GTM to be present (and, thus, dataLayer)
+if window.dataLayer
 
-# Inject into components
-Vue.prototype.$gtmEcomm = gtmEcomm
+	# Setup GTM instrumentor
+	gtmEcomm = new ShopifyGtmInstrumentor
+		debug: process.env.APP_ENV == 'dev'
+		enableCheckoutEcommerceProperty: true
 
-# Fire cart update events
-addGtmCartSubscribers window.$store, gtmEcomm
+	# Inject into components
+	Vue.prototype.$gtmEcomm = gtmEcomm
 
-# Fire checkout / purchase events
-if step = window.Shopify?.Checkout?.step
-	lineItems = window.CHECKOUT_FOR_GTM_INSTRUMENTOR
-	gtmEcomm.checkout lineItems, step
-	if step == 'thank_you' then gtmEcomm.purchase lineItems
+	# Fire cart update events
+	addGtmCartSubscribers window.$store, gtmEcomm
 
-# Inject a helper like the nuxt/gtm package
-Vue.prototype.$gtm = push: (payload) ->
-	window.dataLayer = [] unless window.dataLayer
-	window.dataLayer.push payload
+	# Fire checkout / purchase events
+	if step = window.Shopify?.Checkout?.step
+		lineItems = window.CHECKOUT_FOR_GTM_INSTRUMENTOR
+		gtmEcomm.checkout lineItems, step
+		if step == 'thank_you' then gtmEcomm.purchase lineItems
+
+	# Inject a helper like the nuxt/gtm package
+	Vue.prototype.$gtm = push: (payload) ->
+		window.dataLayer = [] unless window.dataLayer
+		window.dataLayer.push payload
