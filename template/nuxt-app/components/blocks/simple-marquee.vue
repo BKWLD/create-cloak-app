@@ -37,9 +37,11 @@ export default
 	&:before
 		content ''
 		display block
-		+tablet-up()
+
+		// adjust height when header changes
+		+when-desktop-header()
 			height header-h
-		+tablet-down()
+		+when-mobile-header()
 			height mobile-header-h
 
 	// Add internal spacing

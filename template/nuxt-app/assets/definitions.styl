@@ -118,3 +118,12 @@ fluid-space(property, size, negative = false)
 	fluid property,
 		mod * lookup('spacing-'+size),
 		mod * lookup('spacing-'+size+'-min')
+
+// separate header media queries
+// because header breaks at a unique width
+when-desktop-header()
+	@media(min-width header-break + 1px)
+		{block}
+when-mobile-header()
+	@media(max-width header-break)
+		{block}
