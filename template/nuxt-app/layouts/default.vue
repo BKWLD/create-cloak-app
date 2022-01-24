@@ -33,7 +33,6 @@ export default
 	max-width max-w-full
 	margin-h auto
 	width 100%
-	overflow hidden
 
 // On short pages, pin the footer to the bottom of the page
 main
