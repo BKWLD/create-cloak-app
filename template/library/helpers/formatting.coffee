@@ -2,6 +2,7 @@
 Helpers related to formating values
 ###
 import atob from 'atob-lite'
+import btoa from 'btoa-lite'
 
 # Format a string or number like money
 export formatMoney = (val) -> '$' + twoDecimals val
@@ -20,6 +21,12 @@ export twoDecimals = (val) ->
 		maximumFractionDigits: 2
 
 # Get the id from a Shoify gid:// style id.  This strips everything but the
-# last part of the string.  So gid://shopify/ProductVariant/34641879105581
-# becomes 34641879105581
-export getShopifyId = (base64id) -> atob(base64id).match(/\/(\w+)$/)?[1]
+# last part of the string.  So
+# "gid://shopify/MailingAddress/34641879105581?accessToken=abc..."
+# becomes "34641879105581"
+export getShopifyId = (base64id) ->
+	atob(base64id).match(/^gid:\/\/shopify\/\w+\/(\w+)/)?[1]
+
+# Make a Shopify GID given a object type and id
+export makeShopifyId = (type, id) ->
+	btoa "gid://shopify/#{type}/#{id}"
