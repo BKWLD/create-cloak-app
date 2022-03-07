@@ -7,7 +7,8 @@ export const SHOPIFY_ROOT_PATHS = [
 	'cart',
 	'pages',
 	'apps',
-	'checkout',
+	'\\w+\/checkouts',
+	'\\w+\/orders',
 	'challenge',
 	'tools'
 ]
