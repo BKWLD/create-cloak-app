@@ -42,4 +42,4 @@ export currentApexDomain = ->
 # Should we fetch statically generated data
 export shouldUseStaticData = ->
 	process.env.APP_ENV == 'prod' and
-	window? and isShopifyUrl window.location.href
+	window? and isShopifyUrl window.location.pathname

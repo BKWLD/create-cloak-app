@@ -4,7 +4,11 @@
 {% comment %}
 	Load webpack generate CSS if not HMR-ing.
 {% endcomment %}
+{% assign entry_chunk = 'dist-main.css' %}
+{% if checkout %}
+	{% assign entry_chunk = 'dist-checkout.css' %}
+{% endif %}
 {% unless is_dev contains 'true'  %}
-	{{ 'dist-main.css' | asset_url | stylesheet_tag }}
+	{{ entry_chunk | asset_url | stylesheet_tag }}
 {% endunless %}
 

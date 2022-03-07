@@ -11,8 +11,12 @@
 </script>
 
 {% comment %} Main JS entry point {% endcomment %}
+{% assign entry_chunk = 'dist-main.js' %}
+{% if checkout %}
+	{% assign entry_chunk = 'dist-checkout.js' %}
+{% endif %}
 {% unless is_hmr contains 'true' %}
-	{{ 'dist-main.js' | asset_url | script_tag }}
+	{{ entry_chunk | asset_url | script_tag }}
 {% else %}
-	{{ 'https://localhost:8080/assets/dist-main.js' | script_tag }}
+	{{ 'https://localhost:8080/assets/' | append: entry_chunk | script_tag }}
 {% endunless %}
