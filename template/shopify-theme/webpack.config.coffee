@@ -40,7 +40,9 @@ module.exports =
 	mode: process.env.NODE_ENV || 'development'
 
 	# The main entry point
-	entry: main: './main.coffee'
+	entry:
+		main: './main.coffee'
+		checkout: './checkout.coffee'
 
 	# Mimize extracted CSS and redeclare the JS minimizer
 	optimization: minimizer: [
