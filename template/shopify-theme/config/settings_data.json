@@ -1,6 +1,9 @@
 {
 	"current": {
 		"gtm_id": "",
+		"checkout_accent_color": null,
+		"checkout_button_color": null,
+		"checkout_error_color": null,
 		"content_for_index": []
 	},
 	"presets": {
