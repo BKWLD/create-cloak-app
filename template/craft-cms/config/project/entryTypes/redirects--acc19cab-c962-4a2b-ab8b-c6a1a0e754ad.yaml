@@ -56,10 +56,10 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 handle: redirects
-hasTitleField: true
+hasTitleField: false
 name: Redirects
 section: 8b15badc-af4c-44f7-a29d-0efff2f88cfc # Redirects
 sortOrder: 1
-titleFormat: null
+titleFormat: '{redirectFrom} → {redirectTo}'
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
