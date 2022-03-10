@@ -3,9 +3,16 @@
 <template lang='pug'>
 
 .product
+
+	//- Make an example of the marquee
 	pdp-marquee(
 		:product='product'
 		:currentVariant='currentVariant')
+
+	//- Show an example of rendering a list of product cards
+	pdp-cards-example
+
+	//- List the blocks
 	blocks-list(:blocks='product.blocks')
 
 </template>

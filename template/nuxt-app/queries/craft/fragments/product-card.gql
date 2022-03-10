@@ -1,0 +1,11 @@
+# Get product data needed to render a product card
+fragment productCard on EntryInterface {
+
+	# Standard entry fields fields
+	__typename
+	id
+	title
+	slug
+	uri
+	order: lft
+}

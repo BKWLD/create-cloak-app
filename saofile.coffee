@@ -248,10 +248,12 @@ module.exports =
 
 			# Shopify-only
 			'components/pages/pdp/marquee.vue': shopify
+			'components/pages/pdp/cards-example.vue': shopify
 			'pages/products/_product/_variant.vue': shopify
 			'plugins/hydrate-cart.coffee': shopify
 			'queries/craft/shopify-product.gql': shopify
 			'queries/craft/pages/product.gql': shopify
+			'queries/craft/fragments/product-card.gql': shopify
 			'store/cart.coffee': shopify
 
 		# Install nuxt-app to root if no other workspaces are needed and exit
