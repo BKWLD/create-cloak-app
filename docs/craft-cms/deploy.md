@@ -28,7 +28,7 @@ You will intially install the Craft CMS locally.  When you are ready to collabor
 
 9. Go into the Forge UI for the Site and click "Git Repository" to connect it to GitLab.  The "Repository" is the full path of the URL of the repo, like "client-group/client-project".  Uncheck "Install composer dependencies" since these aren't in the root.
 
-10. Once the setup of the repo for the Site succeeds, edit the Deploy Script, replacing the `git pull ...` line with `chmod +x craft-cms/deploy.sh && craft-cms/deploy.sh` which will run our own commands to update and build the CMS.
+10. Once the setup of the repo for the Site succeeds, edit the Deploy Script, replacing the `git pull ...` line with `chmod +x craft-cms/craft craft-cms/deploy.sh && craft-cms/deploy.sh` which will run our own commands to update and build the CMS.
 
 11. Click "Enable Quick Deploy" button so the deploy commands will run on git push.
 
