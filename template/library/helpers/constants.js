@@ -26,4 +26,5 @@ export const UTM_KEYS = [
 	'utm_campaign',
 	'utm_term',
 	'utm_content',
+	'gclid',
 ]
