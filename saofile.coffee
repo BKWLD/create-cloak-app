@@ -483,7 +483,7 @@ module.exports =
 
 		# Show next steps
 		logBanner 'Done! Time for next steps:'
-		docs = 'https://github.com/BKWLD/create-cloak-app/blob/main/docs'
+		docs = 'https://bukwild.slab.com/topics'
 
 		# Show instructions to replace theme ids. I'm replacing the first line,
 		# which is "Available theme versions:", with my own header
@@ -512,10 +512,14 @@ module.exports =
 
 		# Add links to Craft docs
 		if @answers.cms == 'craft'
-		then logStep 'Configure & Deploy Craft', "#{docs}/craft-cms/config.md"
+		then logStep 'Configure & Deploy Craft', "#{docs}/rc0v20z4"
 
 		# Add link to Netlify docs
-		logStep 'Setup Netlify app', "#{docs}/netlify.md"
+		logStep 'Provision Netlify app', "#{docs}/f3fbea34"
+
+		# Add links to Shopify docs
+		if @answers.shopify
+		then logStep 'Setup Custom Storefront Infrastructure', "#{docs}/9ll622ig"
 
 		# Add a trailing empty space
 		console.log ''
