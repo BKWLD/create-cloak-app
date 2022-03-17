@@ -22,7 +22,8 @@ if (class_exists('Dotenv\Dotenv') && file_exists(CRAFT_BASE_PATH . '/.env')) {
 }
 
 // Redirect requests to correct hostname
-if (!str_contains(getenv('BASE_CP_URL'), $_SERVER['HTTP_HOST'])) {
+if (getenv('BASE_CP_URL') &&
+    !str_contains(getenv('BASE_CP_URL'), $_SERVER['HTTP_HOST'])) {
     header('Location: '.getenv('BASE_CP_URL').$_SERVER['REQUEST_URI']);
     exit;
 }
