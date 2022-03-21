@@ -248,8 +248,8 @@ module.exports =
 
 			# Shopify-only
 			'components/globals/smart-link.coffee': shopify
-			'components/pages/pdp/marquee.vue': shopify
-			'components/pages/pdp/cards-example.vue': shopify
+			'components/pages/pdp/*': shopify
+			'modules/*': shopify
 			'pages/products/_product/_variant.vue': shopify
 			'plugins/hydrate-cart.coffee': shopify
 			'plugins/services.coffee': shopify
