@@ -247,6 +247,7 @@ module.exports =
 			'store/*': answers.cms in ['craft', 'contentful']
 
 			# Shopify-only
+			'components/globals/smart-link.coffee': shopify
 			'components/pages/pdp/marquee.vue': shopify
 			'components/pages/pdp/cards-example.vue': shopify
 			'pages/products/_product/_variant.vue': shopify
