@@ -252,6 +252,7 @@ module.exports =
 			'components/pages/pdp/cards-example.vue': shopify
 			'pages/products/_product/_variant.vue': shopify
 			'plugins/hydrate-cart.coffee': shopify
+			'plugins/services.coffee': shopify
 			'queries/craft/shopify-product.gql': shopify
 			'queries/craft/pages/product.gql': shopify
 			'queries/craft/fragments/product-card.gql': shopify
