@@ -47,7 +47,7 @@ return [
 
     // Don't transform gifs, GD doesnt support gifs
     'transformGifs' => false,
-    
+
     // No need to transform SVGs either
     'transformSvgs' => false,
 
@@ -75,8 +75,8 @@ return [
         '@spacesBaseUrl' => '//'.App::env('SPACES_BUCKET')
             .'.'.App::env('SPACES_REGION')
             .'.digitaloceanspaces.com',
-    ]
-    
+    ],
+
     // Use Forge supervisor to run queue on prod
     'runQueueAutomatically' => !$isProd,
 ];
