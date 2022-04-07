@@ -76,4 +76,7 @@ return [
             .'.'.App::env('SPACES_REGION')
             .'.digitaloceanspaces.com',
     ]
+    
+    // Use Forge supervisor to run queue on prod
+    'runQueueAutomatically' => !$isProd,
 ];
