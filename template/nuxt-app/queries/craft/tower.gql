@@ -6,7 +6,7 @@ query getTower(
 	$site: [String]
 	$uri: [String]) {
 
-	entries(
+	entry(
 		section: "towers"
 		site: $site
 		uri: $uri) {

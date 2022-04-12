@@ -6,7 +6,7 @@ query getProduct(
 	$site: [String]
 	$uri: [String]) {
 
-	entries(
+	entry(
 		section: "products"
 		site: $site
 		uri: $uri) {
