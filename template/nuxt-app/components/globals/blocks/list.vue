@@ -23,7 +23,7 @@
 import Vue from 'vue'
 
 # Mapping of Craft _typename to component
-export mapping = <%_ if (!cms) { _%>{}<%_ } _%>
+export mapping = <% if (!cms) { %>{}<% } %>
 	<%_ if (cms == 'craft') { _%>
 	blocks_copy_BlockType: 'blocks-copy'
 	blocks_mediaAsset_BlockType: 'blocks-media-asset'
