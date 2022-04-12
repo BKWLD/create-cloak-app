@@ -215,7 +215,7 @@ module.exports =
 			'package.json'
 			'README.md'
 			'netlify.toml'
-			'nuxt.config.coffee'
+			'nuxt.config.js'
 			'.env'
 			'.env.example'
 			'assets/app.styl'
@@ -227,7 +227,6 @@ module.exports =
 			'components/blocks/wrapper.vue'
 			'components/globals/blocks/list.vue'
 			'queries/craft/craft-pages.gql'
-			'plugins/components.coffee'
 			'layouts/error.vue'
 			'pages/_tower.vue'
 			'store/globals.coffee'
@@ -249,14 +248,10 @@ module.exports =
 			# Shopify-only
 			'components/globals/smart-link.coffee': shopify
 			'components/pages/pdp/*': shopify
-			'modules/*': shopify
 			'pages/products/_product/_variant.vue': shopify
-			'plugins/hydrate-cart.coffee': shopify
-			'plugins/services.coffee': shopify
 			'queries/craft/shopify-product.gql': shopify
 			'queries/craft/pages/product.gql': shopify
 			'queries/craft/fragments/product-card.gql': shopify
-			'store/cart.coffee': shopify
 
 		# Install nuxt-app to root if no other workspaces are needed and exit
 		if rootNuxtApp answers
