@@ -33,10 +33,10 @@ export default
 
 	props: block: Object
 
+	<%_ if (cms == 'craft' || cms == '@nuxt/content') { _%>
 	computed:
 
 		# Apply max-width choice
-		<%_ if (cms == 'craft' || cms == '@nuxt/content') { _%>
 		classes: -> @block.maxWidth
 		<%_ } else if (cms == 'contentful') { _%>
 		classes: -> @maxWidth
@@ -47,7 +47,7 @@ export default
 			when 'Small' then 'max-w-small'
 			when 'Full' then 'max-w-full'
 			else 'max-w'
-		<%_ } _%>
+	<%_ } _%>
 
 </script>
 

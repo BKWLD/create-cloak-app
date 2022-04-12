@@ -2,14 +2,14 @@
 
 <template lang='pug'>
 
-.block-list
+.block-list(v-if='createdBlocks.length')
 
 	//- Render component
 	blocks-commons(
 		v-for='(block, index) in createdBlocks'
 		<%_ if (cms == 'craft') { _%>
 		:key='block.id || index'
-		<%_ } else if (cms == 'contentful' || cms == '@nuxt/content') { _%>
+		<%_ } else { _%>
 		:key='index'
 		<%_ } _%>
 		:index='index + indexOffset')
@@ -23,7 +23,7 @@
 import Vue from 'vue'
 
 # Mapping of Craft _typename to component
-export mapping =
+export mapping = <%_ if (!cms) { _%>{}<%_ } _%>
 	<%_ if (cms == 'craft') { _%>
 	blocks_copy_BlockType: 'blocks-copy'
 	blocks_mediaAsset_BlockType: 'blocks-media-asset'
