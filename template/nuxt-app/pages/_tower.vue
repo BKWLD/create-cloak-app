@@ -37,7 +37,7 @@ export default
 
 		# Get data
 		<%_ if (cms == 'craft') { _%>
-		page = payload || await $craft.getEntry
+		page = await $craft.getEntry
 			query: getTower
 			variables: uri: params.tower || '__home__'
 		<%_ } else if (cms == 'contentful') { _%>

@@ -41,7 +41,7 @@ export default
 			query: getTower
 			variables: { @uri }
 		<%_ } else if (cms == 'contentful') { _%>
-		@page = payload || await app.$contentful.getEntry
+		@page = await app.$contentful.getEntry
 			query: getTower
 			variables: route: @uri
 		<%_ } _%>
