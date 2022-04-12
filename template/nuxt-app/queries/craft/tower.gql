@@ -10,11 +10,13 @@ query getTower(
 		section: "towers"
 		site: $site
 		uri: $uri) {
+		...on towers_towers_Entry {
 
-		id
-		title
-		blocks { ...blocks }
-		seo { ...seo }
+			id
+			title
+			blocks { ...blocks }
+			seo { ...seo }
 
+		}
 	}
 }

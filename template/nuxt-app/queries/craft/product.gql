@@ -10,11 +10,13 @@ query getProduct(
 		section: "products"
 		site: $site
 		uri: $uri) {
+		...on products_products_Entry {
 
-		id
-		slug
-		blocks { ...blocks }
-		seo { ...seo }
+			id
+			slug
+			blocks { ...blocks }
+			seo { ...seo }
 
+		}
 	}
 }
