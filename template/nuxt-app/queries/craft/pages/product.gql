@@ -1,8 +1,0 @@
-#import "../fragments/blocks.gql"
-#import "@bkwld/cloak/fragments/craft/seo.gql"
-
-fragment product on products_products_Entry {
-	slug
-	blocks { ...blocks }
-	seo { ...seo }
-}

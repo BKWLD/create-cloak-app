@@ -16,16 +16,18 @@
 
 <script lang='coffee'>
 <%_ if (cms == 'craft') { _%>
-import getCraftPages from '~/queries/craft-pages.gql'
+# import pageMixin from '@cloak-app/craft/mixins/page-mixin'
 <%_ } else if (cms == 'contentful') { _%>
+# import pageMixin from '@cloak-app/contentful/mixins/page-mixin'
+<%_ } _%>
+<%_ if (cms == 'craft' || cms == 'contentful') { _%>
 import getTower from '~/queries/tower.gql'
 <%_ } _%>
-import pageMixin from '@bkwld/cloak/mixins/page'
 
 export default
 	name: 'Error'
 
-	mixins: [ pageMixin ]
+	# mixins: [ pageMixin ]
 
 	props: ['error']
 
@@ -35,12 +37,9 @@ export default
 	# Get get the tower data
 	fetch: ->
 		<%_ if (cms == 'craft') { _%>
-		[ @page ] = await @$craft.getEntries
-			query: getCraftPages
-			variables:
-				section: 'towers'
-				type: 'towers'
-				uri: @uri
+		@page = await @$craft.getEntry
+			query: getTower
+			variables: { @uri }
 		<%_ } else if (cms == 'contentful') { _%>
 		@page = payload || await app.$contentful.getEntry
 			query: getTower

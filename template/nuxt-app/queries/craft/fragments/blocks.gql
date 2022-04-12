@@ -1,5 +1,5 @@
-#import "@bkwld/cloak/fragments/craft/responsive-srcset.gql"
-#import "@bkwld/cloak/fragments/craft/responsive-video.gql"
+#import "@cloak-app/craft/queries/fragments/responsive-srcset.gql"
+#import "@cloak-app/craft/queries/fragments/responsive-video.gql"
 
 # Get list of blocks. This gets weird because you can't have recursion in gql
 fragment blocks on NeoBlockInterface {

@@ -1,0 +1,20 @@
+#import "./fragments/blocks.gql"
+#import "@cloak-app/craft/queries/fragments/seo.gql"
+
+# Get all pages and their content for SSG
+query getTower(
+	$site: [String]
+	$uri: [String]) {
+
+	entries(
+		section: "towers"
+		site: $site
+		uri: $uri) {
+
+		id
+		title
+		blocks { ...blocks }
+		seo { ...seo }
+
+	}
+}

@@ -1,4 +1,4 @@
-#import "@bkwld/cloak/fragments/craft/default-seo.gql"
+#import "@cloak-app/craft/queries/fragments/default-seo.gql"
 
 # Query Craft globals data
 query getGlobals {
