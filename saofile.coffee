@@ -226,6 +226,7 @@ module.exports =
 			'components/blocks/spacer.vue'
 			'components/blocks/wrapper.vue'
 			'components/globals/blocks/list.vue'
+			'components/globals/btn/btn.vue'
 			'queries/craft/craft-pages.gql'
 			'layouts/error.vue'
 			'pages/_tower.vue'
