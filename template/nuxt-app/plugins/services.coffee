@@ -3,7 +3,7 @@ Inject global services and helpers into Nuxt
 ###
 import ShopifyGtmInstrumentor from 'shopify-gtm-instrumentor'
 import * as storefront from 'library/services/shopify/storefront'
-import helpers from 'library/helpers'
+import * as helpers from 'library/helpers'
 export default ({}, inject) ->
 
 	# API Adapters
