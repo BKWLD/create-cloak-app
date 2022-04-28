@@ -499,7 +499,7 @@ module.exports =
 		# Show link to run nuxt-app locally
 		nuxtPath = if rootNuxtApp @answers
 		then @outDir else "#{@outDir}/nuxt-app"
-		logStep 'Run Hello World', "(cd '#{nuxtPath}' && yarn dev --spa)"
+		logStep 'Run Hello World', "(cd '#{nuxtPath}' && yarn dev)"
 
 		# Show link to login to Craft CMS
 		if @answers.cms == 'craft'
