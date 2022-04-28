@@ -22,7 +22,9 @@ import getTower from '~/queries/tower.gql'
 export default
 	name: 'Tower'
 
+	<%_ if (cms == 'craft' || cms == 'contentful') { _%>
 	mixins: [ pageMixin ]
+	<%_ } _%>
 
 	# Get Tower data
 	<%_ if (cms == 'craft') { _%>
