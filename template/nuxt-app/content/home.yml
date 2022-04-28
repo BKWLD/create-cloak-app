@@ -18,7 +18,7 @@ blocks:
   # Example of rendering html
   -
     __typename: 'copy'
-    body:
+    content:
       <h2>This is a header</h2>
       <p>This is a paragraph</p>
 
@@ -29,6 +29,6 @@ blocks:
 
   # Example of using an asset
   -
-    __typename: 'mediaAsset'
-    image: '/imgs/home/image.png'
+    __typename: 'visual'
+    landscapeImage: '/imgs/home/image.png'
     maxWidth: 'max-w'

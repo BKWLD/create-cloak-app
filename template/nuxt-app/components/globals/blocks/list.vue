@@ -25,21 +25,21 @@ import Vue from 'vue'
 # Mapping of Craft _typename to component
 export mapping = <% if (!cms) { %>{}<% } %>
 	<%_ if (cms == 'craft') { _%>
-	blocks_copy_BlockType: 'blocks-copy'
-	blocks_mediaAsset_BlockType: 'blocks-media-asset'
+	blocks_copy_BlockType: 'cloak-copy-craft-block'
+	blocks_mediaAsset_BlockType: 'cloak-visual-craft-block'
 	blocks_simpleMarquee_BlockType: 'blocks-simple-marquee'
 	blocks_spacer_BlockType: 'blocks-spacer'
 	blocks_wrapper_BlockType: 'blocks-wrapper'
 	<%_ } else if (cms == 'contentful') { _%>
-	BlockCopy: 'blocks-copy'
-	BlockMediaAsset: 'blocks-media-asset'
+	BlockCopy: 'cloak-copy-contentful-block'
+	BlockMediaAsset: 'cloak-visual-contentful-block'
 	BlockSpacer: 'blocks-spacer'
 	BlockWrapper: 'blocks-wrapper'
 	<%_ } else if (cms == '@nuxt/content') { _%>
-	copy: 'blocks-copy'
-	mediaAsset: 'blocks-media-asset'
+	copy: 'cloak-copy-craft-block'
 	simpleMarquee: 'blocks-simple-marquee'
 	spacer: 'blocks-spacer'
+	visual: 'cloak-visual-craft-block'
 	<%_ } _%>
 
 # Hard import marquee components so they don't get chunked
