@@ -4,13 +4,14 @@ export default {
 
 		// Cloak modules
 		'@cloak-app/boilerplate',
-		'@cloak-app/visual',
+		'@cloak-app/copy',
 		<%_ if (cms == 'craft') { _%>
 		'@cloak-app/craft',
 		<%_ } _%>
 		<%_ if (shopify) { _%>
 		'@cloak-app/shopify',
 		<%_ } _%>
+		'@cloak-app/visual',
 
 		// Other modules
 		<%_ if (cms == '@nuxt/content') { _%>
