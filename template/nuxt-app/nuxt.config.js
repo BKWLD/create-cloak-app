@@ -4,6 +4,7 @@ export default {
 
 		// Cloak modules
 		'@cloak-app/boilerplate',
+		'@cloak-app/visual',
 		<%_ if (cms == 'craft') { _%>
 		'@cloak-app/craft',
 		<%_ } _%>
@@ -23,6 +24,7 @@ export default {
 			siteName: '<%= name %>',
 			// polyfills: ['default']
 		},
+		<%_ if (cms == 'craft') { _%>
 		craft: {
 			pageTypes: [
 				'towers_towers_Entry'
@@ -31,12 +33,18 @@ export default {
 				<%_ } _%>
 			]
 		},
-		visual: {
-			srcsetWidths: [ 1920, 1440, 1024, 768, 425, 210 ],
-			<%_ if (imgixHostname) { _%>
-			imgixUrl: 'https://<%= imgixHostname %>',
-			<%_ } _%>
+		<%_ } _%>
+	},
+
+	<%_ if (imgixHostname) { _%>
+	// @nuxt/image settings
+	image: {
+		provider: 'imgix',
+		domains: ['sfo3.digitaloceanspaces.com'],
+		imgix: {
+			baseURL: 'https://<%= imgixHostname %>',
 		},
 	},
+	<%_ } _%>
 
 }
