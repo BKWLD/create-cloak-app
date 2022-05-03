@@ -48,4 +48,7 @@ export default {
 	},
 	<%_ } _%>
 
+	// Always show logs (doesn't work from within module)
+	build: { quiet: false },
+
 }
