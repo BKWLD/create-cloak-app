@@ -16,7 +16,7 @@
 		"@cloak-app/copy": "^1.0.1",
 		"@cloak-app/visual": "^0.1.0",
 		<%_ if (cms == 'craft') { _%>
-		"@cloak-app/craft": "^0.4.0",
+		"@cloak-app/craft": "^1.0.6",
 		<%_ } else if (cms == '@nuxt/content') { _%>
 		"@nuxt/content": "1.14.0",
 		<%_ } _%>

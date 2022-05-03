@@ -27,6 +27,7 @@ export default {
 		},
 		<%_ if (cms == 'craft') { _%>
 		craft: {
+			generateRedirects: true,
 			pageTypes: [
 				'towers_towers_Entry'
 				<%_ if (shopify) { _%>
