@@ -1,6 +1,9 @@
+# Craft defaults
+/.env
+/.idea
+/vendor
+.DS_Store
+
 # Compiled files
 web/styles.js
 web/cp.css
-
-# Composer deps
-vendor
