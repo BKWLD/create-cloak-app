@@ -382,12 +382,7 @@ module.exports =
 			# Install Craft. I broke this up into multiple commands because I ran
 			# into `No primary site exists` issues when running just `craft setup`.
 			@logger.info 'Running Craft install'
-			await spawn './craft', ['setup/app-id']
-			await spawn './craft', ['setup/security-key']
-			await spawn './craft', ['setup/db']
-			@logger.info 'Setup your initial admin user'
-			await spawn './craft', ['install', '--site-name=Site',
-				'--site-url=$PRIMARY_SITE_URL', '--language=en-US']
+			await spawn './craft', ['setup']
 			await spawn './craft', ['migrate/all', '--no-backup=1',
 				'--interactive=0']
 			await spawn './craft', ['update', 'craft', '--backup=0']
