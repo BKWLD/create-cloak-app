@@ -26,7 +26,7 @@ fragment nonWrapperBlocks on NeoBlockInterface {
 
 	# Copy
 	... on blocks_copy_BlockType {
-		body: fullWysiwyg
+		content: fullWysiwyg
 		balanceText
 		unorphan
 	}
