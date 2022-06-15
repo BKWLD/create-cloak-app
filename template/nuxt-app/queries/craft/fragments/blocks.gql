@@ -45,6 +45,7 @@ fragment nonWrapperBlocks on NeoBlockInterface {
 		content: fullWysiwyg
 		balanceText
 		unorphan
+		textAlign: textAlignment
 	}
 
 	# Media
