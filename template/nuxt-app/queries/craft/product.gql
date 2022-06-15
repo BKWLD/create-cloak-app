@@ -10,7 +10,7 @@ query getProduct(
 		section: "products"
 		site: $site
 		uri: $uri) {
-		...on products_products_Entry {
+		...on products_product_Entry {
 
 			id
 			slug

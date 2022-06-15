@@ -58,9 +58,9 @@ fieldLayouts:
             width: 100
         name: SEO
         uid: b592e7c2-8465-4247-97ec-01b2438d4549
-handle: default
+handle: product
 hasTitleField: true
-name: Default
+name: Product
 section: 98186665-a0ee-4abe-9c44-3a1736939a1d # Products
 sortOrder: 1
 titleFormat: null

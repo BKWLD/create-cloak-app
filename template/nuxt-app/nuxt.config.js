@@ -31,7 +31,7 @@ export default {
 			pageTypes: [
 				'towers_towers_Entry'
 				<%_ if (shopify) { _%>
-				'products_products_Entry'
+				'products_product_Entry'
 				<%_ } _%>
 			]
 		},

@@ -1,4 +1,4 @@
-dateModified: 1655264068
+dateModified: 1655266530
 elementSources:
   craft\elements\Asset:
     -
@@ -135,7 +135,7 @@ meta:
     c9c87263-ba15-47e4-bb1b-002b231b2f98: Assets # Assets
     ca292f2e-a489-4abf-8bfd-a37201b553c2: 'Full WYSIWYG' # Full WYSIWYG
     cd1175f4-00b9-446c-8048-4cbadb8bd243: Entries # Entries
-    d9ec0e61-1044-4136-b7d7-6b9368827012: Default # Default
+    d9ec0e61-1044-4136-b7d7-6b9368827012: Product # Default
     db1453d6-d8c4-4e12-8320-1481643509c2: 'Redirect - From' # Redirect - From
     de97ce0f-548b-4114-8d77-fbf9a3b6c2c2: 'Landscape Device' # Landscape Device
     df38411b-18a5-4003-84aa-4143bd357605: 'Public Schema' # Public Schema
