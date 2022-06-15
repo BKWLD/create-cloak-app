@@ -202,7 +202,7 @@ plugins:
 system:
   edition: pro
   live: true
-  name: Site
+  name: "<%= name %>"
   retryDuration: null
   schemaVersion: 4.0.0.9
   timeZone: America/Los_Angeles
