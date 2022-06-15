@@ -45,6 +45,25 @@ module.exports =
 			]
 		}
 
+		{ # Get DO Spaces bucket name
+			name: 'spacesBucket'
+			message: 'DigitalOcean Spaces bucket name'
+			when: ({ cms }) -> cms == 'craft'
+			default: ({ packageName }) -> packageName
+		}
+
+		{ # Get DO Spaces API key
+			name: 'spacesApiKey'
+			message: 'DigitalOcean Spaces API key'
+			when: ({ cms }) -> cms == 'craft'
+		}
+
+		{ # Get DO Spaces Secret
+			name: 'spacesSecret'
+			message: 'DigitalOcean Spaces secret'
+			when: ({ cms }) -> cms == 'craft'
+		}
+
 		{ # Get Contentful space id
 			name: 'contentfulSpace'
 			message: 'Contentful space ID'
