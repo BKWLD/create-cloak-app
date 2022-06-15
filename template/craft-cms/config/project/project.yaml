@@ -151,7 +151,7 @@ plugins:
   colorit:
     edition: standard
     enabled: true
-    licenseKey: YJJGRVTFZ1SBOKBOR0WU8E46
+    licenseKey:
     schemaVersion: 1.0.3
   cp-css:
     edition: standard
@@ -180,7 +180,7 @@ plugins:
   neo:
     edition: standard
     enabled: true
-    licenseKey: 9RFIWW1J4622YRTFU197TCAN
+    licenseKey:
     schemaVersion: 3.0.4
   redactor:
     edition: standard
