@@ -40,7 +40,7 @@ fragment nonWrapperBlocks on NeoBlockInterface {
 
 	# Simple marquee
 	... on blocks_simpleMarquee_BlockType {
-		title: text
+		copy: fullWysiwyg
 		buttons {
 			... on buttons_BlockType {
 				id
