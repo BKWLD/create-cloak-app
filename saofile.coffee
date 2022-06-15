@@ -298,9 +298,8 @@ module.exports =
 				filters:
 
 					# Product structures
-					'entryTypes/products--*.yaml': shopify
 					'sections/products--*.yaml': shopify
-
+					'entryTypes/product--*.yaml': shopify
 
 		# Add shopify-theme
 		if shopify then actions.push
