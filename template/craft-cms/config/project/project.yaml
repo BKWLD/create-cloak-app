@@ -1,9 +1,65 @@
-dateModified: 1641583661
+dateModified: 1655268789
+elementSources:
+  craft\elements\Asset:
+    -
+      disabled: false
+      key: 'volume:c9c87263-ba15-47e4-bb1b-002b231b2f98' # Assets
+      tableAttributes:
+        - size
+        - dateModified
+        - link
+      type: native
+    -
+      key: 'folder:9005ebb2-4f0a-4ea6-ac08-50c9fb45f27b'
+      type: native
+  craft\elements\Entry:
+    -
+      disabled: false
+      key: '*'
+      tableAttributes:
+        - section
+        - dateUpdated
+      type: native
+    -
+      heading: Pages
+      type: heading
+    -
+      disabled: false
+      key: 'section:186a5336-eaea-4df2-bfc8-e5a20da010f3' # Towers
+      tableAttributes:
+        - uri
+      type: native
+    <%_ if (shopify) { _%>
+    -
+      disabled: false
+      key: 'section:98186665-a0ee-4abe-9c44-3a1736939a1d' # Products
+      tableAttributes:
+        - uri
+      type: native
+    <%_ } _%>
+    -
+      heading: Elements
+      type: heading
+    -
+      disabled: false
+      key: 'section:98dcc5b4-aeb9-4b83-9b22-930f801ec61a' # Reusable Sections
+      tableAttributes:
+        - dateUpdated
+      type: native
+    -
+      heading: Functionality
+      type: heading
+    -
+      disabled: false
+      key: 'section:10c8f63f-7625-41fd-af7e-563ca33f0864' # Redirects
+      tableAttributes:
+        - 'field:c1d660db-a389-457a-b8ab-61fd5253fca1' # Redirect - Code
+      type: native
 email:
   fromEmail: cms@send.bukwild.com
   fromName: CMS
   replyToEmail: null
-  template: ''
+  template: null
   transportSettings:
     encryptionMethod: tls
     host: smtp.mailgun.org
@@ -13,69 +69,89 @@ email:
     useAuthentication: '1'
     username: cms@send.bukwild.com
   transportType: craft\mail\transportadapters\Smtp
+fs:
+  spaces:
+    hasUrls: true
+    name: 'DigitalOcean Spaces'
+    settings:
+      bucket: $SPACES_BUCKET
+      contentDisposition: ''
+      endpoint: $SPACES_ENDPOINT
+      expires: '1 years'
+      keyId: $SPACES_API_KEY
+      region: $SPACES_REGION
+      secret: $SPACES_SECRET
+      subfolder: cms
+    type: vaersaagod\dospaces\Fs
+    url: '@spacesBaseUrl'
 meta:
   __names__:
-    1a4b6751-b39b-4889-a185-e55df4e88fdb: Text # Text
-    1ac617c7-6c7b-4a88-9a21-da83b6fb9db7: 'Text Alignment' # Text Alignment
-    2a3e1dff-e96a-4ac1-8a6e-7eed68dfaa4e: 'Max Width' # Max Width
-    2aca8c17-9c27-4bf0-9e7a-3f045b767d2a: Landscape # Landscape
-    2f43c4ca-6ee6-4e49-9dc2-286e151ea6b0: 'Responsive Video' # Responsive Video
-    6a560d02-778f-4c45-ba9b-8d733af642a2: Towers # Towers
-    6cf89d15-da1d-4624-9120-c33ada5df8d4: Products # Products
-    6fc04ae2-bc2a-4021-aed9-24b0a9a6ec9e: Title # Title
-    08a01953-689a-4c68-ba66-569186fb3dc4: Video # Video
-    8aa7b919-a245-4d28-836b-c599e4c99668: Assets # Assets
-    8b15badc-af4c-44f7-a29d-0efff2f88cfc: Redirects # Redirects
-    8cf6606b-c087-43db-8bd2-7f1ab7dd05ea: 'Balance Text' # Balance Text
-    17a25a7a-86c8-4cfd-8a67-1bdc99703ecb: Local # Local
-    032b2c9b-ff4b-4191-b76a-1ecad594e614: Products # Products
-    33e6568b-9503-408d-bf85-4bc47b94633a: Portrait # Portrait
-    50faa884-3981-42f7-a2b8-ab01cb2c3b6d: 'Default SEO' # Default SEO
-    64a40ea1-96fa-4752-9374-94489dc97f96: 'Simple Marquee' # Simple Marquee
-    80f5d10a-2957-4fe2-905a-2b34e5336acd: Redirects # Redirects
-    086b5d2d-0b9e-4aff-b050-8b408c0eaeae: Basics # Basics
-    210b8f7a-99b9-43ab-baba-f8b9d773b1c1: Layout # Layout
-    350f57c3-762b-4c5a-b36c-864cbe3f5e4f: Text # Text
-    415fec5d-10c8-449d-aa88-bff8dd05c4ee: Spacer # Spacer
-    738a9619-9a83-40ff-b6ab-4156e9ff0790: 'Redirect - From' # Redirect - From
-    3287fd8e-5dec-40b8-a8bb-1d81124f3db2: 'Redirect - Code' # Redirect - Code
-    835037b1-cdf8-4cb3-880c-88910f020cd4: 'Full WYSIWYG' # Full WYSIWYG
-    4231471d-4063-4b18-a8b0-f8927cc22cb9: Buttons # Buttons
-    4723082f-b4ea-427d-8daa-882f0807e848: Towers # Towers
-    8738446a-ff18-4110-9a8e-29c2f68ff4de: Robots # Robots
-    51895965-9e46-40ff-a2a8-1f2ba17998db: 'Background Color' # Background Color
-    81277674-1ae1-4c6c-b945-9b6e2d433cc3: Label # Label
-    a50b9328-6e94-4a63-87c2-2c589e7bef20: Landscape # Landscape
-    acc19cab-c962-4a2b-ab8b-c6a1a0e754ad: Redirects # Redirects
-    b672bfcd-1595-4f91-86d8-2c7666326313: 'Public Schema' # Public Schema
-    bcfdf78d-b3c4-455f-a438-44ead98881fd: 'Media Asset' # Media Asset
-    be38339d-02bd-46cb-84ec-59dc7777fe3a: Common # Common
-    c5d6747d-e70c-424e-beeb-cf1a49dd19d7: Marquees # Marquees
-    c9b9f43f-3695-4d47-8d5c-5a2b8f08b2a9: Wrapper # Wrapper
-    c9cbae83-6895-4b0f-a71c-658eb52c62c0: Image # Image
-    c56835da-8ddd-4bce-b6fc-a8f0de829635: Image # Image
-    c669537f-8a7f-4bde-962a-2e61c9b653c2: Site # Site
-    cf3a29b0-7f16-4093-b6be-4340e57a3e24: 'Redirect - To' # Redirect - To
-    d1b83162-d8d7-4409-b3e0-bb1be43bb297: Portrait # Portrait
-    d6a44fe4-1500-4868-8559-30fd3b34625e: 'Responsive Image' # Responsive Image
-    d8e7d38f-9b07-4e45-bb42-946070c16724: Description # Description
-    d23a7d45-41cc-44ea-abdf-fac8d4ed95d8: Unorphan # Unorphan
-    d507d988-558f-49c4-b53b-471a38e1d525: Assets # Assets
-    dab32934-4eef-4bf2-afaa-b74bbe1a5a85: URL # URL
-    ddd6b23b-385f-40b3-8454-5b03c755ce50: Towers # Towers
-    e7e5af5d-802f-41c4-b63b-9ea56ce9b49a: Copy # Copy
-    e79e3ac0-73ae-4b4d-95ea-6f87506b192c: Site # Site
-    ec56af06-33ca-4f16-a73a-89f37d116142: SEO # SEO
-    ec538ba2-0ee7-4b89-8110-5d94a9161e40: Layout # Layout
-    f8f2273b-9131-4f32-856a-281379a96b75: 'URI Path' # URI Path
-    f25955e8-9b37-4cf4-9101-2d6d2fa0a879: Spacing # Spacing
-    fd4326a9-8ced-46ef-b0f2-c283f7482614: Blocks # Blocks
-    f2c0a6d4-dbae-4a40-aaf5-9ba8f676f926: 'Canonical URL' # Canonical URL
+    2d9687b3-b684-4874-a7a8-ab944ad8b8d1: SEO # SEO
+    2e17b992-2242-41da-b88e-9e2a43c77c01: Video # Video
+    2fd34dec-1616-4dfa-a937-862dd23bb8ed: Blocks # Blocks
+    4a8ec7bb-bb8b-4e71-8473-8a1959ab8ee2: Wrapper # Wrapper
+    4b677453-d75d-4b58-b417-d4d3a55abee2: Image # Image
+    4bbcd477-ee45-4aaa-88f6-b71445edcaa4: 'Text Alignment' # Text Alignment
+    5da73805-8b5d-48f2-a98e-796b61a49c7b: Title # Title
+    5e038f76-3399-4dbc-a094-ccf1ce3d817b: Pages # Pages
+    6ba1665a-8402-412e-9aa8-a32891d9ea15: Label # Label
+    6f76a787-c809-43bc-afe5-bd95e815e131: 'URI Path' # URI Path
+    7b717a9b-592f-4c43-bbb2-e644948cb7d4: 'Responsive Image' # Responsive Image
+    7e90e7a7-1913-4abe-a281-eae317c58770: Layout # Layout
+    8dad1526-e3d9-4d23-a5f0-a0515ccbb2ca: Copy # Copy
+    008df272-719d-4314-91bd-46f97a05c1d7: Site # Site
+    8f23a5bb-60fd-42cb-896e-50a2849a18be: Unorphan # Unorphan
+    10c8f63f-7625-41fd-af7e-563ca33f0864: Redirects # Redirects
+    24cdf41e-e940-436e-81e1-984ac9217753: 'Max Width' # Max Width
+    37e178d0-caa3-4f07-ba8f-0622ccc5d9a5: Default # Default
+    78cb78c4-082c-487f-bd57-ce5b32eb2bb9: 'Portrait Device' # Portrait Device
+    83dfc50b-8fb9-4860-a023-412237984a08: 'Background Color' # Background Color
+    84c82111-676d-4cc9-9d6a-37a167f8151a: Layout # Layout
+    85a957c5-8697-4eb8-89a6-036725aa7411: Marquees # Marquees
+    87d83354-b0a5-4892-bca2-8837f965151b: 'Portrait Device' # Portrait Device
+    093c0f01-674f-4456-9f9f-c08e7043cc4d: 'Public Schema' # Public Schema
+    95b29d64-fe33-4526-bee4-0570f4901a9b: 'Canonical URL' # Canonical URL
+    98dcc5b4-aeb9-4b83-9b22-930f801ec61a: 'Reusable Sections' # Reusable Sections
+    186a5336-eaea-4df2-bfc8-e5a20da010f3: Towers # Towers
+    9745b1d2-5506-4a0f-b23f-dff4068bc084: Common # Common
+    19063645-1c73-4f2a-97d6-d09ec798bd83: Site # Site
+    61011763-c00b-4946-8e21-10ac1b6720c8: Basics # Basics
+    98186665-a0ee-4abe-9c44-3a1736939a1d: Products # Products
+    a7ca55f8-9c66-4ebf-88ec-137e2917eefb: Robots # Robots
+    a739e22f-8e56-4431-acf9-42b1c1cfbf02: 'Default SEO' # Default SEO
+    acc2ba21-dae4-47cc-bf46-870d7d429882: 'Reusable Section' # Reusable Section
+    acc3eb47-55fc-4174-9a80-46bbd841f2d9: Buttons # Buttons
+    acf3ce17-0ce2-4643-a67f-0aad408e8d9f: Default # Default
+    af8f5c62-eeb2-49b5-b0c4-bcc2355159f5: 'Landscape Device' # Landscape Device
+    b9fb7e0c-d670-46e6-9f22-0fcbf74c76e7: Description # Description
+    b5171329-a8e7-45c1-973c-d81ad60226a4: URL # URL
+    ba5dd543-6799-42ff-a37f-8d8431e32e13: 'Responsive Video' # Responsive Video
+    bd321f03-7ec9-486f-bc08-b02d37378f85: Spacing # Spacing
+    bd919004-224d-4697-841d-bd8e0100e320: Text # Text
+    bfd00e87-2045-4dad-ad01-da134ff74be6: 'Balance Text' # Balance Text
+    c1d660db-a389-457a-b8ab-61fd5253fca1: 'Redirect - Code' # Redirect - Code
+    c6c660ef-7571-4040-934a-8f9b9f0f11b4: 'Simple Marquee' # Simple Marquee
+    c9c87263-ba15-47e4-bb1b-002b231b2f98: Assets # Assets
+    ca292f2e-a489-4abf-8bfd-a37201b553c2: 'Full WYSIWYG' # Full WYSIWYG
+    cd1175f4-00b9-446c-8048-4cbadb8bd243: Entries # Entries
+    d9ec0e61-1044-4136-b7d7-6b9368827012: Product # Product
+    db1453d6-d8c4-4e12-8320-1481643509c2: 'Redirect - From' # Redirect - From
+    de97ce0f-548b-4114-8d77-fbf9a3b6c2c2: 'Landscape Device' # Landscape Device
+    df38411b-18a5-4003-84aa-4143bd357605: 'Public Schema' # Public Schema
+    dfe0196e-d542-4e68-a7fd-a1f51a3dd307: Assets # Assets
+    e4cc7576-8cbb-4cbf-b61d-01124cc26236: Spacer # Spacer
+    e4e747fe-6148-48f0-8a20-ef0767f3038f: 'Media Asset' # Media Asset
+    e91a3004-6bc6-456d-a8fd-886f0a02488c: Text # Text
+    ec5c130f-db1a-4e88-9e99-2ccad068c525: Image # Image
+    ed10e046-ed60-4917-85e1-454ba5a5e0d0: Redirects # Redirects
+    ef5c7247-23cf-41ec-b422-164deb7db9b3: 'Reusable Section' # Reusable Section
+    f086dead-b963-4695-b991-70f21fa4f309: 'Redirect - To' # Redirect - To
+    fd461696-8956-45eb-810f-34434625242b: Redirects # Redirects
 plugins:
   colorit:
     edition: standard
     enabled: true
-    licenseKey: FHU3QUJ1HMLSM73ALBZX7SQD
+    licenseKey: YJJGRVTFZ1SBOKBOR0WU8E46
     schemaVersion: 1.0.3
   cp-css:
     edition: standard
@@ -83,6 +159,7 @@ plugins:
     schemaVersion: 2.0.0
     settings:
       additionalCss: ''
+      cacheBusting: true
       cssFile: /cp.css
   cp-js:
     edition: standard
@@ -90,6 +167,7 @@ plugins:
     schemaVersion: 2.0.0
     settings:
       additionalJs: ''
+      cacheBusting: true
       jsFile: /cp.js
   dashboard-begone:
     edition: standard
@@ -98,44 +176,38 @@ plugins:
   dospaces:
     edition: standard
     enabled: true
-    schemaVersion: 1.0.0
+    schemaVersion: 2.0.0
   neo:
     edition: standard
     enabled: true
-    licenseKey: ORSYW1SVA20KHNLTUWR1NC8G
-    schemaVersion: 2.11.6
+    licenseKey: 9RFIWW1J4622YRTFU197TCAN
+    schemaVersion: 3.0.4
   redactor:
     edition: standard
     enabled: true
     schemaVersion: 2.3.0
-  sentry:
+  sentry-sdk:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
-    settings:
-      clientDsn: $SENTRY_DSN
-      enabled: '1'
-      environment: $ENVIRONMENT
-      excludedCodes: '404'
   super-table:
     edition: standard
     enabled: true
-    schemaVersion: 2.2.1
+    schemaVersion: 3.0.0
   webhooks:
     edition: standard
     enabled: true
-    schemaVersion: 2.3.1
+    schemaVersion: 2.4.0
 system:
   edition: pro
   live: true
-  name: CMS
+  name: "<%= name %>"
   retryDuration: null
-  schemaVersion: 3.7.7
+  schemaVersion: 4.0.0.9
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false
-  defaultGroup: ''
+  defaultGroup: null
   photoSubpath: null
-  photoVolumeUid: d507d988-558f-49c4-b53b-471a38e1d525 # Assets
+  photoVolumeUid: null
   requireEmailVerification: true
-  suspendByDefault: false

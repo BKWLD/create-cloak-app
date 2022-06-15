@@ -1,0 +1,66 @@
+field: acc3eb47-55fc-4174-9a80-46bbd841f2d9 # Buttons
+fieldLayouts:
+  75923352-3a1f-411b-887b-bfb98816372c:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 6ba1665a-8402-412e-9aa8-a32891d9ea15 # Label
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4aeb39f5-1029-4d8a-a5d5-0afdd92c78a4
+            warning: null
+            width: 100
+          -
+            fieldUid: b5171329-a8e7-45c1-973c-d81ad60226a4 # URL
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 70d78278-9ab4-4a14-b35b-98a6f15cc92d
+            warning: null
+            width: 100
+        name: Content
+        uid: 4a19fecd-84f0-4a19-83bb-d63a5bd79b29
+fields:
+  6ba1665a-8402-412e-9aa8-a32891d9ea15: # Label
+    columnSuffix: depzxeeh
+    contentColumnType: text
+    fieldGroup: null
+    handle: label
+    instructions: null
+    name: Label
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  b5171329-a8e7-45c1-973c-d81ad60226a4: # URL
+    columnSuffix: kdriedjo
+    contentColumnType: string(255)
+    fieldGroup: null
+    handle: to
+    instructions: 'Use an absolute path (ex: "/contact") for internal links.'
+    name: URL
+    searchable: false
+    settings:
+      maxLength: 255
+      types:
+        - url
+        - tel
+        - email
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url

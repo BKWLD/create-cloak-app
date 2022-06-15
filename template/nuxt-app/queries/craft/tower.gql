@@ -10,7 +10,7 @@ query getTower(
 		section: "towers"
 		site: $site
 		uri: $uri) {
-		...on towers_towers_Entry {
+		...on towers_default_Entry {
 
 			id
 			title
