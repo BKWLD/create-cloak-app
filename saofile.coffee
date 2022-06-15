@@ -317,8 +317,8 @@ module.exports =
 				filters:
 
 					# Product structures
-					'sections/products--*.yaml': shopify
-					'entryTypes/product--*.yaml': shopify
+					'craft-cms/config/project/sections/products--*.yaml': shopify
+					'craft-cms/config/project/entryTypes/product--*.yaml': shopify
 
 		# Add shopify-theme
 		if shopify then actions.push

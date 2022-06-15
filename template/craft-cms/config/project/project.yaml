@@ -32,12 +32,14 @@ elementSources:
       tableAttributes:
         - uri
       type: native
+    <%_ if (shopify) { _%>
     -
       disabled: false
       key: 'section:98186665-a0ee-4abe-9c44-3a1736939a1d' # Products
       tableAttributes:
         - uri
       type: native
+    <%_ } _%>
     -
       heading: Elements
       type: heading
