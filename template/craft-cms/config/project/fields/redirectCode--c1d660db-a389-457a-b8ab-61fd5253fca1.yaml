@@ -1,0 +1,34 @@
+columnSuffix: doaaeder
+contentColumnType: string
+fieldGroup: ed10e046-ed60-4917-85e1-454ba5a5e0d0 # Redirects
+handle: redirectCode
+instructions: null
+name: 'Redirect - Code'
+searchable: false
+settings:
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - '301 - Permanent'
+        -
+          - value
+          - '301'
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - '302 - Temporary'
+        -
+          - value
+          - '302'
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\RadioButtons

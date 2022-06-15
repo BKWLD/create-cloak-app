@@ -1,0 +1,68 @@
+fieldLayouts:
+  99c180dd-2dbd-4a9c-bf35-3c5cf0e9f0c1:
+    tabs:
+      -
+        elements:
+          -
+            style: tip
+            tip: 'The slug should be identical to the handle of a Shopify product.'
+            type: craft\fieldlayoutelements\Tip
+            uid: 4cd2d716-4e68-4dee-942f-580a4aa1da20
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 5db7f1b1-2d19-4e2f-ab3b-a8a31354c5d4
+            warning: null
+            width: 100
+          -
+            fieldUid: 2fd34dec-1616-4dfa-a937-862dd23bb8ed # Blocks
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 642f1560-13de-4b77-86c2-52d22e4ba30c
+            warning: null
+            width: 100
+        name: Content
+        uid: 4f22edd4-a06a-4fb5-8c44-0270c0e3d7ff
+      -
+        elements:
+          -
+            fieldUid: 2d9687b3-b684-4874-a7a8-ab944ad8b8d1 # SEO
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 05bd6ee1-29de-41bf-902f-c5bb36923c74
+            warning: null
+            width: 100
+        name: SEO
+        uid: b592e7c2-8465-4247-97ec-01b2438d4549
+handle: default
+hasTitleField: true
+name: Default
+section: 98186665-a0ee-4abe-9c44-3a1736939a1d # Products
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
