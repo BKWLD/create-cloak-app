@@ -291,7 +291,11 @@ module.exports =
 			actions.push
 				type: 'add'
 				files: 'craft-cms/**'
-				transform: false
+				transformInclude: [
+					'craft-cms/.env'
+					'craft-cms/.env.example'
+					'craft-cms/config/project/project.yaml'
+				]
 				filters:
 
 					# Product structures
