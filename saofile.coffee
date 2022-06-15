@@ -338,6 +338,8 @@ module.exports =
 				'craft-cms/storage/_gitignore': 'craft-cms/storage/.gitignore'
 				'craft-cms/storage/config-deltas/_gitignore':
 					'craft-cms/storage/config-deltas/.gitignore'
+				'craft-cms/storage/runtime/_gitignore':
+					'craft-cms/storage/runtime/.gitignore'
 				'nuxt-app/_gitignore': 'nuxt-app/.gitignore'
 				'shopify-theme/_gitignore': 'shopify-theme/.gitignore'
 
