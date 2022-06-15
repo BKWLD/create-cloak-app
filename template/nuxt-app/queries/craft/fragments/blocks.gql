@@ -4,11 +4,14 @@
 # Get list of blocks. This gets weird because you can't have recursion in gql
 fragment blocks on NeoBlockInterface {
 
-	# Majority of blocks
-	...nonWrapperBlocks
-
 	# Recursive blocks
 	...wrapperBlock
+
+	# Reusable sections
+	...reusableSectionBlock
+
+	# The remainder of standard blocks
+	...nonWrapperBlocks
 }
 
 # Wrapper block
@@ -16,6 +19,19 @@ fragment wrapperBlock on blocks_wrapper_BlockType {
 	backgroundColor
 	blocks: children {
 		...nonWrapperBlocks
+	}
+}
+
+# Reusable sections, only supports one level of depth
+fragment reusableSectionBlock on blocks_reusableSection_BlockType {
+	reusableSection {
+		... on reusableSections_default_Entry {
+			id
+			blocks {
+				...wrapperBlock
+				...nonWrapperBlocks
+			}
+		}
 	}
 }
 
