@@ -3,7 +3,7 @@ name: 'Public Schema'
 scope:
   - 'sites.008df272-719d-4314-91bd-46f97a05c1d7:read' # Site
   - 'sections.98186665-a0ee-4abe-9c44-3a1736939a1d:read' # Products
-  - 'entrytypes.d9ec0e61-1044-4136-b7d7-6b9368827012:read' # Default
+  - 'entrytypes.d9ec0e61-1044-4136-b7d7-6b9368827012:read' # Product
   - 'sections.10c8f63f-7625-41fd-af7e-563ca33f0864:read' # Redirects
   - 'entrytypes.fd461696-8956-45eb-810f-34434625242b:read' # Redirects
   - 'sections.186a5336-eaea-4df2-bfc8-e5a20da010f3:read' # Towers
