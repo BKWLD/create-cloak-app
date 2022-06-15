@@ -1,0 +1,19 @@
+columnSuffix: kjyuoxsk
+contentColumnType: text
+fieldGroup: ed10e046-ed60-4917-85e1-454ba5a5e0d0 # Redirects
+handle: redirectFrom
+instructions: 'A path with a leading slash. For advanced usage, see https://docs.netlify.com/routing/redirects/redirect-options.'
+name: 'Redirect - From'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: true
+  columnType: null
+  initialRows: 4
+  multiline: false
+  placeholder: /my-redirect
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

@@ -1,0 +1,73 @@
+fieldLayouts:
+  ea9719fe-9b06-4e51-b36e-607061c94fac:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 3a215894-ca1d-4f44-984d-9476c9dea2d4
+            warning: null
+            width: 100
+          -
+            fieldUid: 6f76a787-c809-43bc-afe5-bd95e815e131 # URI Path
+            instructions: null
+            label: Path
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bd1be72f-b1e7-4880-872d-ca94af7610c7
+            warning: null
+            width: 100
+          -
+            fieldUid: 2fd34dec-1616-4dfa-a937-862dd23bb8ed # Blocks
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 07945c7c-b01c-4506-bf21-59f250b6c04b
+            warning: null
+            width: 100
+        name: Content
+        uid: 7fe8b292-cfda-40e0-a21b-31c8750af1fc
+      -
+        elements:
+          -
+            fieldUid: 2d9687b3-b684-4874-a7a8-ab944ad8b8d1 # SEO
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 594fbf8d-865f-4ca0-b053-339f584de02d
+            warning: null
+            width: 100
+        name: SEO
+        uid: 1b6e85da-f0c8-4270-ace7-1cc988341b7a
+handle: default
+hasTitleField: true
+name: Default
+section: 186a5336-eaea-4df2-bfc8-e5a20da010f3 # Towers
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

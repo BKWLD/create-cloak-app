@@ -1,0 +1,43 @@
+childBlocks: null
+description: ''
+field: 2fd34dec-1616-4dfa-a937-862dd23bb8ed # Blocks
+fieldLayouts:
+  abba5dc6-7f14-4408-8a79-5d803019b134:
+    tabs:
+      -
+        elements:
+          -
+            style: tip
+            tip: 'A simple, text-only Marquee.'
+            type: craft\fieldlayoutelements\Tip
+            uid: 1a927204-c414-485f-b760-dd52e11e9932
+          -
+            fieldUid: ca292f2e-a489-4abf-8bfd-a37201b553c2 # Full WYSIWYG
+            instructions: null
+            label: Copy
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 958043b8-20f4-4ec0-809a-c0d9b90742ac
+            warning: null
+            width: 100
+          -
+            fieldUid: acc3eb47-55fc-4174-9a80-46bbd841f2d9 # Buttons
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1a87cb2b-fb17-46e3-9f31-64e14a978af2
+            warning: null
+            width: 100
+        name: Content
+        uid: 15e25a99-4504-441a-83fe-1a4043214d29
+group: 85a957c5-8697-4eb8-89a6-036725aa7411 # Marquees
+handle: simpleMarquee
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Simple Marquee'
+sortOrder: 9
+topLevel: true

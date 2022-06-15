@@ -29,9 +29,9 @@ export default {
 		craft: {
 			generateRedirects: true,
 			pageTypes: [
-				'towers_towers_Entry'
+				'towers_default_Entry'
 				<%_ if (shopify) { _%>
-				'products_products_Entry'
+				'products_product_Entry'
 				<%_ } _%>
 			]
 		},

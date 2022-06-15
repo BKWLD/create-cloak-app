@@ -1,0 +1,27 @@
+defaultPlacement: end
+enableVersioning: true
+handle: products
+name: Products
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - Site
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - ''
+propagationMethod: all
+siteSettings:
+  008df272-719d-4314-91bd-46f97a05c1d7: # Site
+    enabledByDefault: true
+    hasUrls: true
+    template: null
+    uriFormat: 'products/{slug}'
+structure:
+  maxLevels: 1
+  uid: 43b0edc9-0845-48e5-b1a8-54a95b61901a
+type: structure

@@ -1,0 +1,21 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: dfe0196e-d542-4e68-a7fd-a1f51a3dd307 # Assets
+handle: responsiveVideo
+instructions: 'Switch between video assets depending on the aspect ratio of the browser.  Typically, this is used to supply separate desktop (landscape) and mobile (portrait) videos.  To use a single video for all cases, just upload a single video to either field.'
+name: 'Responsive Video'
+searchable: false
+settings:
+  blockTypeFields: 0
+  changedFieldIndicator: 1298348187
+  contentTable: '{{%stc_responsivevideo}}'
+  fieldLayout: row
+  maxRows: null
+  minRows: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  selectionLabel: null
+  staticField: null
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

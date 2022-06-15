@@ -1,0 +1,14 @@
+columnSuffix: htmhlawi
+contentColumnType: boolean
+fieldGroup: e91a3004-6bc6-456d-a8fd-886f0a02488c # Text
+handle: balanceText
+instructions: 'Attempt to make each line of text the same width using https://github.com/adobe/balance-text. Note, this requires javascript measuring the dimensions of elements on the page and so has a performance impact, so it''s recommended to use this feature sparingly.'
+name: 'Balance Text'
+searchable: false
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

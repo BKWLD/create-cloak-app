@@ -45,6 +45,25 @@ module.exports =
 			]
 		}
 
+		{ # Get DO Spaces bucket name
+			name: 'spacesBucket'
+			message: 'DigitalOcean Spaces bucket name'
+			when: ({ cms }) -> cms == 'craft'
+			default: ({ packageName }) -> packageName
+		}
+
+		{ # Get DO Spaces API key
+			name: 'spacesApiKey'
+			message: 'DigitalOcean Spaces API key'
+			when: ({ cms }) -> cms == 'craft'
+		}
+
+		{ # Get DO Spaces Secret
+			name: 'spacesSecret'
+			message: 'DigitalOcean Spaces secret'
+			when: ({ cms }) -> cms == 'craft'
+		}
+
 		{ # Get Contentful space id
 			name: 'contentfulSpace'
 			message: 'Contentful space ID'
@@ -227,7 +246,6 @@ module.exports =
 			'components/blocks/wrapper.vue'
 			'components/globals/blocks/list.vue'
 			'components/globals/btn/btn.vue'
-			'queries/craft/craft-pages.gql'
 			'layouts/error.vue'
 			'pages/_tower.vue'
 			'store/globals.coffee'
@@ -291,13 +309,16 @@ module.exports =
 			actions.push
 				type: 'add'
 				files: 'craft-cms/**'
-				transform: false
+				transformInclude: [
+					'craft-cms/.env'
+					'craft-cms/.env.example'
+					'craft-cms/config/project/project.yaml'
+				]
 				filters:
 
 					# Product structures
-					'entryTypes/products--*.yaml': shopify
-					'sections/products--*.yaml': shopify
-
+					'craft-cms/config/project/sections/products--*.yaml': shopify
+					'craft-cms/config/project/entryTypes/product--*.yaml': shopify
 
 		# Add shopify-theme
 		if shopify then actions.push
@@ -338,6 +359,8 @@ module.exports =
 				'craft-cms/storage/_gitignore': 'craft-cms/storage/.gitignore'
 				'craft-cms/storage/config-deltas/_gitignore':
 					'craft-cms/storage/config-deltas/.gitignore'
+				'craft-cms/storage/runtime/_gitignore':
+					'craft-cms/storage/runtime/.gitignore'
 				'nuxt-app/_gitignore': 'nuxt-app/.gitignore'
 				'shopify-theme/_gitignore': 'shopify-theme/.gitignore'
 
@@ -382,12 +405,7 @@ module.exports =
 			# Install Craft. I broke this up into multiple commands because I ran
 			# into `No primary site exists` issues when running just `craft setup`.
 			@logger.info 'Running Craft install'
-			await spawn './craft', ['setup/app-id']
-			await spawn './craft', ['setup/security-key']
-			await spawn './craft', ['setup/db']
-			@logger.info 'Setup your initial admin user'
-			await spawn './craft', ['install', '--site-name=Site',
-				'--site-url=$PRIMARY_SITE_URL', '--language=en-US']
+			await spawn './craft', ['setup']
 			await spawn './craft', ['migrate/all', '--no-backup=1',
 				'--interactive=0']
 			await spawn './craft', ['update', 'craft', '--backup=0']

@@ -1,0 +1,19 @@
+columnSuffix: jwngggjk
+contentColumnType: text
+fieldGroup: ed10e046-ed60-4917-85e1-454ba5a5e0d0 # Redirects
+handle: redirectTo
+instructions: 'A path with a leading slash or an external URL.'
+name: 'Redirect - To'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: true
+  columnType: null
+  initialRows: 4
+  multiline: false
+  placeholder: /new-location
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText
