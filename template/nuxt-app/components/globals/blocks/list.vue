@@ -51,6 +51,7 @@ export default
 
 	props:
 		blocks: Array
+		block: Object # Used by reusable sections
 
 		# Used by Wrapper so the children don't get an offset of zero and disable
 		# lazly loading. Note, this isn't perfect because any blocks after the
@@ -62,14 +63,18 @@ export default
 
 	computed:
 
+		# Get the list of blocks from multiple props or default to an empty array
+		blocksSource: -> @block?.reusableSection?[0]?.blocks || @blocks || []
+
 		# Filter the blocks to those that have been defined.  To fix errors in dev
 		# environments after content model is created but commits with the new
 		# block component have not been pulled down.
 		createdBlocks: ->
-			(@blocks || [])
-			.map (block) -> {
+			@blocksSource.map (block) -> {
 					...block
-					componentName: mapping[block.__typename]
+					componentName: switch block.__typename
+						when 'blocks_reusableSection_BlockType' then 'blocks-list'
+						else mapping[block.__typename]
 				}
 			.filter (block) -> !!block.componentName
 
