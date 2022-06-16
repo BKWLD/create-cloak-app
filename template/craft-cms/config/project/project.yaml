@@ -1,4 +1,4 @@
-dateModified: 1655305935
+dateModified: 1655345499
 elementSources:
   craft\elements\Asset:
     -
@@ -10,7 +10,12 @@ elementSources:
         - link
       type: native
     -
-      key: 'folder:9005ebb2-4f0a-4ea6-ac08-50c9fb45f27b'
+      disabled: false
+      key: 'folder:69d711af-3b5b-4294-b72b-df045150f24b'
+      tableAttributes:
+        - size
+        - dateModified
+        - link
       type: native
   craft\elements\Entry:
     -
@@ -18,7 +23,10 @@ elementSources:
       key: '*'
       tableAttributes:
         - section
-        - dateUpdated
+        - postDate
+        - expiryDate
+        - author
+        - link
       type: native
     -
       heading: Pages
@@ -104,11 +112,11 @@ meta:
     10c8f63f-7625-41fd-af7e-563ca33f0864: Redirects # Redirects
     24cdf41e-e940-436e-81e1-984ac9217753: 'Max Width' # Max Width
     37e178d0-caa3-4f07-ba8f-0622ccc5d9a5: Default # Default
-    78cb78c4-082c-487f-bd57-ce5b32eb2bb9: 'Portrait Device' # Portrait Device
+    78cb78c4-082c-487f-bd57-ce5b32eb2bb9: 'Portrait Browser' # Portrait Browser
     83dfc50b-8fb9-4860-a023-412237984a08: 'Background Color' # Background Color
     84c82111-676d-4cc9-9d6a-37a167f8151a: Layout # Layout
     85a957c5-8697-4eb8-89a6-036725aa7411: Marquees # Marquees
-    87d83354-b0a5-4892-bca2-8837f965151b: 'Portrait Device' # Portrait Device
+    87d83354-b0a5-4892-bca2-8837f965151b: 'Portrait Browser' # Portrait Browser
     093c0f01-674f-4456-9f9f-c08e7043cc4d: 'Public Schema' # Public Schema
     95b29d64-fe33-4526-bee4-0570f4901a9b: 'Canonical URL' # Canonical URL
     98dcc5b4-aeb9-4b83-9b22-930f801ec61a: 'Reusable Sections' # Reusable Sections
@@ -122,7 +130,7 @@ meta:
     acc2ba21-dae4-47cc-bf46-870d7d429882: 'Reusable Section' # Reusable Section
     acc3eb47-55fc-4174-9a80-46bbd841f2d9: Buttons # Buttons
     acf3ce17-0ce2-4643-a67f-0aad408e8d9f: Default # Default
-    af8f5c62-eeb2-49b5-b0c4-bcc2355159f5: 'Landscape Device' # Landscape Device
+    af8f5c62-eeb2-49b5-b0c4-bcc2355159f5: 'Landscape Browser' # Landscape Browser
     b9fb7e0c-d670-46e6-9f22-0fcbf74c76e7: Description # Description
     b5171329-a8e7-45c1-973c-d81ad60226a4: URL # URL
     ba5dd543-6799-42ff-a37f-8d8431e32e13: 'Responsive Video' # Responsive Video
@@ -136,7 +144,7 @@ meta:
     cd1175f4-00b9-446c-8048-4cbadb8bd243: Entries # Entries
     d9ec0e61-1044-4136-b7d7-6b9368827012: Product # Product
     db1453d6-d8c4-4e12-8320-1481643509c2: 'Redirect - From' # Redirect - From
-    de97ce0f-548b-4114-8d77-fbf9a3b6c2c2: 'Landscape Device' # Landscape Device
+    de97ce0f-548b-4114-8d77-fbf9a3b6c2c2: 'Landscape Browser' # Landscape Browser
     df38411b-18a5-4003-84aa-4143bd357605: 'Public Schema' # Public Schema
     dfe0196e-d542-4e68-a7fd-a1f51a3dd307: Assets # Assets
     e4cc7576-8cbb-4cbf-b61d-01124cc26236: Spacer # Spacer

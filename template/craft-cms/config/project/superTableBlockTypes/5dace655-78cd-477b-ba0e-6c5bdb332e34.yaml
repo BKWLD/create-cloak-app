@@ -5,35 +5,35 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: af8f5c62-eeb2-49b5-b0c4-bcc2355159f5 # Landscape Device
+            fieldUid: af8f5c62-eeb2-49b5-b0c4-bcc2355159f5 # Landscape Browser
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 3a83bcc1-2811-4d1b-99f4-aadb1891920a
+            uid: 3d11b947-f76d-4696-a0c4-19a1ffacfc65
             warning: null
             width: 100
           -
-            fieldUid: 78cb78c4-082c-487f-bd57-ce5b32eb2bb9 # Portrait Device
+            fieldUid: 78cb78c4-082c-487f-bd57-ce5b32eb2bb9 # Portrait Browser
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: bf88aa49-a8fa-4a0e-a922-fdd5e3eaf4b5
+            uid: 1f20246c-a70f-4c03-aec9-28be36500368
             warning: null
             width: 100
         name: Content
         uid: f2669def-c1e1-4874-b44f-a0d71189e26c
 fields:
-  78cb78c4-082c-487f-bd57-ce5b32eb2bb9: # Portrait Device
+  78cb78c4-082c-487f-bd57-ce5b32eb2bb9: # Portrait Browser
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: portrait
     instructions: 'This video will be shown on portrait aspect ratio viewports, like mobile browsers.'
-    name: 'Portrait Device'
+    name: 'Portrait Browser'
     searchable: false
     settings:
       allowSelfRelations: false
@@ -64,7 +64,7 @@ fields:
             - class
             - craft\elements\conditions\assets\AssetCondition
       selectionLabel: null
-      showSiteMenu: false
+      showSiteMenu: true
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
       source: null
@@ -75,13 +75,13 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Assets
-  af8f5c62-eeb2-49b5-b0c4-bcc2355159f5: # Landscape Device
+  af8f5c62-eeb2-49b5-b0c4-bcc2355159f5: # Landscape Browser
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: landscape
     instructions: 'This video will be shown on landscape aspect ratio viewports, like desktop browsers.'
-    name: 'Landscape Device'
+    name: 'Landscape Browser'
     searchable: false
     settings:
       allowSelfRelations: false
@@ -112,7 +112,7 @@ fields:
             - class
             - craft\elements\conditions\assets\AssetCondition
       selectionLabel: null
-      showSiteMenu: false
+      showSiteMenu: true
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
       source: null

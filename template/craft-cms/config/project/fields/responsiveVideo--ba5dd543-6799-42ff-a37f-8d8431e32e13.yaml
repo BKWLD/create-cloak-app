@@ -7,7 +7,23 @@ name: 'Responsive Video'
 searchable: false
 settings:
   blockTypeFields: 0
-  changedFieldIndicator: 1298348187
+  changedFieldIndicator: 921381450
+  columns:
+    __assoc__:
+      -
+        - af8f5c62-eeb2-49b5-b0c4-bcc2355159f5 # Landscape Browser
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 78cb78c4-082c-487f-bd57-ce5b32eb2bb9 # Portrait Browser
+        -
+          __assoc__:
+            -
+              - width
+              - ''
   contentTable: '{{%stc_responsivevideo}}'
   fieldLayout: row
   maxRows: null
@@ -15,7 +31,7 @@ settings:
   propagationKeyFormat: null
   propagationMethod: all
   selectionLabel: null
-  staticField: null
+  staticField: true
 translationKeyFormat: null
 translationMethod: site
 type: verbb\supertable\fields\SuperTableField
