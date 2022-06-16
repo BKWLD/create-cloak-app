@@ -33,7 +33,7 @@ class m210710_202119_create_hello_world_tower extends Migration
                 [ // Marquee block
                     'type' => 'simpleMarquee',
                     'fields' => [
-                        'text' => 'Heya World',
+                        'fullWysiwyg' => '<h1>Heya World</h1>',
                         'buttons' => [
                             [
                                 'type' => $this->getButtonsTypeId(),

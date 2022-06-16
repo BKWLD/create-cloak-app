@@ -4,5 +4,5 @@
 	"tablet": "768px",
 	"mobile-landscape": "580px",
 	"mobile": "500px",
-	"nav-break": "1023px"
+	"header-break": "1023px"
 }

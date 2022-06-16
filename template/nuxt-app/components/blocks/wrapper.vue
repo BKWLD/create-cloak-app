@@ -32,6 +32,7 @@ export default
 		backgroundColor: ->
 			return unless color = @block.backgroundColor
 			<%_ if (cms == 'craft') { _%>
+			return if color == 'transparent'
 			if color.match(/^(\#|rgb)/i) then color else '#' + color
 			<%_ } else if (cms == 'contentful') { _%>
 			switch color

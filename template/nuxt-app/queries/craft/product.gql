@@ -1,0 +1,22 @@
+#import "./fragments/blocks.gql"
+#import "@cloak-app/craft/queries/fragments/seo.gql"
+
+# Get all pages and their content for SSG
+query getProduct(
+	$site: [String]
+	$uri: [String]) {
+
+	entry(
+		section: "products"
+		site: $site
+		uri: $uri) {
+		...on products_product_Entry {
+
+			id
+			slug
+			blocks { ...blocks }
+			seo { ...seo }
+
+		}
+	}
+}

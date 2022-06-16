@@ -7,7 +7,8 @@ export const SHOPIFY_ROOT_PATHS = [
 	'cart',
 	'pages',
 	'apps',
-	'checkout',
+	'\\w+\/checkouts',
+	'\\w+\/orders',
 	'challenge',
 	'tools'
 ]
@@ -25,4 +26,5 @@ export const UTM_KEYS = [
 	'utm_campaign',
 	'utm_term',
 	'utm_content',
+	'gclid',
 ]

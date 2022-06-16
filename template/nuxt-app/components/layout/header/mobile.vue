@@ -36,8 +36,9 @@ export default
 <style src='./header.styl' lang='stylus' scoped></style>
 <style lang='stylus' scoped>
 
+// hide on desktop
 .layout-header-mobile
-	+tablet-up()
+	+when-desktop-header()
 		display none
 
 

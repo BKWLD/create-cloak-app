@@ -1,0 +1,208 @@
+field: 2d9687b3-b684-4874-a7a8-ab944ad8b8d1 # SEO
+fieldLayouts:
+  5e5ea55c-de82-4b7e-978c-34212a09cea8:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 5da73805-8b5d-48f2-a98e-796b61a49c7b # Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5ba5adba-e84e-4678-a70c-3be81e8aa947
+            warning: null
+            width: 100
+          -
+            fieldUid: b9fb7e0c-d670-46e6-9f22-0fcbf74c76e7 # Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d0b2e17a-d7e1-43ed-8127-5a5529e1e4fd
+            warning: null
+            width: 100
+          -
+            fieldUid: 4b677453-d75d-4b58-b417-d4d3a55abee2 # Image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cfbec5d4-0bec-4719-a05a-bdcbabd25f6b
+            warning: null
+            width: 100
+          -
+            fieldUid: a7ca55f8-9c66-4ebf-88ec-137e2917eefb # Robots
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 11b4772c-9a84-4659-9065-b4f56bdf36d5
+            warning: null
+            width: 100
+          -
+            fieldUid: 95b29d64-fe33-4526-bee4-0570f4901a9b # Canonical URL
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9895c552-616e-49ca-92dd-3819ac83bf27
+            warning: null
+            width: 100
+        name: Content
+        uid: b5a8034f-3ce2-4aa9-a74c-c204ddbbee56
+fields:
+  4b677453-d75d-4b58-b417-d4d3a55abee2: # Image
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: metaImage
+    instructions: 'Recommended 1200 x 627.'
+    name: Image
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowSubfolders: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:c9c87263-ba15-47e4-bb1b-002b231b2f98' # Assets
+      defaultUploadLocationSubpath: null
+      localizeRelations: false
+      maxRelations: null
+      minRelations: null
+      previewMode: thumbs
+      restrictFiles: true
+      restrictLocation: false
+      restrictedDefaultUploadSubpath: null
+      restrictedLocationSource: 'volume:c9c87263-ba15-47e4-bb1b-002b231b2f98' # Assets
+      restrictedLocationSubpath: null
+      selectionCondition:
+        __assoc__:
+          -
+            - elementType
+            - craft\elements\Asset
+          -
+            - fieldContext
+            - global
+          -
+            - class
+            - craft\elements\conditions\assets\AssetCondition
+      selectionLabel: null
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      source: null
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  5da73805-8b5d-48f2-a98e-796b61a49c7b: # Title
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: metaTitle
+    instructions: 'If empty, the Entry Title will be used.'
+    name: Title
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  95b29d64-fe33-4526-bee4-0570f4901a9b: # Canonical URL
+    columnSuffix: null
+    contentColumnType: string(255)
+    fieldGroup: null
+    handle: canonicalUrl
+    instructions: 'If present, this will override the default behavior of using the current URL as the canonical value.'
+    name: 'Canonical URL'
+    searchable: false
+    settings:
+      maxLength: 255
+      types:
+        - url
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
+  a7ca55f8-9c66-4ebf-88ec-137e2917eefb: # Robots
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: robots
+    instructions: null
+    name: Robots
+    searchable: false
+    settings:
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'noindex - Don''t index page'
+            -
+              - value
+              - noindex
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'nofollow - Don''t follow links on page or pass along any link equity'
+            -
+              - value
+              - nofollow
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'noarchive - Don''t show a cached link to this page'
+            -
+              - value
+              - noarchive
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Checkboxes
+  b9fb7e0c-d670-46e6-9f22-0fcbf74c76e7: # Description
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: metaDescription
+    instructions: 'Try to keep below 160 characters.'
+    name: Description
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: true
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

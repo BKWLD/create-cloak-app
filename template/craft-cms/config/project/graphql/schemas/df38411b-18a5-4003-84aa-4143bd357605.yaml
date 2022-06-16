@@ -1,0 +1,14 @@
+isPublic: true
+name: 'Public Schema'
+scope:
+  - 'sites.008df272-719d-4314-91bd-46f97a05c1d7:read' # Site
+  - 'sections.98186665-a0ee-4abe-9c44-3a1736939a1d:read' # Products
+  - 'entrytypes.d9ec0e61-1044-4136-b7d7-6b9368827012:read' # Product
+  - 'sections.10c8f63f-7625-41fd-af7e-563ca33f0864:read' # Redirects
+  - 'entrytypes.fd461696-8956-45eb-810f-34434625242b:read' # Redirects
+  - 'sections.98dcc5b4-aeb9-4b83-9b22-930f801ec61a:read' # Reusable Sections
+  - 'entrytypes.acf3ce17-0ce2-4643-a67f-0aad408e8d9f:read' # Default
+  - 'sections.186a5336-eaea-4df2-bfc8-e5a20da010f3:read' # Towers
+  - 'entrytypes.37e178d0-caa3-4f07-ba8f-0622ccc5d9a5:read' # Default
+  - 'volumes.c9c87263-ba15-47e4-bb1b-002b231b2f98:read' # Assets
+  - 'globalsets.a739e22f-8e56-4431-acf9-42b1c1cfbf02:read' # Default SEO

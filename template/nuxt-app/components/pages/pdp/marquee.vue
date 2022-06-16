@@ -71,9 +71,11 @@ export default
 .pdp-marquee
 	padding-bottom spacing-m
 	background offwhite
-	+tablet-up()
+
+	// adjust spacing when header changes
+	+when-desktop-header()
 		padding-top header-h + spacing-m
-	+tablet-down()
+	+when-mobile-header()
 		padding-top header-h-mobile + spacing-m
 
 // Quick sections

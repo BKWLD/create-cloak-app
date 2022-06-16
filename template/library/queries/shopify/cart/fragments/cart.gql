@@ -42,8 +42,8 @@ fragment cartLine on CartLine {
 fragment productVariant on ProductVariant {
 	id
 	title
-	compareAtPrice
-	price
+	compareAtPrice: compareAtPriceV2 { amount }
+	price: priceV2 { amount }
 	sku
 	image { ...image }
 	product {

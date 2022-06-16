@@ -31,9 +31,9 @@ export default
 	flex-center()
 
 	// Style header
-	+tablet-up()
+	+when-desktop-header()
 		height header-h
-	+tablet-down()
+	+when-mobile-header()
 		height header-h-mobile
 
 

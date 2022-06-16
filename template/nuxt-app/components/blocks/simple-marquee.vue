@@ -4,8 +4,8 @@
 
 section.simple-marquee.max-w-full: .max-w-l
 
-	//- The title
-	h1.style-h1 {{ block.title }}
+	//- The text content of the marquee
+	cloak-copy-wysiwyg(:content='block.copy')
 
 	//- Optional list of buttons
 	.buttons(v-if='block.buttons.length'): btn-craft(
@@ -37,9 +37,11 @@ export default
 	&:before
 		content ''
 		display block
-		+tablet-up()
+
+		// adjust height when header changes
+		+when-desktop-header()
 			height header-h
-		+tablet-down()
+		+when-mobile-header()
 			height mobile-header-h
 
 	// Add internal spacing

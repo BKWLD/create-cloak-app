@@ -33,7 +33,6 @@ export default
 	max-width max-w-full
 	margin-h auto
 	width 100%
-	overflow hidden
 
 // On short pages, pin the footer to the bottom of the page
 main
@@ -46,11 +45,13 @@ main
 .skip-content
 	position absolute
 	left -1000px
-	+tablet-up()
-		top (header-h + spacing-s)
-	+tablet-down()
-		top (header-h-mobile + spacing-s-min)
 	z-index header-z // stacked below nav but above page content
+
+	// adjust spacing when header changes
+	+when-desktop-header()
+		top (header-h + spacing-s)
+	+when-mobile-header()
+		top (header-h-mobile + spacing-s-min)
 
 	&:focus
 		fluid left, gutter, gutter-mobile

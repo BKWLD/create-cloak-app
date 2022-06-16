@@ -45,6 +45,25 @@ module.exports =
 			]
 		}
 
+		{ # Get DO Spaces bucket name
+			name: 'spacesBucket'
+			message: 'DigitalOcean Spaces bucket name'
+			when: ({ cms }) -> cms == 'craft'
+			default: ({ packageName }) -> packageName
+		}
+
+		{ # Get DO Spaces API key
+			name: 'spacesApiKey'
+			message: 'DigitalOcean Spaces API key'
+			when: ({ cms }) -> cms == 'craft'
+		}
+
+		{ # Get DO Spaces Secret
+			name: 'spacesSecret'
+			message: 'DigitalOcean Spaces secret'
+			when: ({ cms }) -> cms == 'craft'
+		}
+
 		{ # Get Contentful space id
 			name: 'contentfulSpace'
 			message: 'Contentful space ID'
@@ -215,7 +234,7 @@ module.exports =
 			'package.json'
 			'README.md'
 			'netlify.toml'
-			'nuxt.config.coffee'
+			'nuxt.config.js'
 			'.env'
 			'.env.example'
 			'assets/app.styl'
@@ -226,8 +245,7 @@ module.exports =
 			'components/blocks/spacer.vue'
 			'components/blocks/wrapper.vue'
 			'components/globals/blocks/list.vue'
-			'queries/craft/craft-pages.gql'
-			'plugins/components.coffee'
+			'components/globals/btn/btn.vue'
 			'layouts/error.vue'
 			'pages/_tower.vue'
 			'store/globals.coffee'
@@ -247,12 +265,12 @@ module.exports =
 			'store/*': answers.cms in ['craft', 'contentful']
 
 			# Shopify-only
-			'components/pages/pdp/marquee.vue': shopify
+			'components/globals/smart-link.coffee': shopify
+			'components/pages/pdp/*': shopify
 			'pages/products/_product/_variant.vue': shopify
-			'plugins/hydrate-cart.coffee': shopify
 			'queries/craft/shopify-product.gql': shopify
 			'queries/craft/pages/product.gql': shopify
-			'store/cart.coffee': shopify
+			'queries/craft/fragments/product-card.gql': shopify
 
 		# Install nuxt-app to root if no other workspaces are needed and exit
 		if rootNuxtApp answers
@@ -291,13 +309,16 @@ module.exports =
 			actions.push
 				type: 'add'
 				files: 'craft-cms/**'
-				transform: false
+				transformInclude: [
+					'craft-cms/.env'
+					'craft-cms/.env.example'
+					'craft-cms/config/project/project.yaml'
+				]
 				filters:
 
 					# Product structures
-					'entryTypes/products--*.yaml': shopify
-					'sections/products--*.yaml': shopify
-
+					'craft-cms/config/project/sections/products--*.yaml': shopify
+					'craft-cms/config/project/entryTypes/product--*.yaml': shopify
 
 		# Add shopify-theme
 		if shopify then actions.push
@@ -335,6 +356,11 @@ module.exports =
 			patterns:
 				'_gitignore': '.gitignore'
 				'craft-cms/_gitignore': 'craft-cms/.gitignore'
+				'craft-cms/storage/_gitignore': 'craft-cms/storage/.gitignore'
+				'craft-cms/storage/config-deltas/_gitignore':
+					'craft-cms/storage/config-deltas/.gitignore'
+				'craft-cms/storage/runtime/_gitignore':
+					'craft-cms/storage/runtime/.gitignore'
 				'nuxt-app/_gitignore': 'nuxt-app/.gitignore'
 				'shopify-theme/_gitignore': 'shopify-theme/.gitignore'
 
@@ -379,12 +405,7 @@ module.exports =
 			# Install Craft. I broke this up into multiple commands because I ran
 			# into `No primary site exists` issues when running just `craft setup`.
 			@logger.info 'Running Craft install'
-			await spawn './craft', ['setup/app-id']
-			await spawn './craft', ['setup/security-key']
-			await spawn './craft', ['setup/db']
-			@logger.info 'Setup your initial admin user'
-			await spawn './craft', ['install', '--site-name=Site',
-				'--site-url=$PRIMARY_SITE_URL', '--language=en-US']
+			await spawn './craft', ['setup']
 			await spawn './craft', ['migrate/all', '--no-backup=1',
 				'--interactive=0']
 			await spawn './craft', ['update', 'craft', '--backup=0']
@@ -481,7 +502,7 @@ module.exports =
 
 		# Show next steps
 		logBanner 'Done! Time for next steps:'
-		docs = 'https://github.com/BKWLD/create-cloak-app/blob/main/docs'
+		docs = 'https://bukwild.slab.com/topics'
 
 		# Show instructions to replace theme ids. I'm replacing the first line,
 		# which is "Available theme versions:", with my own header
@@ -496,7 +517,7 @@ module.exports =
 		# Show link to run nuxt-app locally
 		nuxtPath = if rootNuxtApp @answers
 		then @outDir else "#{@outDir}/nuxt-app"
-		logStep 'Run Hello World', "cd #{nuxtPath} && yarn dev --spa"
+		logStep 'Run Hello World', "(cd '#{nuxtPath}' && yarn dev)"
 
 		# Show link to login to Craft CMS
 		if @answers.cms == 'craft'
@@ -510,10 +531,14 @@ module.exports =
 
 		# Add links to Craft docs
 		if @answers.cms == 'craft'
-		then logStep 'Configure & Deploy Craft', "#{docs}/craft-cms/config.md"
+		then logStep 'Configure & Deploy Craft', "#{docs}/rc0v20z4"
 
 		# Add link to Netlify docs
-		logStep 'Setup Netlify app', "#{docs}/netlify.md"
+		logStep 'Provision Netlify app', "#{docs}/f3fbea34"
+
+		# Add links to Shopify docs
+		if @answers.shopify
+		then logStep 'Setup Custom Storefront Infrastructure', "#{docs}/9ll622ig"
 
 		# Add a trailing empty space
 		console.log ''

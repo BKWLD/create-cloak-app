@@ -1,0 +1,33 @@
+childBlocks: null
+description: ''
+field: 2fd34dec-1616-4dfa-a937-862dd23bb8ed # Blocks
+fieldLayouts:
+  5d8ca91a-6037-4604-90a0-78dac47267cc:
+    tabs:
+      -
+        elements:
+          -
+            style: tip
+            tip: 'Adds vertical space between other blocks.'
+            type: craft\fieldlayoutelements\Tip
+            uid: b1ee553a-01df-4cec-ae77-f63ba6348340
+          -
+            fieldUid: bd321f03-7ec9-486f-bc08-b02d37378f85 # Spacing
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ee0c4298-a340-4f76-a738-b572adee9340
+            warning: null
+            width: 100
+        name: Content
+        uid: a5c702e3-d535-4c96-8fd7-5f9aa1bc1609
+group: 84c82111-676d-4cc9-9d6a-37a167f8151a # Layout
+handle: spacer
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Spacer
+sortOrder: 6
+topLevel: true

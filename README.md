@@ -16,9 +16,9 @@ This will ask you a handful of questions, copy relevant files from the [template
 
 After you've created a new cloak-app, there are subsequent steps you'll likely need to take based on your choices.  You'll be prompted to visit the following docs pages following a successful completion.
 
-- [Setup Netlify app](./docs/netlify.md)
-- [Configure Craft](./docs/craft-cms/config.md)
-- [Setup Shopify](./docs/shopify.md)
+- [Provision Netlify apps](https://bukwild.slab.com/posts/provision-netlify-app-f3fbea34)
+- [Deploy & Configure Craft](https://bukwild.slab.com/posts/deploy-configure-craft-rc0v20z4)
+- [Setup Custom Storefront Infrastructure](https://bukwild.slab.com/posts/configure-shopify-da1tf5wt)
 
 ## Contributing
 

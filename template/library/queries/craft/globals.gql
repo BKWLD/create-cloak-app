@@ -1,0 +1,9 @@
+#import "@cloak-app/craft/queries/fragments/default-seo.gql"
+
+# Query Craft globals data
+query getGlobals {
+
+	# Default (fallback) SEO values
+	defaultSeo: globalSet(handle: "defaultSeo") { ...defaultSeo }
+
+}

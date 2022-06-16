@@ -1,6 +1,11 @@
 <!-- Standard pill button -->
 
 <script lang='coffee'>
+<%_ if (shopify) { _%>
+import SmartLink from '~/components/globals/smart-link'
+<%_ } else { _%>
+import SmartLink from 'vue-routing-anchor-parser/smart-link'
+<%_ } _%>
 export default
 
 	props:
@@ -62,7 +67,7 @@ export default
 
 		# Render a smart-link
 		if @to
-			create 'smart-link', {
+			create SmartLink, {
 				...data
 				attrs: {
 					...data.attrs

@@ -2,12 +2,12 @@
    command = "yarn dev"
 
 [build]
-  command = 'CI= yarn generate'
+  command = 'yarn generate'
   publish = 'dist'
 
 	<%_ if (hasLibrary) { _%>
 	# Trigger redeploys on library changes
-	ignore = 'git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF ../library ./ ./netlify.toml ../yarn.lock'
+	ignore = 'git diff --quiet $COMMIT_REF $CACHED_COMMIT_REF -- ../library ./ ../yarn.lock'
 	<%_ } _%>
 
 <%_ if (shopify) { _%>
