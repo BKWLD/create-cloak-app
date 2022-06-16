@@ -7,15 +7,31 @@ name: 'Responsive Image'
 searchable: false
 settings:
   blockTypeFields: 0
-  changedFieldIndicator: 1233763492
+  changedFieldIndicator: 1435764300
+  columns:
+    __assoc__:
+      -
+        - de97ce0f-548b-4114-8d77-fbf9a3b6c2c2 # Landscape Browser
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 87d83354-b0a5-4892-bca2-8837f965151b # Portrait Browser
+        -
+          __assoc__:
+            -
+              - width
+              - ''
   contentTable: '{{%stc_responsiveimage}}'
-  fieldLayout: table
+  fieldLayout: row
   maxRows: null
   minRows: null
   propagationKeyFormat: null
   propagationMethod: all
   selectionLabel: null
-  staticField: null
+  staticField: true
 translationKeyFormat: null
 translationMethod: site
 type: verbb\supertable\fields\SuperTableField

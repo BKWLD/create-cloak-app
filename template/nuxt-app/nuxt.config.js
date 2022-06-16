@@ -42,7 +42,7 @@ export default {
 	// @nuxt/image settings
 	image: {
 		provider: 'imgix',
-		domains: ['sfo3.digitaloceanspaces.com'],
+		domains: ['<%= spacesBucket %>.sfo3.digitaloceanspaces.com'],
 		imgix: {
 			baseURL: 'https://<%= imgixHostname %>',
 		},

@@ -8,7 +8,7 @@ fieldLayouts:
         elements:
           -
             style: tip
-            tip: 'Render a single media asset.'
+            tip: 'Render a single media asset. Add an Image *with* a Video to use it as a poster image that prescribes the aspect ratio of the Block.'
             type: craft\fieldlayoutelements\Tip
             uid: 1130643e-3e51-4d4d-aaa9-92ecbe7fd95c
           -

@@ -13,10 +13,10 @@
 	"dependencies": {
 		"@bkwld/light-or-dark": "^1.0.1",
 		"@cloak-app/boilerplate": "^1.0.10",
-		"@cloak-app/copy": "^1.0.1",
-		"@cloak-app/visual": "^0.1.0",
+		"@cloak-app/copy": "^1.1.0",
+		"@cloak-app/visual": "^0.2.1",
 		<%_ if (cms == 'craft') { _%>
-		"@cloak-app/craft": "^1.0.6",
+		"@cloak-app/craft": "^1.2.1",
 		<%_ } else if (cms == '@nuxt/content') { _%>
 		"@nuxt/content": "1.14.0",
 		<%_ } _%>
