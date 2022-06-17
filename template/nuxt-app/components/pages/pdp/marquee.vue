@@ -2,7 +2,7 @@
 
 <template lang='pug'>
 
-.pdp-marquee: .max-w
+.pdp-marquee: .max-w-l
 
 	//- Example product data
 	h1 {{ product.title }}

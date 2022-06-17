@@ -2,7 +2,7 @@
 
 <template lang='pug'>
 
-section.simple-marquee.max-w-full: .max-w
+section.simple-marquee.max-w-full: .max-w-l
 
 	//- The text content of the marquee
 	cloak-copy-wysiwyg(:content='block.copy')

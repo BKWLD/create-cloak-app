@@ -11,10 +11,10 @@ settings:
       __assoc__:
         -
           - label
-          - 'Default - 1,280px wide'
+          - 'Large - 1,280px wide'
         -
           - value
-          - max-w
+          - max-w-l
         -
           - default
           - '1'
@@ -25,7 +25,7 @@ settings:
           - 'Medium - 1060px wide, for an indented effect'
         -
           - value
-          - max-w-medium
+          - max-w-m
         -
           - default
           - ''
@@ -36,7 +36,7 @@ settings:
           - 'Small - 750px wide, good for Copy blocks'
         -
           - value
-          - max-w-small
+          - max-w-s
         -
           - default
           - ''
