@@ -10,8 +10,8 @@ elementSources:
         - link
       type: native
     -
-      disabled: false
-      key: 'folder:69d711af-3b5b-4294-b72b-df045150f24b'
+      disabled: true
+      key: 'folder:4c9ee7de-d12f-46db-8baa-648424a9e7f1'
       tableAttributes:
         - size
         - dateModified
