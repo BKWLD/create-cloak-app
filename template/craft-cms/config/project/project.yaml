@@ -19,14 +19,11 @@ elementSources:
       type: native
   craft\elements\Entry:
     -
-      disabled: false
+      disabled: true
       key: '*'
       tableAttributes:
         - section
-        - postDate
-        - expiryDate
-        - author
-        - link
+        - dateUpdated
       type: native
     -
       heading: Pages
