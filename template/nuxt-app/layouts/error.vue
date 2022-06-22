@@ -29,7 +29,9 @@ import getTower from '~/queries/tower.gql'
 export default
 	name: 'Error'
 
+	<%_ if (cms == 'craft' || cms == 'contentful') { _%>
 	mixins: [ pageMixin ]
+	<%_ } _%>
 
 	props: ['error']
 
