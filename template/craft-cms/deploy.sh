@@ -2,7 +2,7 @@
 
 # Commit differences on serer from Craft installs
 git add -A
-git diff-index --quiet HEAD || git commit -m 'Changes from CMS server'
+git diff-index --quiet HEAD || git commit -m 'Changes from CMS server' --author="Forge <login@bukwild.com>"
 git pull
 git push
 

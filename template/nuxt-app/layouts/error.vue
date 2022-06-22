@@ -16,11 +16,15 @@
 
 <script lang='coffee'>
 <%_ if (cms == 'craft') { _%>
-import getCraftPages from '~/queries/craft-pages.gql'
+import pageMixin from '@cloak-app/craft/mixins/page'
 <%_ } else if (cms == 'contentful') { _%>
+# TODO
+# import pageMixin from '@cloak-app/contentful/mixins/page-mixin'
+pageMixin: {}
+<%_ } _%>
+<%_ if (cms == 'craft' || cms == 'contentful') { _%>
 import getTower from '~/queries/tower.gql'
 <%_ } _%>
-import pageMixin from '@bkwld/cloak/mixins/page'
 
 export default
 	name: 'Error'
@@ -31,22 +35,36 @@ export default
 
 	data: ->
 		page: null
+		redirects: []
 
-	# Get get the tower data
 	fetch: ->
+
+		# Get get the tower data
 		<%_ if (cms == 'craft') { _%>
-		[ @page ] = await @$craft.getEntries
-			query: getCraftPages
-			variables:
-				section: 'towers'
-				type: 'towers'
-				uri: @uri
+		@page = await @$craft.getEntry
+			query: getTower
+			variables: { @uri }
 		<%_ } else if (cms == 'contentful') { _%>
-		@page = payload || await app.$contentful.getEntry
+		@page = await app.$contentful.getEntry
 			query: getTower
 			variables: route: @uri
 		<%_ } _%>
 
+		<%_ if (cms == 'craft') { _%>
+		# Fetch all of the redirects, in case this page should normally client side
+		# redirect.
+		if @$config.cloak.craft.generateRedirects
+		then @redirects = await @$craft.getEntries query: '''
+			query getRedirects($site:[String]) {
+				entries(site:$site, type:"redirects") {
+					... on redirects_redirects_Entry {
+						from: redirectFrom
+						to: redirectTo
+					}
+				}
+			}
+		'''
+		<%_ } _%>
 
 	# Show Sentry user input dialog if an error
 	mounted: -> @showSentryDialog() if @uri == 'error'
@@ -63,7 +81,19 @@ export default
 			when 404 then 'Page Not Found'
 			else 'An Error Occured'
 
+	watch:
+
+		# When redirects is set (which may be after mounted when SPAing)
+		redirects:
+			immediate: true
+			handler: -> @redirectIfMatch()
+
 	methods:
+
+		# If the current path matches the redirect "from", then redirect
+		redirectIfMatch: ->
+			if match = @redirects.find ({ from }) => from == @$route.path
+			then location.href = match.to
 
 		# Show the sentry dialog
 		# https://docs.sentry.io/enriching-error-data/user-feedback/?platform=browser

@@ -2,7 +2,7 @@
 
 <template lang='pug'>
 
-footer.layout-footer: .max-w Footer content
+footer.layout-footer: .max-w-l Footer content
 
 </template>
 

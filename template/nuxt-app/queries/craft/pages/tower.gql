@@ -1,7 +1,0 @@
-#import "../fragments/blocks.gql"
-#import "@bkwld/cloak/fragments/craft/seo.gql"
-
-fragment tower on towers_towers_Entry {
-	blocks { ...blocks }
-	seo { ...seo }
-}

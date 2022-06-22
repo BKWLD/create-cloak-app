@@ -1,0 +1,19 @@
+columnSuffix: cwmrucvx
+contentColumnType: text
+fieldGroup: e91a3004-6bc6-456d-a8fd-886f0a02488c # Text
+handle: text
+instructions: null
+name: Text
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: null
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

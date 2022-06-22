@@ -13,10 +13,10 @@ export default
 
 	props: block: Object
 
+	<%_ if (cms == 'craft' || cms == '@nuxt/content') { _%>
 	computed:
 
 		# Root classes
-		<%_ if (cms == 'craft' || cms == '@nuxt/content') { _%>
 		classes: -> "height-#{@block.height}"
 		<%_ } else if (cms == 'contentful') { _%>
 		classes: -> "height-#{@heightSlug}"
@@ -28,7 +28,7 @@ export default
 			when 'Large' then 'l'
 			when 'Extra Large' then 'xl'
 			else throw "Unknown height #{@block.height}"
-		<%_ } _%>
+	<%_ } _%>
 
 </script>
 

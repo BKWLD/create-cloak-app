@@ -1,0 +1,45 @@
+columnSuffix: epxairtt
+contentColumnType: string
+fieldGroup: e91a3004-6bc6-456d-a8fd-886f0a02488c # Text
+handle: textAlignment
+instructions: null
+name: 'Text Alignment'
+searchable: false
+settings:
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Left
+        -
+          - value
+          - left
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Center
+        -
+          - value
+          - center
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Right
+        -
+          - value
+          - right
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

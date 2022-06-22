@@ -1,0 +1,43 @@
+columnSuffix: ggbbvilw
+contentColumnType: text
+fieldGroup: 9745b1d2-5506-4a0f-b23f-dff4068bc084 # Common
+handle: backgroundColor
+instructions: null
+name: 'Background Color'
+searchable: false
+settings:
+  allowCustomColor: false
+  allowOpacity: false
+  colorFormat: auto
+  defaultColorHandle: ''
+  defaultOpacity: 100
+  fieldDescriptions: false
+  paletteBaseColors: null
+  paletteColors:
+    -
+      __assoc__:
+        -
+          - label
+          - White
+        -
+          - handle
+          - white
+        -
+          - color
+          - fff
+    -
+      __assoc__:
+        -
+          - label
+          - Offwhite
+        -
+          - handle
+          - offwhite
+        -
+          - color
+          - edf0f5
+  presetId: ''
+  presetMode: false
+translationKeyFormat: null
+translationMethod: none
+type: presseddigital\colorit\fields\ColoritField

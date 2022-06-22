@@ -1,0 +1,56 @@
+columnSuffix: ptbwomza
+contentColumnType: string
+fieldGroup: dfe0196e-d542-4e68-a7fd-a1f51a3dd307 # Assets
+handle: spacing
+instructions: null
+name: Spacing
+searchable: false
+settings:
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Small (40px, separates units of same section)'
+        -
+          - value
+          - s
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Medium (60px, separates similar sections)'
+        -
+          - value
+          - m
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Large (120px, separates divergent sections)'
+        -
+          - value
+          - l
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Extra Large (160px)'
+        -
+          - value
+          - xl
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

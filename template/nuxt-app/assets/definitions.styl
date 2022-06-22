@@ -7,14 +7,13 @@ json('vars/breakpoints.json')
 json('vars/dimensions.json')
 json('vars/colors.json')
 
-
 // Whitespace
 gutter = 60px
 gutter-mobile = 20px
-max-w-small = 750px + gutter * 2
-max-w-medium = 1060px + gutter * 2
-max-w = 1280px + gutter * 2
-max-w-wide = 1440px
+max-w-s = 750px + gutter * 2
+max-w-m = 1060px + gutter * 2
+max-w-l = 1280px + gutter * 2
+max-w-xl = 1440px
 max-w-full = 2560px
 
 // Header config
@@ -70,7 +69,25 @@ body-font-size = 16px
  * Functions
  */
 
-// Set font styles shorthand
+// Shorthand for setting font styles with fixed font size
+fixed-font(style, size = null, color = null)
+
+	// Style switch statement
+	if style == 'body'
+		font-family ui-sans-serif, system-ui, sans-serif
+		letter-spacing -0.01em
+		font-weight 400
+	else if style == 'code'
+		font-family ui-monospace, monospace
+		font-weight 400
+
+	// Set size and color if provided
+	if size
+		font-size size
+	if color
+		color color
+
+// Shorthand for setting font styles with fluid font-size
 fluid-font(style,
 	max-size = null,
 	min-size = null,
@@ -78,18 +95,11 @@ fluid-font(style,
 	max-break = null,
 	min-break = 375)
 
-	// Font style switch statement.
-	if style == 'body'
-		font-family sans-serif
-		letter-spacing -0.01em
-		font-weight 400
+	// Set font-family and other configs
+	fixed-font style, null, color
 
 	// Set font-size
 	fluid font-size, max-size, min-size, max-break, min-break
-
-	// Set color, if provided
-	if color
-		color color
 
 // Style guide styles. The line-height fractions are based on the brand
 // style guidelines

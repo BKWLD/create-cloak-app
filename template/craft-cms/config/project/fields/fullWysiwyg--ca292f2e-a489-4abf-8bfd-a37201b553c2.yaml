@@ -1,0 +1,27 @@
+columnSuffix: mrrybcox
+contentColumnType: text
+fieldGroup: e91a3004-6bc6-456d-a8fd-886f0a02488c # Text
+handle: fullWysiwyg
+instructions: null
+name: 'Full WYSIWYG'
+searchable: true
+settings:
+  availableTransforms: '*'
+  availableVolumes: '*'
+  columnType: text
+  configSelectionMode: choose
+  defaultTransform: ''
+  manualConfig: ''
+  purifierConfig: null
+  purifyHtml: true
+  redactorConfig: null
+  removeEmptyTags: false
+  removeInlineStyles: false
+  removeNbsp: false
+  showHtmlButtonForNonAdmins: false
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  uiMode: enlarged
+translationKeyFormat: null
+translationMethod: none
+type: craft\redactor\Field

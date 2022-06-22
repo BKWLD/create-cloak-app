@@ -1,0 +1,58 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 5e038f76-3399-4dbc-a094-ccf1ce3d817b # Pages
+handle: seo
+instructions: null
+name: SEO
+searchable: false
+settings:
+  blockTypeFields: 0
+  changedFieldIndicator: 174168841
+  columns:
+    __assoc__:
+      -
+        - 5da73805-8b5d-48f2-a98e-796b61a49c7b # Title
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - b9fb7e0c-d670-46e6-9f22-0fcbf74c76e7 # Description
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 4b677453-d75d-4b58-b417-d4d3a55abee2 # Image
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - a7ca55f8-9c66-4ebf-88ec-137e2917eefb # Robots
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 95b29d64-fe33-4526-bee4-0570f4901a9b # Canonical URL
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_seo}}'
+  fieldLayout: row
+  maxRows: null
+  minRows: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  selectionLabel: null
+  staticField: true
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

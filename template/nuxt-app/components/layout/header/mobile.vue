@@ -3,7 +3,7 @@
 <template lang='pug'>
 
 detachable-header.layout-header-mobile(:height='height')
-	header.max-w-full: .columns.max-w-medium
+	header.max-w-full: .columns.max-w-m
 
 		.left
 			nuxt-link(to='/') <%= name %>

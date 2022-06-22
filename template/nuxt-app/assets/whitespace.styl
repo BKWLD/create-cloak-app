@@ -1,22 +1,22 @@
 // Common max-w* rules
-.max-w-small, .max-w-medium, .max-w, .max-w-wide
+.max-w-s, .max-w-m, .max-l, .max-w-xl
 	margin-h auto
 	fluid(padding-h, gutter, gutter-mobile, max-break: desktop, min-break: mobile)
 	width 100%
 
 	// Clear padding on any nested classes, like if this was applied to a wrapper
-	.max-w-small, .max-w-medium, .max-w, .max-w-wide
+	.max-w-s, .max-w-m, .max-l, .max-w-xl
 		padding-h 0
 
 // Apply varying max-widths
-.max-w-small
-	max-width max-w-small
-.max-w-medium
-	max-width max-w-medium
-.max-w
-	max-width max-w
-.max-w-wide
-	max-width max-w-wide
+.max-w-s
+	max-width max-w-s
+.max-w-m
+	max-width max-w-m
+.max-w-l
+	max-width max-w-l
+.max-w-xl
+	max-width max-w-xl
 
 // No gutters since there typically wraps other max-w-* instances that have
 // their own gutters

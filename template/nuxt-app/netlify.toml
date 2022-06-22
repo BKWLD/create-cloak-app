@@ -2,7 +2,7 @@
    command = "yarn dev"
 
 [build]
-  command = 'CI= yarn generate'
+  command = 'yarn generate'
   publish = 'dist'
 
 	<%_ if (hasLibrary) { _%>
