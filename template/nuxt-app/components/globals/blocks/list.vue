@@ -13,7 +13,11 @@
 		:key='index'
 		<%_ } _%>
 		:index='index + indexOffset')
+		<%_ if (cms == '@nuxt/content') { _%>
+		component(:is='block.componentName' v-bind='block')
+		<%_ } else { _%>
 		component(:is='block.componentName' :block='block')
+		<%_ } _%>
 
 </template>
 
@@ -36,10 +40,10 @@ export mapping = <% if (!cms) { %>{}<% } %>
 	BlockSpacer: 'blocks-spacer'
 	BlockWrapper: 'blocks-wrapper'
 	<%_ } else if (cms == '@nuxt/content') { _%>
-	copy: 'cloak-copy-craft-block'
+	copy: 'cloak-copy-block'
 	simpleMarquee: 'blocks-simple-marquee'
 	spacer: 'blocks-spacer'
-	visual: 'cloak-visual-craft-block'
+	visual: 'cloak-visual-block'
 	<%_ } _%>
 
 # Hard import marquee components so they don't get chunked
