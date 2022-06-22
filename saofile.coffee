@@ -39,7 +39,7 @@ module.exports =
 			message: 'CMS choice'
 			choices: [
 				{ name: 'Craft', value: 'craft' }
-				{ name: 'Contentful', value: 'contentful' }
+				# { name: 'Contentful', value: 'contentful' } # Disabled for now
 				{ name: '@nuxt/content', value: '@nuxt/content' }
 				{ name: 'None of the above', value: false }
 			]
@@ -108,7 +108,9 @@ module.exports =
 			type: 'confirm'
 			message: 'Is hybrid Shopify site'
 			default: false
-			when: ({ cms }) -> cms == 'craft' # Only supporting Craft at the moment
+			when: ({ cms }) ->
+				return false # Disabling for now until support re-added
+				cms == 'craft' # Only supporting Craft at the moment
 		}
 
 		{ # Name for Shopify themes

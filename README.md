@@ -8,8 +8,13 @@ Sets up a new [Cloak](https://github.com/BKWLD/cloak) (Nuxt + CMS) based project
 
 From the directory you want to create the new Cloak app:
 
-```
+```sh
+# If using @nuxt/content or Craft
 yarn create cloak-app
+
+# Use previous major version if Contentful or Shopify
+yarn install -g create-cloak-app@^2
+create-cloak-app
 ```
 
 This will ask you a handful of questions, copy relevant files from the [template](./template), init a new git repo, and run initial install commands.  You will then have a local Nuxt-based app that will be immediately bootable.
