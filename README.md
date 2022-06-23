@@ -4,11 +4,6 @@ Sets up a new [Cloak](https://github.com/BKWLD/cloak) (Nuxt + CMS) based project
 
 ![](https://i.pinimg.com/originals/75/af/04/75af04c5f9fa6e26231640f7d368f042.gif)
 
-## Install
-
-If installing fresh, or upgrading from version 2
-`yarn global add create-cloak-app@^3`
-
 ## Usage
 
 From the directory you want to create the new Cloak app:
