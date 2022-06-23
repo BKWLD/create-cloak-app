@@ -13,7 +13,7 @@ From the directory you want to create the new Cloak app:
 yarn create cloak-app
 
 # Use previous major version if Contentful or Shopify
-yarn install -g create-cloak-app@^2
+yarn global add create-cloak-app@^2
 create-cloak-app
 ```
 
