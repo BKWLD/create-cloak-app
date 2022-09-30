@@ -165,7 +165,7 @@ plugins:
     settings:
       additionalCss: ''
       cacheBusting: true
-      cssFile: /cp.css
+      cssFile: '@web/cp.css'
   cp-js:
     edition: standard
     enabled: true
@@ -173,7 +173,7 @@ plugins:
     settings:
       additionalJs: ''
       cacheBusting: true
-      jsFile: /cp.js
+      jsFile: '@web/cp.js'
   dashboard-begone:
     edition: standard
     enabled: true
