@@ -4,11 +4,9 @@
 [build]
   command = 'yarn generate'
   publish = 'dist'
-
-	<%_ if (hasLibrary) { _%>
-	# Trigger redeploys on library changes
-	ignore = 'git diff --quiet $COMMIT_REF $CACHED_COMMIT_REF -- ../library ./ ../yarn.lock'
-	<%_ } _%>
+	
+	# Always build, builds are no longer expensive
+  ignore = "exit 1"
 
 <%_ if (shopify) { _%>
 # Allow static-data to pass CORS check from shopify-theme
