@@ -3,8 +3,8 @@
 # Commit differences on serer from Craft installs
 git add -A
 git diff-index --quiet HEAD || git commit -m 'Changes from CMS server' --author="Forge <login@bukwild.com>"
-git pull
-git push
+git pull origin $FORGE_SITE_BRANCH
+git push origin $FORGE_SITE_BRANCH
 
 # Install Composer changes from local dev
 cd craft-cms
