@@ -63,6 +63,7 @@ module.exports =
 		path: path.resolve __dirname, 'assets'
 		publicPath: if hmr then "https://localhost:#{port}/assets/" else ''
 		filename: 'dist-[name].js'
+		chunkFilename: 'dist-[chunkhash].js'
 
 	# Configure what shows up in the terminal output
 	stats:
@@ -179,7 +180,9 @@ module.exports =
 		new Dotenv systemvars: true
 
 		# Build external CSS file
-		new MiniCssExtractPlugin filename: 'dist-[name].css'
+		new MiniCssExtractPlugin
+			filename: 'dist-[name].css'
+			chunkFilename: 'dist-[chunkhash].css'
 
 		# Works with config in theme.liquid to prepend the Shopify CDN path
 		new WebpackRequireFrom
