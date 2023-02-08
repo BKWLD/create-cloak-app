@@ -2,6 +2,7 @@ fieldLayouts:
   f69cbdbd-ad52-4e84-9830-f4f56265d3e2:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,6 +10,7 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
             instructions: null
             label: null
@@ -25,9 +27,11 @@ fieldLayouts:
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
             uid: c8236a65-eb5b-4c47-a341-f6c644acf591
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: db1453d6-d8c4-4e12-8320-1481643509c2 # Redirect - From
             instructions: null
             label: From
@@ -35,9 +39,11 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 19845aab-21c3-4ff0-b0da-a2026f5e5686
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: f086dead-b963-4695-b991-70f21fa4f309 # Redirect - To
             instructions: null
             label: To
@@ -45,9 +51,11 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 919470a5-b867-401e-ac2b-b0660b345eb3
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: c1d660db-a389-457a-b8ab-61fd5253fca1 # Redirect - Code
             instructions: null
             label: Code
@@ -55,10 +63,12 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: ea88bb24-8b42-4c90-bea1-471a9a30c353
+            userCondition: null
             warning: null
             width: 100
         name: Content
         uid: d74cb0fe-4f0a-4221-a54c-4e42d5fcc3db
+        userCondition: null
 handle: redirects
 hasTitleField: false
 name: Redirects

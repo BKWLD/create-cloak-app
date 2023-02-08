@@ -1,17 +1,23 @@
 childBlocks: null
-description: ''
+conditions: null
+description: null
+enabled: true
 field: 2fd34dec-1616-4dfa-a937-862dd23bb8ed # Blocks
 fieldLayouts:
   c63f8723-6c04-4653-8312-c1ed287e3642:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             style: tip
             tip: 'Simply renders a block of text.'
             type: craft\fieldlayoutelements\Tip
             uid: 3fe35f30-c74d-4ff6-a2fa-0870cb5f6a11
+            userCondition: null
           -
+            elementCondition: null
             fieldUid: ca292f2e-a489-4abf-8bfd-a37201b553c2 # Full WYSIWYG
             instructions: null
             label: Copy
@@ -19,9 +25,11 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: b6bce825-eabf-4e0b-9c1f-8ee90d03b44e
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 4bbcd477-ee45-4aaa-88f6-b71445edcaa4 # Text Alignment
             instructions: null
             label: null
@@ -29,9 +37,11 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: fc67e01b-7567-48e7-b8d5-3a5aeb56c958
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: bfd00e87-2045-4dad-ad01-da134ff74be6 # Balance Text
             instructions: null
             label: null
@@ -39,9 +49,11 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: b01a53f1-3f2a-4684-abc6-c86df683e60b
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 8f23a5bb-60fd-42cb-896e-50a2849a18be # Unorphan
             instructions: null
             label: null
@@ -49,15 +61,23 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 3f325f2d-4dd3-4930-8b2c-1c15ed34101e
+            userCondition: null
             warning: null
             width: 100
         name: Content
         uid: e7f49589-9449-4230-900c-f58ab5469fd6
-group: 61011763-c00b-4946-8e21-10ac1b6720c8 # Basics
+        userCondition: null
+group: null
+groupChildBlockTypes: true
 handle: copy
+icon: null
+ignorePermissions: true
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
 name: Copy
 sortOrder: 2
 topLevel: true

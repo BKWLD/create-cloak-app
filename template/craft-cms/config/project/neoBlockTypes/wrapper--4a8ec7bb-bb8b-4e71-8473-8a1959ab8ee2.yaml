@@ -2,19 +2,25 @@ childBlocks:
   - copy
   - mediaAsset
   - spacer
-description: ''
+conditions: null
+description: null
+enabled: true
 field: 2fd34dec-1616-4dfa-a937-862dd23bb8ed # Blocks
 fieldLayouts:
   da277288-dfa8-42e2-a4a0-cc85ce95489b:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             style: tip
             tip: 'Supports wrapping child blocks with a different background color.'
             type: craft\fieldlayoutelements\Tip
             uid: 40a5df49-3154-4c78-bfbf-63a438b269ae
+            userCondition: null
           -
+            elementCondition: null
             fieldUid: 83dfc50b-8fb9-4860-a023-412237984a08 # Background Color
             instructions: null
             label: null
@@ -22,15 +28,23 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 4c834d0d-1363-4db6-a66e-8885359a2d25
+            userCondition: null
             warning: null
             width: 100
         name: Content
         uid: a23f125f-83f3-4135-86ff-f9cd4c7e8f00
-group: 84c82111-676d-4cc9-9d6a-37a167f8151a # Layout
+        userCondition: null
+group: null
+groupChildBlockTypes: true
 handle: wrapper
+icon: null
+ignorePermissions: true
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
 name: Wrapper
 sortOrder: 7
 topLevel: true

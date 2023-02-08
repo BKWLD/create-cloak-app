@@ -1,4 +1,4 @@
-dateModified: 1655345499
+dateModified: 1675819669
 elementSources:
   craft\elements\Asset:
     -
@@ -186,15 +186,11 @@ plugins:
     edition: standard
     enabled: true
     licenseKey:
-    schemaVersion: 3.0.4
+    schemaVersion: 3.6.2
   redactor:
     edition: standard
     enabled: true
     schemaVersion: 2.3.0
-  sentry-sdk:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
   super-table:
     edition: standard
     enabled: true

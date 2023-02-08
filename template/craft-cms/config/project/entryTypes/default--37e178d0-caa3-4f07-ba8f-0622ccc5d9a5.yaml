@@ -2,6 +2,7 @@ fieldLayouts:
   ea9719fe-9b06-4e51-b36e-607061c94fac:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,6 +10,7 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
             instructions: null
             label: null
@@ -25,9 +27,11 @@ fieldLayouts:
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
             uid: 3a215894-ca1d-4f44-984d-9476c9dea2d4
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 6f76a787-c809-43bc-afe5-bd95e815e131 # URI Path
             instructions: null
             label: Path
@@ -35,9 +39,11 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: bd1be72f-b1e7-4880-872d-ca94af7610c7
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 2fd34dec-1616-4dfa-a937-862dd23bb8ed # Blocks
             instructions: null
             label: null
@@ -45,13 +51,17 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 07945c7c-b01c-4506-bf21-59f250b6c04b
+            userCondition: null
             warning: null
             width: 100
         name: Content
         uid: 7fe8b292-cfda-40e0-a21b-31c8750af1fc
+        userCondition: null
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: 2d9687b3-b684-4874-a7a8-ab944ad8b8d1 # SEO
             instructions: null
             label: null
@@ -59,10 +69,12 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 594fbf8d-865f-4ca0-b053-339f584de02d
+            userCondition: null
             warning: null
             width: 100
         name: SEO
         uid: 1b6e85da-f0c8-4270-ace7-1cc988341b7a
+        userCondition: null
 handle: default
 hasTitleField: true
 name: Default

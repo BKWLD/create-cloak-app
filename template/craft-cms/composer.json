@@ -1,19 +1,19 @@
 {
     "require": {
-        "born05/craft-sentry": "2.0.0-beta.1",
-        "craftcms/cms": "^4.0.0.1",
-        "craftcms/redactor": "3.0.0",
+        "craftcms/cms": "^4.0.0",
+        "craftcms/redactor": "3.0.3",
         "craftcms/webhooks": "3.0.4",
-        "doublesecretagency/craft-cpcss": "2.5.0",
-        "doublesecretagency/craft-cpjs": "2.5.0",
-        "presseddigital/colorit": "dev-develop-v4",
+        "doublesecretagency/craft-cpcss": "2.6.0",
+        "doublesecretagency/craft-cpjs": "2.6.0",
+        "presseddigital/colorit": "4.0.0",
         "putyourlightson/craft-dashboard-begone": "2.0.0",
-        "spicyweb/craft-neo": "3.1.0",
+        "spicyweb/craft-neo": "3.6.2",
         "vaersaagod/dospaces": "2.0.0",
-        "verbb/super-table": "3.0.0-beta.5",
+        "verbb/super-table": "3.0.7",
         "vlucas/phpdotenv": "^5.4.0"
     },
     "require-dev": {
+        "craftcms/generator": "^1.0.0",
         "yiisoft/yii2-shell": "^2.0.3"
     },
     "autoload": {
