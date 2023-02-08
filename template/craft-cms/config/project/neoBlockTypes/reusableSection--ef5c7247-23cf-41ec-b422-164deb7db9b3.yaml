@@ -1,17 +1,23 @@
 childBlocks: null
-description: ''
+conditions: null
+description: null
+enabled: true
 field: 2fd34dec-1616-4dfa-a937-862dd23bb8ed # Blocks
 fieldLayouts:
   82b6bb10-401f-4be5-a053-94ff39ee120c:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             style: tip
             tip: 'Create a series of Blocks that can be reused on multiple pages.'
             type: craft\fieldlayoutelements\Tip
             uid: 09e33fe5-4f6d-4c5f-b542-d0759d17647a
+            userCondition: null
           -
+            elementCondition: null
             fieldUid: acc2ba21-dae4-47cc-bf46-870d7d429882 # Reusable Section
             instructions: null
             label: null
@@ -19,15 +25,23 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 24983f3a-a1bf-4910-92dd-7838e33f4eb2
+            userCondition: null
             warning: null
             width: 100
         name: Content
         uid: 72110720-81c9-4a85-96a0-f9f8e1ba082c
-group: 84c82111-676d-4cc9-9d6a-37a167f8151a # Layout
+        userCondition: null
+group: null
+groupChildBlockTypes: true
 handle: reusableSection
+icon: null
+ignorePermissions: true
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
 name: 'Reusable Section'
 sortOrder: 5
 topLevel: true

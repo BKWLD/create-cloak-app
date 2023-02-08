@@ -1,10 +1,13 @@
+changedFieldIndicator: null
 field: ba5dd543-6799-42ff-a37f-8d8431e32e13 # Responsive Video
 fieldLayouts:
   45f60c2d-4204-415e-8a92-f386be29ded8:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: af8f5c62-eeb2-49b5-b0c4-bcc2355159f5 # Landscape Browser
             instructions: null
             label: null
@@ -12,9 +15,11 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 3d11b947-f76d-4696-a0c4-19a1ffacfc65
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 78cb78c4-082c-487f-bd57-ce5b32eb2bb9 # Portrait Browser
             instructions: null
             label: null
@@ -22,10 +27,12 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 1f20246c-a70f-4c03-aec9-28be36500368
+            userCondition: null
             warning: null
             width: 100
         name: Content
         uid: f2669def-c1e1-4874-b44f-a0d71189e26c
+        userCondition: null
 fields:
   78cb78c4-082c-487f-bd57-ce5b32eb2bb9: # Portrait Browser
     columnSuffix: null

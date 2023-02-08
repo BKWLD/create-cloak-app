@@ -1,17 +1,23 @@
 childBlocks: null
-description: ''
+conditions: null
+description: null
+enabled: true
 field: 2fd34dec-1616-4dfa-a937-862dd23bb8ed # Blocks
 fieldLayouts:
   a682e43a-1a9d-4378-9807-323bef8f03ae:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             style: tip
             tip: 'Render a single media asset. Add an Image *with* a Video to use it as a poster image that prescribes the aspect ratio of the Block.'
             type: craft\fieldlayoutelements\Tip
             uid: 1130643e-3e51-4d4d-aaa9-92ecbe7fd95c
+            userCondition: null
           -
+            elementCondition: null
             fieldUid: 7b717a9b-592f-4c43-bbb2-e644948cb7d4 # Responsive Image
             instructions: null
             label: Image
@@ -19,9 +25,11 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: fed2f5a1-2974-4313-ae6e-c4ec6f1e050c
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: ba5dd543-6799-42ff-a37f-8d8431e32e13 # Responsive Video
             instructions: null
             label: Video
@@ -29,9 +37,11 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: b2037619-f8b9-4f5e-8657-3abc0c8c5320
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 24cdf41e-e940-436e-81e1-984ac9217753 # Max Width
             instructions: null
             label: null
@@ -39,15 +49,23 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 3e14b809-4630-48d3-ac1b-b27a97885e87
+            userCondition: null
             warning: null
             width: 100
         name: Content
         uid: 69136ae2-43f0-4090-a203-d8c09d25320e
-group: 61011763-c00b-4946-8e21-10ac1b6720c8 # Basics
+        userCondition: null
+group: null
+groupChildBlockTypes: true
 handle: mediaAsset
+icon: null
+ignorePermissions: true
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
 name: 'Media Asset'
 sortOrder: 3
 topLevel: true

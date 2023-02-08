@@ -1,10 +1,13 @@
+changedFieldIndicator: null
 field: acc3eb47-55fc-4174-9a80-46bbd841f2d9 # Buttons
 fieldLayouts:
   75923352-3a1f-411b-887b-bfb98816372c:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: 6ba1665a-8402-412e-9aa8-a32891d9ea15 # Label
             instructions: null
             label: null
@@ -12,9 +15,11 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 4aeb39f5-1029-4d8a-a5d5-0afdd92c78a4
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: b5171329-a8e7-45c1-973c-d81ad60226a4 # URL
             instructions: null
             label: null
@@ -22,10 +27,12 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 70d78278-9ab4-4a14-b35b-98a6f15cc92d
+            userCondition: null
             warning: null
             width: 100
         name: Content
         uid: 4a19fecd-84f0-4a19-83bb-d63a5bd79b29
+        userCondition: null
 fields:
   6ba1665a-8402-412e-9aa8-a32891d9ea15: # Label
     columnSuffix: depzxeeh

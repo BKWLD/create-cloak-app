@@ -2,13 +2,17 @@ fieldLayouts:
   72d576c1-5aba-46c7-a78c-c4fb4e75fe4f:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             style: tip
             tip: 'These values are used whenever SEO fields are left undefined on a page entry.'
             type: craft\fieldlayoutelements\Tip
             uid: 70417701-8f77-4614-9f4b-af9c8fedcaf8
+            userCondition: null
           -
+            elementCondition: null
             fieldUid: 2d9687b3-b684-4874-a7a8-ab944ad8b8d1 # SEO
             instructions: null
             label: null
@@ -16,10 +20,12 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 1d3bea8f-c88c-4b1e-8d27-ba7841b7136d
+            userCondition: null
             warning: null
             width: 100
         name: Content
         uid: f24e6a08-9e7a-4612-8896-cb4a3def1e13
+        userCondition: null
 handle: defaultSeo
 name: 'Default SEO'
 sortOrder: 1
